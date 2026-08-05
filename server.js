@@ -12,15 +12,32 @@ app.use(express.json());
 
 // --- GRAPHQL HELPER ---
 async function fetchLeetCodeGraphQL(query, variables = {}) {
+  const headers = {
+    "Content-Type": "application/json",
+    Cookie: `LEETCODE_SESSION=${process.env.LEETCODE_SESSION || ""}; csrftoken=${process.env.CSRF_TOKEN || ""}`,
+    Referer: "https://leetcode.com/",
+    "User-Agent":
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+  };
+
+  // Crucial for preventing the 500 HTML error on mutations (like saving notes)
+  if (process.env.CSRF_TOKEN) {
+    headers["X-CSRFToken"] = process.env.CSRF_TOKEN;
+  }
+
   const response = await fetch("https://leetcode.com/graphql", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Cookie: `LEETCODE_SESSION=${process.env.LEETCODE_SESSION || ""}; csrftoken=${process.env.CSRF_TOKEN || ""}`,
-    },
+    headers,
     body: JSON.stringify({ query, variables }),
   });
-  return await response.json();
+
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (err) {
+    console.error("LeetCode response parse failed:", text.substring(0, 100));
+    throw new Error(`LeetCode API Error: ${text.substring(0, 100)}...`);
+  }
 }
 
 // --- ENDPOINTS: PIN VERIFICATION ---
@@ -150,6 +167,143 @@ app.get("/api/problems/:slug", async (req, res) => {
       defaultCode: javaSnippet ? javaSnippet.code : "",
       exampleTestcases: question.exampleTestcases,
     });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// --- ENDPOINTS: CURATED LISTS & PROGRESS ---
+app.get("/api/solved", async (req, res) => {
+  try {
+    const response = await fetch(
+      "https://leetcode.com/api/problems/algorithms/",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Cookie: `LEETCODE_SESSION=${process.env.LEETCODE_SESSION || ""}; csrftoken=${process.env.CSRF_TOKEN || ""}`,
+        },
+      },
+    );
+    const data = await response.json();
+    if (!data.stat_status_pairs) {
+      return res.json({ solved: [] });
+    }
+    const solvedSlugs = data.stat_status_pairs
+      .filter((p) => p.status === "ac")
+      .map((p) => p.stat.question__title_slug);
+    res.json({ solved: solvedSlugs });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/api/lists", (req, res) => {
+  try {
+    const listsDir = path.join(__dirname, "data", "lists");
+    if (!fs.existsSync(listsDir)) {
+      fs.mkdirSync(listsDir, { recursive: true });
+      return res.json([]);
+    }
+    const files = fs.readdirSync(listsDir).filter((f) => f.endsWith(".json"));
+    const lists = files.map((file) => {
+      const rawData = fs.readFileSync(path.join(listsDir, file), "utf8");
+      const data = JSON.parse(rawData);
+      return {
+        id: data.id,
+        title: data.title,
+        description: data.description || "",
+        totalProblems: data.totalProblems,
+      };
+    });
+    res.json(lists);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.get("/api/lists/:id", (req, res) => {
+  try {
+    const filePath = path.join(
+      __dirname,
+      "data",
+      "lists",
+      `${req.params.id}.json`,
+    );
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: "List not found" });
+    }
+    const rawData = fs.readFileSync(filePath, "utf8");
+    res.json(JSON.parse(rawData));
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// --- ENDPOINTS: WORKSPACE PRO FEATURES (NOTES & SUBMISSIONS) ---
+
+// 1. Fetch Past Submissions List
+app.get("/api/submissions/:slug", async (req, res) => {
+  try {
+    const data = await fetchLeetCodeGraphQL(
+      `query submissionList($offset: Int!, $limit: Int!, $questionSlug: String!) {
+        questionSubmissionList(offset: $offset, limit: $limit, questionSlug: $questionSlug) {
+          submissions { id statusDisplay lang runtime memory timestamp }
+        }
+      }`,
+      { offset: 0, limit: 20, questionSlug: req.params.slug },
+    );
+    res.json(data.data?.questionSubmissionList?.submissions || []);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// 2. Fetch Specific Submission Detail (with submitted code)
+app.get("/api/submission/:id", async (req, res) => {
+  try {
+    const subData = await fetchLeetCodeGraphQL(
+      `query submissionDetails($submissionId: Int!) { 
+        submissionDetails(submissionId: $submissionId) { 
+          runtimeDisplay runtimePercentile memoryDisplay memoryPercentile code timestamp 
+        } 
+      }`,
+      { submissionId: parseInt(req.params.id) },
+    );
+    res.json(subData?.data?.submissionDetails || {});
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// 3. Fetch User Notes
+app.get("/api/notes/:slug", async (req, res) => {
+  try {
+    const data = await fetchLeetCodeGraphQL(
+      `query QuestionNote($titleSlug: String!) {
+        question(titleSlug: $titleSlug) { note }
+      }`,
+      { titleSlug: req.params.slug },
+    );
+    res.json({ note: data.data?.question?.note || "" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// 4. Save User Notes to LeetCode (Fixed GraphQL Mutation)
+app.post("/api/notes/:slug", async (req, res) => {
+  try {
+    const { note } = req.body;
+    const titleSlug = req.params.slug;
+
+    const data = await fetchLeetCodeGraphQL(
+      `mutation updateNote($titleSlug: String!, $content: String!) {
+        updateNote(titleSlug: $titleSlug, content: $content) { ok }
+      }`,
+      { titleSlug: titleSlug, content: note || "" },
+    );
+
+    res.json({ success: true, data });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

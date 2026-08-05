@@ -1,0 +1,1173 @@
+{
+  "id": "striver-sde-sheet",
+  "title": "Striver's SDE Sheet",
+  "description": "The famous 191-problem roadmap spanning 30 days, designed by Raj Vikramaditya (Striver) to crack top product-based companies.",
+  "totalProblems": 191,
+  "steps": [
+    {
+      "stepId": "1",
+      "title": "Arrays",
+      "subTopics": [
+        {
+          "subTopicId": "1.1",
+          "title": "Arrays",
+          "problems": [
+            {
+              "name": "Set Matrix Zeroes",
+              "platform": "LeetCode",
+              "slug": "set-matrix-zeroes"
+            },
+            {
+              "name": "Pascal's Triangle",
+              "platform": "LeetCode",
+              "slug": "pascals-triangle"
+            },
+            {
+              "name": "Next Permutation",
+              "platform": "LeetCode",
+              "slug": "next-permutation"
+            },
+            {
+              "name": "Maximum Subarray (Kadane's)",
+              "platform": "LeetCode",
+              "slug": "maximum-subarray"
+            },
+            {
+              "name": "Sort Colors",
+              "platform": "LeetCode",
+              "slug": "sort-colors"
+            },
+            {
+              "name": "Best Time to Buy and Sell Stock",
+              "platform": "LeetCode",
+              "slug": "best-time-to-buy-and-sell-stock"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "2",
+      "title": "Arrays Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "2.1",
+          "title": "Arrays Part-II",
+          "problems": [
+            {
+              "name": "Rotate Image",
+              "platform": "LeetCode",
+              "slug": "rotate-image"
+            },
+            {
+              "name": "Merge Intervals",
+              "platform": "LeetCode",
+              "slug": "merge-intervals"
+            },
+            {
+              "name": "Merge Sorted Array",
+              "platform": "LeetCode",
+              "slug": "merge-sorted-array"
+            },
+            {
+              "name": "Find the Duplicate Number",
+              "platform": "LeetCode",
+              "slug": "find-the-duplicate-number"
+            },
+            {
+              "name": "Repeat and Missing Number Array",
+              "platform": "GFG",
+              "slug": "find-missing-and-repeating2512"
+            },
+            {
+              "name": "Count Inversions",
+              "platform": "GFG",
+              "slug": "inversion-of-array-1587115620"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "3",
+      "title": "Arrays Part-III",
+      "subTopics": [
+        {
+          "subTopicId": "3.1",
+          "title": "Arrays Part-III",
+          "problems": [
+            {
+              "name": "Search a 2D Matrix",
+              "platform": "LeetCode",
+              "slug": "search-a-2d-matrix"
+            },
+            { "name": "Pow(x, n)", "platform": "LeetCode", "slug": "powx-n" },
+            {
+              "name": "Majority Element",
+              "platform": "LeetCode",
+              "slug": "majority-element"
+            },
+            {
+              "name": "Majority Element II",
+              "platform": "LeetCode",
+              "slug": "majority-element-ii"
+            },
+            {
+              "name": "Unique Paths",
+              "platform": "LeetCode",
+              "slug": "unique-paths"
+            },
+            {
+              "name": "Reverse Pairs",
+              "platform": "LeetCode",
+              "slug": "reverse-pairs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "4",
+      "title": "Arrays Part-IV",
+      "subTopics": [
+        {
+          "subTopicId": "4.1",
+          "title": "Arrays Part-IV",
+          "problems": [
+            { "name": "Two Sum", "platform": "LeetCode", "slug": "two-sum" },
+            { "name": "4Sum", "platform": "LeetCode", "slug": "4sum" },
+            {
+              "name": "Longest Consecutive Sequence",
+              "platform": "LeetCode",
+              "slug": "longest-consecutive-sequence"
+            },
+            {
+              "name": "Largest subarray with 0 sum",
+              "platform": "GFG",
+              "slug": "largest-subarray-with-0-sum"
+            },
+            {
+              "name": "Subarray with given XOR",
+              "platform": "InterviewBit",
+              "slug": "subarray-with-given-xor"
+            },
+            {
+              "name": "Longest Substring Without Repeating Characters",
+              "platform": "LeetCode",
+              "slug": "longest-substring-without-repeating-characters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "5",
+      "title": "Linked List",
+      "subTopics": [
+        {
+          "subTopicId": "5.1",
+          "title": "Linked List",
+          "problems": [
+            {
+              "name": "Reverse Linked List",
+              "platform": "LeetCode",
+              "slug": "reverse-linked-list"
+            },
+            {
+              "name": "Middle of the Linked List",
+              "platform": "LeetCode",
+              "slug": "middle-of-the-linked-list"
+            },
+            {
+              "name": "Merge Two Sorted Lists",
+              "platform": "LeetCode",
+              "slug": "merge-two-sorted-lists"
+            },
+            {
+              "name": "Remove Nth Node From End of List",
+              "platform": "LeetCode",
+              "slug": "remove-nth-node-from-end-of-list"
+            },
+            {
+              "name": "Add Two Numbers",
+              "platform": "LeetCode",
+              "slug": "add-two-numbers"
+            },
+            {
+              "name": "Delete Node in a Linked List",
+              "platform": "LeetCode",
+              "slug": "delete-node-in-a-linked-list"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "6",
+      "title": "Linked List Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "6.1",
+          "title": "Linked List Part-II",
+          "problems": [
+            {
+              "name": "Intersection of Two Linked Lists",
+              "platform": "LeetCode",
+              "slug": "intersection-of-two-linked-lists"
+            },
+            {
+              "name": "Linked List Cycle",
+              "platform": "LeetCode",
+              "slug": "linked-list-cycle"
+            },
+            {
+              "name": "Reverse Nodes in k-Group",
+              "platform": "LeetCode",
+              "slug": "reverse-nodes-in-k-group"
+            },
+            {
+              "name": "Palindrome Linked List",
+              "platform": "LeetCode",
+              "slug": "palindrome-linked-list"
+            },
+            {
+              "name": "Linked List Cycle II",
+              "platform": "LeetCode",
+              "slug": "linked-list-cycle-ii"
+            },
+            {
+              "name": "Flattening a Linked List",
+              "platform": "GFG",
+              "slug": "flattening-a-linked-list"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "7",
+      "title": "Linked List and Arrays",
+      "subTopics": [
+        {
+          "subTopicId": "7.1",
+          "title": "Linked List and Arrays",
+          "problems": [
+            {
+              "name": "Rotate List",
+              "platform": "LeetCode",
+              "slug": "rotate-list"
+            },
+            {
+              "name": "Copy List with Random Pointer",
+              "platform": "LeetCode",
+              "slug": "copy-list-with-random-pointer"
+            },
+            { "name": "3Sum", "platform": "LeetCode", "slug": "3sum" },
+            {
+              "name": "Trapping Rain Water",
+              "platform": "LeetCode",
+              "slug": "trapping-rain-water"
+            },
+            {
+              "name": "Remove Duplicates from Sorted Array",
+              "platform": "LeetCode",
+              "slug": "remove-duplicates-from-sorted-array"
+            },
+            {
+              "name": "Max Consecutive Ones",
+              "platform": "LeetCode",
+              "slug": "max-consecutive-ones"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "8",
+      "title": "Greedy Algorithm",
+      "subTopics": [
+        {
+          "subTopicId": "8.1",
+          "title": "Greedy Algorithm",
+          "problems": [
+            {
+              "name": "N meetings in one room",
+              "platform": "GFG",
+              "slug": "n-meetings-in-one-room-1587115620"
+            },
+            {
+              "name": "Minimum Platforms",
+              "platform": "GFG",
+              "slug": "minimum-platforms-1587115620"
+            },
+            {
+              "name": "Job Sequencing Problem",
+              "platform": "GFG",
+              "slug": "job-sequencing-problem-1587115620"
+            },
+            {
+              "name": "Fractional Knapsack",
+              "platform": "GFG",
+              "slug": "fractional-knapsack-1587115620"
+            },
+            {
+              "name": "Find Minimum Number Of Coins",
+              "platform": "GFG",
+              "slug": "find-minimum-number-of-coins"
+            },
+            {
+              "name": "Assign Cookies",
+              "platform": "LeetCode",
+              "slug": "assign-cookies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "9",
+      "title": "Recursion",
+      "subTopics": [
+        {
+          "subTopicId": "9.1",
+          "title": "Recursion",
+          "problems": [
+            {
+              "name": "Subset Sums",
+              "platform": "GFG",
+              "slug": "subset-sums2234"
+            },
+            {
+              "name": "Subsets II",
+              "platform": "LeetCode",
+              "slug": "subsets-ii"
+            },
+            {
+              "name": "Combination Sum",
+              "platform": "LeetCode",
+              "slug": "combination-sum"
+            },
+            {
+              "name": "Combination Sum II",
+              "platform": "LeetCode",
+              "slug": "combination-sum-ii"
+            },
+            {
+              "name": "Palindrome Partitioning",
+              "platform": "LeetCode",
+              "slug": "palindrome-partitioning"
+            },
+            {
+              "name": "Permutation Sequence",
+              "platform": "LeetCode",
+              "slug": "permutation-sequence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "10",
+      "title": "Recursion and Backtracking",
+      "subTopics": [
+        {
+          "subTopicId": "10.1",
+          "title": "Recursion and Backtracking",
+          "problems": [
+            {
+              "name": "Permutations",
+              "platform": "LeetCode",
+              "slug": "permutations"
+            },
+            { "name": "N-Queens", "platform": "LeetCode", "slug": "n-queens" },
+            {
+              "name": "Sudoku Solver",
+              "platform": "LeetCode",
+              "slug": "sudoku-solver"
+            },
+            {
+              "name": "M-Coloring Problem",
+              "platform": "GFG",
+              "slug": "m-coloring-problem-1587115620"
+            },
+            {
+              "name": "Rat in a Maze Problem - I",
+              "platform": "GFG",
+              "slug": "rat-in-a-maze-problem"
+            },
+            {
+              "name": "Word Break",
+              "platform": "LeetCode",
+              "slug": "word-break"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "11",
+      "title": "Binary Search",
+      "subTopics": [
+        {
+          "subTopicId": "11.1",
+          "title": "Binary Search",
+          "problems": [
+            {
+              "name": "Find Nth Root Of M",
+              "platform": "GFG",
+              "slug": "find-nth-root-of-m5843"
+            },
+            {
+              "name": "Median in a row-wise sorted Matrix",
+              "platform": "GFG",
+              "slug": "median-in-a-row-wise-sorted-matrix1527"
+            },
+            {
+              "name": "Single Element in a Sorted Array",
+              "platform": "LeetCode",
+              "slug": "single-element-in-a-sorted-array"
+            },
+            {
+              "name": "Search in Rotated Sorted Array",
+              "platform": "LeetCode",
+              "slug": "search-in-rotated-sorted-array"
+            },
+            {
+              "name": "Median of Two Sorted Arrays",
+              "platform": "LeetCode",
+              "slug": "median-of-two-sorted-arrays"
+            },
+            {
+              "name": "K-th element of two sorted Arrays",
+              "platform": "GFG",
+              "slug": "k-th-element-of-two-sorted-array1317"
+            },
+            {
+              "name": "Allocate Minimum Number of Pages",
+              "platform": "GFG",
+              "slug": "allocate-minimum-number-of-pages0937"
+            },
+            {
+              "name": "Aggressive Cows",
+              "platform": "GFG",
+              "slug": "aggressive-cows"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "12",
+      "title": "Heaps",
+      "subTopics": [
+        {
+          "subTopicId": "12.1",
+          "title": "Heaps",
+          "problems": [
+            {
+              "name": "Kth Largest Element in an Array",
+              "platform": "LeetCode",
+              "slug": "kth-largest-element-in-an-array"
+            },
+            {
+              "name": "Maximum Sum Combinations",
+              "platform": "InterviewBit",
+              "slug": "maximum-sum-combinations"
+            },
+            {
+              "name": "Find Median from Data Stream",
+              "platform": "LeetCode",
+              "slug": "find-median-from-data-stream"
+            },
+            {
+              "name": "Merge k Sorted Arrays",
+              "platform": "GFG",
+              "slug": "merge-k-sorted-arrays"
+            },
+            {
+              "name": "Top K Frequent Elements",
+              "platform": "LeetCode",
+              "slug": "top-k-frequent-elements"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "13",
+      "title": "Stack and Queue",
+      "subTopics": [
+        {
+          "subTopicId": "13.1",
+          "title": "Stack and Queue",
+          "problems": [
+            {
+              "name": "Implement Stack using Arrays",
+              "platform": "GFG",
+              "slug": "implement-stack-using-array"
+            },
+            {
+              "name": "Implement Queue using Arrays",
+              "platform": "GFG",
+              "slug": "implement-queue-using-array"
+            },
+            {
+              "name": "Implement Stack using Queues",
+              "platform": "LeetCode",
+              "slug": "implement-stack-using-queues"
+            },
+            {
+              "name": "Implement Queue using Stacks",
+              "platform": "LeetCode",
+              "slug": "implement-queue-using-stacks"
+            },
+            {
+              "name": "Valid Parentheses",
+              "platform": "LeetCode",
+              "slug": "valid-parentheses"
+            },
+            {
+              "name": "Next Greater Element I",
+              "platform": "LeetCode",
+              "slug": "next-greater-element-i"
+            },
+            {
+              "name": "Sort a Stack",
+              "platform": "GFG",
+              "slug": "sort-a-stack"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "14",
+      "title": "Stack and Queue Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "14.1",
+          "title": "Stack and Queue Part-II",
+          "problems": [
+            {
+              "name": "Next Smaller Element",
+              "platform": "InterviewBit",
+              "slug": "nearest-smaller-element"
+            },
+            {
+              "name": "LRU Cache",
+              "platform": "LeetCode",
+              "slug": "lru-cache"
+            },
+            {
+              "name": "LFU Cache",
+              "platform": "LeetCode",
+              "slug": "lfu-cache"
+            },
+            {
+              "name": "Largest Rectangle in Histogram",
+              "platform": "LeetCode",
+              "slug": "largest-rectangle-in-histogram"
+            },
+            {
+              "name": "Sliding Window Maximum",
+              "platform": "LeetCode",
+              "slug": "sliding-window-maximum"
+            },
+            {
+              "name": "Min Stack",
+              "platform": "LeetCode",
+              "slug": "min-stack"
+            },
+            {
+              "name": "Rotting Oranges",
+              "platform": "LeetCode",
+              "slug": "rotting-oranges"
+            },
+            {
+              "name": "Online Stock Span",
+              "platform": "LeetCode",
+              "slug": "online-stock-span"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "15",
+      "title": "String",
+      "subTopics": [
+        {
+          "subTopicId": "15.1",
+          "title": "String",
+          "problems": [
+            {
+              "name": "Reverse Words in a String",
+              "platform": "LeetCode",
+              "slug": "reverse-words-in-a-string"
+            },
+            {
+              "name": "Longest Palindromic Substring",
+              "platform": "LeetCode",
+              "slug": "longest-palindromic-substring"
+            },
+            {
+              "name": "Roman to Integer",
+              "platform": "LeetCode",
+              "slug": "roman-to-integer"
+            },
+            {
+              "name": "String to Integer (atoi)",
+              "platform": "LeetCode",
+              "slug": "string-to-integer-atoi"
+            },
+            {
+              "name": "Longest Common Prefix",
+              "platform": "LeetCode",
+              "slug": "longest-common-prefix"
+            },
+            {
+              "name": "Rabin-Karp Algorithm for Pattern Searching",
+              "platform": "GFG",
+              "slug": "rabin-karp-pattern-searching"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "16",
+      "title": "String Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "16.1",
+          "title": "String Part-II",
+          "problems": [
+            {
+              "name": "Find the Index of the First Occurrence in a String",
+              "platform": "LeetCode",
+              "slug": "find-the-index-of-the-first-occurrence-in-a-string"
+            },
+            {
+              "name": "Valid Anagram",
+              "platform": "LeetCode",
+              "slug": "valid-anagram"
+            },
+            {
+              "name": "Count and Say",
+              "platform": "LeetCode",
+              "slug": "count-and-say"
+            },
+            {
+              "name": "Compare Version Numbers",
+              "platform": "LeetCode",
+              "slug": "compare-version-numbers"
+            },
+            {
+              "name": "Minimum Characters required to make a String Palindromic",
+              "platform": "InterviewBit",
+              "slug": "minimum-characters-required-to-make-a-string-palindromic"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "17",
+      "title": "Binary Tree",
+      "subTopics": [
+        {
+          "subTopicId": "17.1",
+          "title": "Binary Tree",
+          "problems": [
+            {
+              "name": "Binary Tree Inorder Traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-inorder-traversal"
+            },
+            {
+              "name": "Binary Tree Preorder Traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-preorder-traversal"
+            },
+            {
+              "name": "Binary Tree Postorder Traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-postorder-traversal"
+            },
+            {
+              "name": "Left View of Binary Tree",
+              "platform": "GFG",
+              "slug": "left-view-of-binary-tree"
+            },
+            {
+              "name": "Bottom View of Binary Tree",
+              "platform": "GFG",
+              "slug": "bottom-view-of-binary-tree"
+            },
+            {
+              "name": "Top View of Binary Tree",
+              "platform": "GFG",
+              "slug": "top-view-of-binary-tree"
+            },
+            {
+              "name": "Vertical Order Traversal of a Binary Tree",
+              "platform": "LeetCode",
+              "slug": "vertical-order-traversal-of-a-binary-tree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "18",
+      "title": "Binary Tree Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "18.1",
+          "title": "Binary Tree Part-II",
+          "problems": [
+            {
+              "name": "Binary Tree Level Order Traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-level-order-traversal"
+            },
+            {
+              "name": "Maximum Depth of Binary Tree",
+              "platform": "LeetCode",
+              "slug": "maximum-depth-of-binary-tree"
+            },
+            {
+              "name": "Diameter of Binary Tree",
+              "platform": "LeetCode",
+              "slug": "diameter-of-binary-tree"
+            },
+            {
+              "name": "Balanced Binary Tree",
+              "platform": "LeetCode",
+              "slug": "balanced-binary-tree"
+            },
+            {
+              "name": "Lowest Common Ancestor of a Binary Tree",
+              "platform": "LeetCode",
+              "slug": "lowest-common-ancestor-of-a-binary-tree"
+            },
+            {
+              "name": "Same Tree",
+              "platform": "LeetCode",
+              "slug": "same-tree"
+            },
+            {
+              "name": "Binary Tree Zigzag Level Order Traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-zigzag-level-order-traversal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "19",
+      "title": "Binary Tree Part-III",
+      "subTopics": [
+        {
+          "subTopicId": "19.1",
+          "title": "Binary Tree Part-III",
+          "problems": [
+            {
+              "name": "Binary Tree Maximum Path Sum",
+              "platform": "LeetCode",
+              "slug": "binary-tree-maximum-path-sum"
+            },
+            {
+              "name": "Construct Binary Tree from Preorder and Inorder Traversal",
+              "platform": "LeetCode",
+              "slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+            },
+            {
+              "name": "Construct Binary Tree from Inorder and Postorder Traversal",
+              "platform": "LeetCode",
+              "slug": "construct-binary-tree-from-inorder-and-postorder-traversal"
+            },
+            {
+              "name": "Symmetric Tree",
+              "platform": "LeetCode",
+              "slug": "symmetric-tree"
+            },
+            {
+              "name": "Flatten Binary Tree to Linked List",
+              "platform": "LeetCode",
+              "slug": "flatten-binary-tree-to-linked-list"
+            },
+            {
+              "name": "Check for Children Sum Property in a Binary Tree",
+              "platform": "GFG",
+              "slug": "children-sum-parent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "20",
+      "title": "Binary Search Tree",
+      "subTopics": [
+        {
+          "subTopicId": "20.1",
+          "title": "Binary Search Tree",
+          "problems": [
+            {
+              "name": "Populating Next Right Pointers in Each Node",
+              "platform": "LeetCode",
+              "slug": "populating-next-right-pointers-in-each-node"
+            },
+            {
+              "name": "Search in a Binary Search Tree",
+              "platform": "LeetCode",
+              "slug": "search-in-a-binary-search-tree"
+            },
+            {
+              "name": "Convert Sorted Array to Binary Search Tree",
+              "platform": "LeetCode",
+              "slug": "convert-sorted-array-to-binary-search-tree"
+            },
+            {
+              "name": "Construct Binary Search Tree from Preorder Traversal",
+              "platform": "LeetCode",
+              "slug": "construct-binary-search-tree-from-preorder-traversal"
+            },
+            {
+              "name": "Validate Binary Search Tree",
+              "platform": "LeetCode",
+              "slug": "validate-binary-search-tree"
+            },
+            {
+              "name": "Lowest Common Ancestor of a Binary Search Tree",
+              "platform": "LeetCode",
+              "slug": "lowest-common-ancestor-of-a-binary-search-tree"
+            },
+            {
+              "name": "Predecessor and Successor",
+              "platform": "GFG",
+              "slug": "predecessor-and-successor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "21",
+      "title": "Binary Search Tree Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "21.1",
+          "title": "Binary Search Tree Part-II",
+          "problems": [
+            {
+              "name": "Floor in BST",
+              "platform": "GFG",
+              "slug": "floor-in-bst"
+            },
+            {
+              "name": "Ceil in BST",
+              "platform": "GFG",
+              "slug": "implementing-ceil-in-bst"
+            },
+            {
+              "name": "Kth Smallest Element in a BST",
+              "platform": "LeetCode",
+              "slug": "kth-smallest-element-in-a-bst"
+            },
+            {
+              "name": "Kth largest element in BST",
+              "platform": "GFG",
+              "slug": "kth-largest-element-in-bst"
+            },
+            {
+              "name": "Two Sum IV - Input is a BST",
+              "platform": "LeetCode",
+              "slug": "two-sum-iv-input-is-a-bst"
+            },
+            {
+              "name": "Binary Search Tree Iterator",
+              "platform": "LeetCode",
+              "slug": "binary-search-tree-iterator"
+            },
+            {
+              "name": "Maximum Sum BST in Binary Tree",
+              "platform": "LeetCode",
+              "slug": "maximum-sum-bst-in-binary-tree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "22",
+      "title": "Binary Trees [Miscellaneous]",
+      "subTopics": [
+        {
+          "subTopicId": "22.1",
+          "title": "Binary Trees [Miscellaneous]",
+          "problems": [
+            {
+              "name": "Serialize and Deserialize Binary Tree",
+              "platform": "LeetCode",
+              "slug": "serialize-and-deserialize-binary-tree"
+            },
+            {
+              "name": "Find Median from Data Stream",
+              "platform": "LeetCode",
+              "slug": "find-median-from-data-stream"
+            },
+            {
+              "name": "Kth Largest Element in a Stream",
+              "platform": "LeetCode",
+              "slug": "kth-largest-element-in-a-stream"
+            },
+            {
+              "name": "Distinct Numbers in Window",
+              "platform": "InterviewBit",
+              "slug": "distinct-numbers-in-window"
+            },
+            {
+              "name": "Kth Largest Element in an Array",
+              "platform": "LeetCode",
+              "slug": "kth-largest-element-in-an-array"
+            },
+            {
+              "name": "Flood Fill",
+              "platform": "LeetCode",
+              "slug": "flood-fill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "23",
+      "title": "Graph",
+      "subTopics": [
+        {
+          "subTopicId": "23.1",
+          "title": "Graph",
+          "problems": [
+            {
+              "name": "Clone Graph",
+              "platform": "LeetCode",
+              "slug": "clone-graph"
+            },
+            {
+              "name": "DFS of Graph",
+              "platform": "GFG",
+              "slug": "depth-first-traversal-for-a-graph"
+            },
+            {
+              "name": "BFS of graph",
+              "platform": "GFG",
+              "slug": "bfs-traversal-of-graph"
+            },
+            {
+              "name": "Detect cycle in an undirected graph",
+              "platform": "GFG",
+              "slug": "detect-cycle-in-an-undirected-graph"
+            },
+            {
+              "name": "Detect cycle in a directed graph",
+              "platform": "GFG",
+              "slug": "detect-cycle-in-a-directed-graph"
+            },
+            {
+              "name": "Course Schedule",
+              "platform": "LeetCode",
+              "slug": "course-schedule"
+            },
+            {
+              "name": "Number of Islands",
+              "platform": "LeetCode",
+              "slug": "number-of-islands"
+            },
+            {
+              "name": "Is Graph Bipartite?",
+              "platform": "LeetCode",
+              "slug": "is-graph-bipartite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "24",
+      "title": "Graph Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "24.1",
+          "title": "Graph Part-II",
+          "problems": [
+            {
+              "name": "Strongly Connected Components (Kosaraju's Algo)",
+              "platform": "GFG",
+              "slug": "strongly-connected-components-kosarajus-algo"
+            },
+            {
+              "name": "Dijkstra Algorithm",
+              "platform": "GFG",
+              "slug": "implementing-dijkstra-set-1-adjacency-matrix"
+            },
+            {
+              "name": "Bellman-Ford Algorithm",
+              "platform": "GFG",
+              "slug": "distance-from-the-source-bellman-ford-algorithm"
+            },
+            {
+              "name": "Floyd Warshall",
+              "platform": "GFG",
+              "slug": "implementing-floyd-warshall2042"
+            },
+            {
+              "name": "Minimum Spanning Tree (Prim's / Kruskal's)",
+              "platform": "GFG",
+              "slug": "minimum-spanning-tree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "25",
+      "title": "Dynamic Programming",
+      "subTopics": [
+        {
+          "subTopicId": "25.1",
+          "title": "Dynamic Programming",
+          "problems": [
+            {
+              "name": "Maximum Product Subarray",
+              "platform": "LeetCode",
+              "slug": "maximum-product-subarray"
+            },
+            {
+              "name": "Longest Increasing Subsequence",
+              "platform": "LeetCode",
+              "slug": "longest-increasing-subsequence"
+            },
+            {
+              "name": "Longest Common Subsequence",
+              "platform": "LeetCode",
+              "slug": "longest-common-subsequence"
+            },
+            {
+              "name": "0 - 1 Knapsack Problem",
+              "platform": "GFG",
+              "slug": "0-1-knapsack-problem0945"
+            },
+            {
+              "name": "Edit Distance",
+              "platform": "LeetCode",
+              "slug": "edit-distance"
+            },
+            {
+              "name": "Maximum sum increasing subsequence",
+              "platform": "GFG",
+              "slug": "maximum-sum-increasing-subsequence4749"
+            },
+            {
+              "name": "Matrix Chain Multiplication",
+              "platform": "GFG",
+              "slug": "matrix-chain-multiplication0303"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "26",
+      "title": "Dynamic Programming Part-II",
+      "subTopics": [
+        {
+          "subTopicId": "26.1",
+          "title": "Dynamic Programming Part-II",
+          "problems": [
+            {
+              "name": "Minimum Path Sum",
+              "platform": "LeetCode",
+              "slug": "minimum-path-sum"
+            },
+            {
+              "name": "Coin Change",
+              "platform": "LeetCode",
+              "slug": "coin-change"
+            },
+            {
+              "name": "Partition Equal Subset Sum",
+              "platform": "LeetCode",
+              "slug": "partition-equal-subset-sum"
+            },
+            {
+              "name": "Rod Cutting",
+              "platform": "GFG",
+              "slug": "rod-cutting0840"
+            },
+            {
+              "name": "Egg Dropping Puzzle",
+              "platform": "GFG",
+              "slug": "egg-dropping-puzzle-1587115620"
+            },
+            {
+              "name": "Word Break",
+              "platform": "LeetCode",
+              "slug": "word-break"
+            },
+            {
+              "name": "Palindrome Partitioning",
+              "platform": "LeetCode",
+              "slug": "palindrome-partitioning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "27",
+      "title": "Trie",
+      "subTopics": [
+        {
+          "subTopicId": "27.1",
+          "title": "Trie",
+          "problems": [
+            {
+              "name": "Implement Trie (Prefix Tree)",
+              "platform": "LeetCode",
+              "slug": "implement-trie-prefix-tree"
+            },
+            {
+              "name": "Implement Trie II (Prefix Tree)",
+              "platform": "CodingNinjas",
+              "slug": "implement-trie"
+            },
+            {
+              "name": "Longest String with All Prefixes",
+              "platform": "CodingNinjas",
+              "slug": "complete-string"
+            },
+            {
+              "name": "Number of Distinct Substrings in a String",
+              "platform": "CodingNinjas",
+              "slug": "count-distinct-substrings"
+            },
+            { "name": "Power Set", "platform": "GFG", "slug": "power-set4302" },
+            {
+              "name": "Maximum XOR of Two Numbers in an Array",
+              "platform": "LeetCode",
+              "slug": "maximum-xor-of-two-numbers-in-an-array"
+            },
+            {
+              "name": "Maximum XOR With an Element From Array",
+              "platform": "LeetCode",
+              "slug": "maximum-xor-with-an-element-from-array"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

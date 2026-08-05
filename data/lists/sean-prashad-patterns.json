@@ -1,0 +1,223 @@
+{
+  "id": "sean-prashad-patterns",
+  "title": "Sean Prashad's LeetCode Patterns",
+  "description": "A comprehensive list of LeetCode problems categorized by underlying algorithmic patterns to build strong intuition.",
+  "totalProblems": 170,
+  "steps": [
+    {
+      "stepId": "1",
+      "title": "Sliding Window",
+      "subTopics": [
+        {
+          "subTopicId": "1.1",
+          "title": "Sliding Window",
+          "problems": [
+            { "name": "Maximum Subarray", "platform": "LeetCode", "slug": "maximum-subarray" },
+            { "name": "Contains Duplicate II", "platform": "LeetCode", "slug": "contains-duplicate-ii" },
+            { "name": "Minimum Size Subarray Sum", "platform": "LeetCode", "slug": "minimum-size-subarray-sum" },
+            { "name": "Longest Substring Without Repeating Characters", "platform": "LeetCode", "slug": "longest-substring-without-repeating-characters" },
+            { "name": "Longest Repeating Character Replacement", "platform": "LeetCode", "slug": "longest-repeating-character-replacement" },
+            { "name": "Minimum Window Substring", "platform": "LeetCode", "slug": "minimum-window-substring" },
+            { "name": "Find All Anagrams in a String", "platform": "LeetCode", "slug": "find-all-anagrams-in-a-string" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "2",
+      "title": "Two Pointers",
+      "subTopics": [
+        {
+          "subTopicId": "2.1",
+          "title": "Two Pointers",
+          "problems": [
+            { "name": "Two Sum", "platform": "LeetCode", "slug": "two-sum" },
+            { "name": "Squares of a Sorted Array", "platform": "LeetCode", "slug": "squares-of-a-sorted-array" },
+            { "name": "3Sum", "platform": "LeetCode", "slug": "3sum" },
+            { "name": "3Sum Closest", "platform": "LeetCode", "slug": "3sum-closest" },
+            { "name": "Subarray Product Less Than K", "platform": "LeetCode", "slug": "subarray-product-less-than-k" },
+            { "name": "Sort Colors", "platform": "LeetCode", "slug": "sort-colors" },
+            { "name": "Container With Most Water", "platform": "LeetCode", "slug": "container-with-most-water" },
+            { "name": "Trapping Rain Water", "platform": "LeetCode", "slug": "trapping-rain-water" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "3",
+      "title": "Fast & Slow Pointers",
+      "subTopics": [
+        {
+          "subTopicId": "3.1",
+          "title": "Fast & Slow Pointers",
+          "problems": [
+            { "name": "Linked List Cycle", "platform": "LeetCode", "slug": "linked-list-cycle" },
+            { "name": "Linked List Cycle II", "platform": "LeetCode", "slug": "linked-list-cycle-ii" },
+            { "name": "Middle of the Linked List", "platform": "LeetCode", "slug": "middle-of-the-linked-list" },
+            { "name": "Palindrome Linked List", "platform": "LeetCode", "slug": "palindrome-linked-list" },
+            { "name": "Happy Number", "platform": "LeetCode", "slug": "happy-number" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "4",
+      "title": "Merge Intervals",
+      "subTopics": [
+        {
+          "subTopicId": "4.1",
+          "title": "Merge Intervals",
+          "problems": [
+            { "name": "Merge Intervals", "platform": "LeetCode", "slug": "merge-intervals" },
+            { "name": "Insert Interval", "platform": "LeetCode", "slug": "insert-interval" },
+            { "name": "Interval List Intersections", "platform": "LeetCode", "slug": "interval-list-intersections" },
+            { "name": "Non-overlapping Intervals", "platform": "LeetCode", "slug": "non-overlapping-intervals" },
+            { "name": "Meeting Rooms", "platform": "LeetCode", "slug": "meeting-rooms" },
+            { "name": "Meeting Rooms II", "platform": "LeetCode", "slug": "meeting-rooms-ii" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "5",
+      "title": "Cyclic Sort",
+      "subTopics": [
+        {
+          "subTopicId": "5.1",
+          "title": "Cyclic Sort",
+          "problems": [
+            { "name": "Missing Number", "platform": "LeetCode", "slug": "missing-number" },
+            { "name": "Find All Numbers Disappeared in an Array", "platform": "LeetCode", "slug": "find-all-numbers-disappeared-in-an-array" },
+            { "name": "Find the Duplicate Number", "platform": "LeetCode", "slug": "find-the-duplicate-number" },
+            { "name": "Find All Duplicates in an Array", "platform": "LeetCode", "slug": "find-all-duplicates-in-an-array" },
+            { "name": "Set Mismatch", "platform": "LeetCode", "slug": "set-mismatch" },
+            { "name": "First Missing Positive", "platform": "LeetCode", "slug": "first-missing-positive" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "6",
+      "title": "In-place Reversal of a LinkedList",
+      "subTopics": [
+        {
+          "subTopicId": "6.1",
+          "title": "In-place Reversal of a LinkedList",
+          "problems": [
+            { "name": "Reverse Linked List", "platform": "LeetCode", "slug": "reverse-linked-list" },
+            { "name": "Reverse Linked List II", "platform": "LeetCode", "slug": "reverse-linked-list-ii" },
+            { "name": "Reverse Nodes in k-Group", "platform": "LeetCode", "slug": "reverse-nodes-in-k-group" },
+            { "name": "Swap Nodes in Pairs", "platform": "LeetCode", "slug": "swap-nodes-in-pairs" },
+            { "name": "Reorder List", "platform": "LeetCode", "slug": "reorder-list" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "7",
+      "title": "Tree BFS",
+      "subTopics": [
+        {
+          "subTopicId": "7.1",
+          "title": "Tree BFS",
+          "problems": [
+            { "name": "Binary Tree Level Order Traversal", "platform": "LeetCode", "slug": "binary-tree-level-order-traversal" },
+            { "name": "Binary Tree Level Order Traversal II", "platform": "LeetCode", "slug": "binary-tree-level-order-traversal-ii" },
+            { "name": "Binary Tree Zigzag Level Order Traversal", "platform": "LeetCode", "slug": "binary-tree-zigzag-level-order-traversal" },
+            { "name": "Average of Levels in Binary Tree", "platform": "LeetCode", "slug": "average-of-levels-in-binary-tree" },
+            { "name": "Binary Tree Right Side View", "platform": "LeetCode", "slug": "binary-tree-right-side-view" },
+            { "name": "Populating Next Right Pointers in Each Node", "platform": "LeetCode", "slug": "populating-next-right-pointers-in-each-node" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "8",
+      "title": "Tree DFS",
+      "subTopics": [
+        {
+          "subTopicId": "8.1",
+          "title": "Tree DFS",
+          "problems": [
+            { "name": "Maximum Depth of Binary Tree", "platform": "LeetCode", "slug": "maximum-depth-of-binary-tree" },
+            { "name": "Path Sum", "platform": "LeetCode", "slug": "path-sum" },
+            { "name": "Path Sum II", "platform": "LeetCode", "slug": "path-sum-ii" },
+            { "name": "Path Sum III", "platform": "LeetCode", "slug": "path-sum-iii" },
+            { "name": "Lowest Common Ancestor of a Binary Tree", "platform": "LeetCode", "slug": "lowest-common-ancestor-of-a-binary-tree" },
+            { "name": "Diameter of Binary Tree", "platform": "LeetCode", "slug": "diameter-of-binary-tree" },
+            { "name": "Binary Tree Maximum Path Sum", "platform": "LeetCode", "slug": "binary-tree-maximum-path-sum" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "9",
+      "title": "Two Heaps",
+      "subTopics": [
+        {
+          "subTopicId": "9.1",
+          "title": "Two Heaps",
+          "problems": [
+            { "name": "Find Median from Data Stream", "platform": "LeetCode", "slug": "find-median-from-data-stream" },
+            { "name": "Sliding Window Median", "platform": "LeetCode", "slug": "sliding-window-median" },
+            { "name": "IPO", "platform": "LeetCode", "slug": "ipo" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "10",
+      "title": "Subsets",
+      "subTopics": [
+        {
+          "subTopicId": "10.1",
+          "title": "Subsets",
+          "problems": [
+            { "name": "Subsets", "platform": "LeetCode", "slug": "subsets" },
+            { "name": "Subsets II", "platform": "LeetCode", "slug": "subsets-ii" },
+            { "name": "Permutations", "platform": "LeetCode", "slug": "permutations" },
+            { "name": "Permutations II", "platform": "LeetCode", "slug": "permutations-ii" },
+            { "name": "Letter Case Permutation", "platform": "LeetCode", "slug": "letter-case-permutation" },
+            { "name": "Generate Parentheses", "platform": "LeetCode", "slug": "generate-parentheses" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "11",
+      "title": "Modified Binary Search",
+      "subTopics": [
+        {
+          "subTopicId": "11.1",
+          "title": "Modified Binary Search",
+          "problems": [
+            { "name": "Binary Search", "platform": "LeetCode", "slug": "binary-search" },
+            { "name": "Find First and Last Position of Element in Sorted Array", "platform": "LeetCode", "slug": "find-first-and-last-position-of-element-in-sorted-array" },
+            { "name": "Search in Rotated Sorted Array", "platform": "LeetCode", "slug": "search-in-rotated-sorted-array" },
+            { "name": "Search a 2D Matrix", "platform": "LeetCode", "slug": "search-a-2d-matrix" },
+            { "name": "Search a 2D Matrix II", "platform": "LeetCode", "slug": "search-a-2d-matrix-ii" },
+            { "name": "Find Minimum in Rotated Sorted Array", "platform": "LeetCode", "slug": "find-minimum-in-rotated-sorted-array" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "12",
+      "title": "Top K Elements",
+      "subTopics": [
+        {
+          "subTopicId": "12.1",
+          "title": "Top K Elements",
+          "problems": [
+            { "name": "Kth Largest Element in an Array", "platform": "LeetCode", "slug": "kth-largest-element-in-an-array" },
+            { "name": "Top K Frequent Elements", "platform": "LeetCode", "slug": "top-k-frequent-elements" },
+            { "name": "K Closest Points to Origin", "platform": "LeetCode", "slug": "k-closest-points-to-origin" },
+            { "name": "Sort Characters By Frequency", "platform": "LeetCode", "slug": "sort-characters-by-frequency" },
+            { "name": "Task Scheduler", "platform": "LeetCode", "slug": "task-scheduler" },
+            { "name": "Design Twitter", "platform": "LeetCode", "slug": "design-twitter" }
+          ]
+        }
+      ]
+    }
+  ]
+}

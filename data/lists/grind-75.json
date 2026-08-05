@@ -1,0 +1,214 @@
+{
+  "id": "grind-75",
+  "title": "Grind 75",
+  "description": "The ultimate curated list of 75 essential LeetCode problems by Yangshun Tay (author of Blind 75), optimized for time and concept coverage.",
+  "totalProblems": 75,
+  "steps": [
+    {
+      "stepId": "1",
+      "title": "Array & Hash Map",
+      "subTopics": [
+        {
+          "subTopicId": "1.1",
+          "title": "Core Array Logic",
+          "problems": [
+            { "name": "Two Sum", "platform": "LeetCode", "slug": "two-sum" },
+            { "name": "Best Time to Buy and Sell Stock", "platform": "LeetCode", "slug": "best-time-to-buy-and-sell-stock" },
+            { "name": "Insert Interval", "platform": "LeetCode", "slug": "insert-interval" },
+            { "name": "3Sum", "platform": "LeetCode", "slug": "3sum" },
+            { "name": "Product of Array Except Self", "platform": "LeetCode", "slug": "product-of-array-except-self" },
+            { "name": "Combination Sum", "platform": "LeetCode", "slug": "combination-sum" },
+            { "name": "Merge Intervals", "platform": "LeetCode", "slug": "merge-intervals" },
+            { "name": "Sort Colors", "platform": "LeetCode", "slug": "sort-colors" },
+            { "name": "Container With Most Water", "platform": "LeetCode", "slug": "container-with-most-water" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "2",
+      "title": "Linked List",
+      "subTopics": [
+        {
+          "subTopicId": "2.1",
+          "title": "Linked List Manipulation",
+          "problems": [
+            { "name": "Merge Two Sorted Lists", "platform": "LeetCode", "slug": "merge-two-sorted-lists" },
+            { "name": "Linked List Cycle", "platform": "LeetCode", "slug": "linked-list-cycle" },
+            { "name": "Reverse Linked List", "platform": "LeetCode", "slug": "reverse-linked-list" },
+            { "name": "Middle of the Linked List", "platform": "LeetCode", "slug": "middle-of-the-linked-list" },
+            { "name": "LRU Cache", "platform": "LeetCode", "slug": "lru-cache" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "3",
+      "title": "String & Two Pointers",
+      "subTopics": [
+        {
+          "subTopicId": "3.1",
+          "title": "String Traversal",
+          "problems": [
+            { "name": "Valid Palindrome", "platform": "LeetCode", "slug": "valid-palindrome" },
+            { "name": "Valid Anagram", "platform": "LeetCode", "slug": "valid-anagram" },
+            { "name": "Longest Palindrome", "platform": "LeetCode", "slug": "longest-palindrome" },
+            { "name": "Longest Substring Without Repeating Characters", "platform": "LeetCode", "slug": "longest-substring-without-repeating-characters" },
+            { "name": "String to Integer (atoi)", "platform": "LeetCode", "slug": "string-to-integer-atoi" },
+            { "name": "Longest Palindromic Substring", "platform": "LeetCode", "slug": "longest-palindromic-substring" },
+            { "name": "Find All Anagrams in a String", "platform": "LeetCode", "slug": "find-all-anagrams-in-a-string" },
+            { "name": "Minimum Window Substring", "platform": "LeetCode", "slug": "minimum-window-substring" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "4",
+      "title": "Stack & Queue",
+      "subTopics": [
+        {
+          "subTopicId": "4.1",
+          "title": "LIFO / FIFO",
+          "problems": [
+            { "name": "Valid Parentheses", "platform": "LeetCode", "slug": "valid-parentheses" },
+            { "name": "Implement Queue using Stacks", "platform": "LeetCode", "slug": "implement-queue-using-stacks" },
+            { "name": "Min Stack", "platform": "LeetCode", "slug": "min-stack" },
+            { "name": "Evaluate Reverse Polish Notation", "platform": "LeetCode", "slug": "evaluate-reverse-polish-notation" },
+            { "name": "Trapping Rain Water", "platform": "LeetCode", "slug": "trapping-rain-water" },
+            { "name": "Basic Calculator", "platform": "LeetCode", "slug": "basic-calculator" },
+            { "name": "Largest Rectangle in Histogram", "platform": "LeetCode", "slug": "largest-rectangle-in-histogram" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "5",
+      "title": "Trees",
+      "subTopics": [
+        {
+          "subTopicId": "5.1",
+          "title": "Binary Trees & BST",
+          "problems": [
+            { "name": "Invert Binary Tree", "platform": "LeetCode", "slug": "invert-binary-tree" },
+            { "name": "Lowest Common Ancestor of a Binary Search Tree", "platform": "LeetCode", "slug": "lowest-common-ancestor-of-a-binary-search-tree" },
+            { "name": "Balanced Binary Tree", "platform": "LeetCode", "slug": "balanced-binary-tree" },
+            { "name": "Diameter of Binary Tree", "platform": "LeetCode", "slug": "diameter-of-binary-tree" },
+            { "name": "Maximum Depth of Binary Tree", "platform": "LeetCode", "slug": "maximum-depth-of-binary-tree" },
+            { "name": "Same Tree", "platform": "LeetCode", "slug": "same-tree" },
+            { "name": "Binary Tree Level Order Traversal", "platform": "LeetCode", "slug": "binary-tree-level-order-traversal" },
+            { "name": "Binary Tree Right Side View", "platform": "LeetCode", "slug": "binary-tree-right-side-view" },
+            { "name": "Construct Binary Tree from Preorder and Inorder Traversal", "platform": "LeetCode", "slug": "construct-binary-tree-from-preorder-and-inorder-traversal" },
+            { "name": "Validate Binary Search Tree", "platform": "LeetCode", "slug": "validate-binary-search-tree" },
+            { "name": "Kth Smallest Element in a BST", "platform": "LeetCode", "slug": "kth-smallest-element-in-a-bst" },
+            { "name": "Serialize and Deserialize Binary Tree", "platform": "LeetCode", "slug": "serialize-and-deserialize-binary-tree" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "6",
+      "title": "Graph & Matrix",
+      "subTopics": [
+        {
+          "subTopicId": "6.1",
+          "title": "DFS / BFS / Topological Sort",
+          "problems": [
+            { "name": "Flood Fill", "platform": "LeetCode", "slug": "flood-fill" },
+            { "name": "01 Matrix", "platform": "LeetCode", "slug": "01-matrix" },
+            { "name": "Clone Graph", "platform": "LeetCode", "slug": "clone-graph" },
+            { "name": "Course Schedule", "platform": "LeetCode", "slug": "course-schedule" },
+            { "name": "Number of Islands", "platform": "LeetCode", "slug": "number-of-islands" },
+            { "name": "Rotting Oranges", "platform": "LeetCode", "slug": "rotting-oranges" },
+            { "name": "Word Search", "platform": "LeetCode", "slug": "word-search" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "7",
+      "title": "Binary Search",
+      "subTopics": [
+        {
+          "subTopicId": "7.1",
+          "title": "Log N Time Complexity",
+          "problems": [
+            { "name": "Binary Search", "platform": "LeetCode", "slug": "binary-search" },
+            { "name": "First Bad Version", "platform": "LeetCode", "slug": "first-bad-version" },
+            { "name": "Search in Rotated Sorted Array", "platform": "LeetCode", "slug": "search-in-rotated-sorted-array" },
+            { "name": "Time Based Key-Value Store", "platform": "LeetCode", "slug": "time-based-key-value-store" },
+            { "name": "Find Minimum in Rotated Sorted Array", "platform": "LeetCode", "slug": "find-minimum-in-rotated-sorted-array" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "8",
+      "title": "Dynamic Programming",
+      "subTopics": [
+        {
+          "subTopicId": "8.1",
+          "title": "Memoization & Tabulation",
+          "problems": [
+            { "name": "Climbing Stairs", "platform": "LeetCode", "slug": "climbing-stairs" },
+            { "name": "Maximum Subarray", "platform": "LeetCode", "slug": "maximum-subarray" },
+            { "name": "Coin Change", "platform": "LeetCode", "slug": "coin-change" },
+            { "name": "Partition Equal Subset Sum", "platform": "LeetCode", "slug": "partition-equal-subset-sum" },
+            { "name": "Unique Paths", "platform": "LeetCode", "slug": "unique-paths" },
+            { "name": "Maximum Profit in Job Scheduling", "platform": "LeetCode", "slug": "maximum-profit-in-job-scheduling" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "9",
+      "title": "Trie & Heap",
+      "subTopics": [
+        {
+          "subTopicId": "9.1",
+          "title": "Advanced Data Structures",
+          "problems": [
+            { "name": "Implement Trie (Prefix Tree)", "platform": "LeetCode", "slug": "implement-trie-prefix-tree" },
+            { "name": "Word Break", "platform": "LeetCode", "slug": "word-break" },
+            { "name": "K Closest Points to Origin", "platform": "LeetCode", "slug": "k-closest-points-to-origin" },
+            { "name": "Task Scheduler", "platform": "LeetCode", "slug": "task-scheduler" },
+            { "name": "Find Median from Data Stream", "platform": "LeetCode", "slug": "find-median-from-data-stream" },
+            { "name": "Merge k Sorted Lists", "platform": "LeetCode", "slug": "merge-k-sorted-lists" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "10",
+      "title": "Recursion & Backtracking",
+      "subTopics": [
+        {
+          "subTopicId": "10.1",
+          "title": "Exhaustive Search",
+          "problems": [
+            { "name": "Permutations", "platform": "LeetCode", "slug": "permutations" },
+            { "name": "Subsets", "platform": "LeetCode", "slug": "subsets" },
+            { "name": "Letter Combinations of a Phone Number", "platform": "LeetCode", "slug": "letter-combinations-of-a-phone-number" }
+          ]
+        }
+      ]
+    },
+    {
+      "stepId": "11",
+      "title": "Bit Manipulation & Math",
+      "subTopics": [
+        {
+          "subTopicId": "11.1",
+          "title": "Bitwise Ops",
+          "problems": [
+            { "name": "Add Binary", "platform": "LeetCode", "slug": "add-binary" },
+            { "name": "Counting Bits", "platform": "LeetCode", "slug": "counting-bits" },
+            { "name": "Number of 1 Bits", "platform": "LeetCode", "slug": "number-of-1-bits" },
+            { "name": "Reverse Bits", "platform": "LeetCode", "slug": "reverse-bits" },
+            { "name": "Single Number", "platform": "LeetCode", "slug": "single-number" },
+            { "name": "Missing Number", "platform": "LeetCode", "slug": "missing-number" }
+          ]
+        }
+      ]
+    }
+  ]
+}
