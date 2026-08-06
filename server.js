@@ -331,106 +331,55 @@ app.get("/api/pro-image", async (req, res) => {
   }
 });
 
-// --- NEW ENDPOINTS: COMPANY WISE ARCHIVES ---
-let allCompaniesCache = [];
+// --- NEW ENDPOINTS: COMPANY WISE ARCHIVES (OFFLINE CACHED) ---
 const companyDataCache = {};
 
-app.get("/api/companies", async (req, res) => {
-  if (allCompaniesCache.length > 0) return res.json(allCompaniesCache);
+// --- LOCAL LOGO MAPPING (No Hardcoded Counts) ---
+const TOP_COMPANIES = {
+  Amazon: { logo: "/logos/amazon.svg" },
+  Google: { logo: "/logos/google.svg" },
+  Meta: { logo: "/logos/meta.svg" },
+  Facebook: { logo: "/logos/meta.svg" },
+  Microsoft: { logo: "/logos/microsoft.svg" },
+  Apple: { logo: "/logos/apple.svg" },
+  "J.P. Morgan": { logo: "/logos/jpmc.png" }, // Exact match from GitHub!
+  Uber: { logo: "/logos/uber.svg" },
+  Adobe: { logo: "/logos/adobe.svg" },
+  ByteDance: { logo: "/logos/bytedance.svg" },
+  "Goldman Sachs": { logo: "/logos/gs.png" },
+  "Goldman%20Sachs": { logo: "/logos/gs.png" }, // Fallback for encoded slug
+};
 
-  const topCompanies = [
-    {
-      name: "Amazon",
-      slug: "Amazon",
-      logo: "https://logo.clearbit.com/amazon.com",
-      count: 1452,
-    },
-    {
-      name: "Google",
-      slug: "Google",
-      logo: "https://logo.clearbit.com/google.com",
-      count: 1210,
-    },
-    {
-      name: "Meta",
-      slug: "Facebook",
-      logo: "https://logo.clearbit.com/meta.com",
-      count: 987,
-    },
-    {
-      name: "Microsoft",
-      slug: "Microsoft",
-      logo: "https://logo.clearbit.com/microsoft.com",
-      count: 850,
-    },
-    {
-      name: "Apple",
-      slug: "Apple",
-      logo: "https://logo.clearbit.com/apple.com",
-      count: 650,
-    },
-    {
-      name: "Bloomberg",
-      slug: "Bloomberg",
-      logo: "https://logo.clearbit.com/bloomberg.com",
-      count: 540,
-    },
-    {
-      name: "Uber",
-      slug: "Uber",
-      logo: "https://logo.clearbit.com/uber.com",
-      count: 430,
-    },
-    {
-      name: "Adobe",
-      slug: "Adobe",
-      logo: "https://logo.clearbit.com/adobe.com",
-      count: 390,
-    },
-    {
-      name: "ByteDance",
-      slug: "ByteDance",
-      logo: "https://logo.clearbit.com/bytedance.com",
-      count: 310,
-    },
-    {
-      name: "Goldman Sachs",
-      slug: "Goldman%20Sachs",
-      logo: "https://logo.clearbit.com/goldmansachs.com",
-      count: 280,
-    },
-  ];
+app.get("/api/companies", (req, res) => {
+  const filePath = path.join(__dirname, "data", "companies.json");
 
-  try {
-    const response = await fetch(
-      "https://api.github.com/repos/liquidslr/leetcode-company-wise-problems/contents/",
-    );
-    const data = await response.json();
+  if (fs.existsSync(filePath)) {
+    const rawData = fs.readFileSync(filePath, "utf8");
+    const allCompanies = JSON.parse(rawData);
 
-    if (Array.isArray(data)) {
-      const fetchedCompanies = data
-        .filter((item) => item.type === "dir" && !item.name.startsWith("."))
-        .map((dir) => ({
-          name: decodeURIComponent(dir.name).replace("Facebook", "Meta"),
-          slug: dir.name,
-          logo: null,
-          count: null,
-        }));
+    // Clean, direct lookup without forced overrides
+    const enrichedCompanies = allCompanies.map((company) => {
+      // Check both the raw name and the decoded slug
+      const decodedSlug = decodeURIComponent(company.slug);
+      const topData = TOP_COMPANIES[company.name] || TOP_COMPANIES[decodedSlug];
 
-      const topSlugs = topCompanies.map((c) =>
-        decodeURIComponent(c.slug).toLowerCase(),
-      );
-      const remaining = fetchedCompanies.filter(
-        (c) => !topSlugs.includes(decodeURIComponent(c.slug).toLowerCase()),
-      );
+      if (topData) {
+        return { ...company, logo: topData.logo };
+      }
+      return company;
+    });
 
-      allCompaniesCache = [...topCompanies, ...remaining];
-      return res.json(allCompaniesCache);
-    }
-    res.json(topCompanies);
-  } catch (error) {
-    res.json(topCompanies);
+    // Sort top tier companies with logos to the very top, alphabetize the rest
+    enrichedCompanies.sort((a, b) => {
+      if (a.logo && !b.logo) return -1;
+      if (!a.logo && b.logo) return 1;
+      return a.name.localeCompare(b.name);
+    });
+
+    return res.json(enrichedCompanies);
   }
+
+  res.json([]);
 });
 
 app.get("/api/companies/:company", async (req, res) => {
@@ -450,6 +399,7 @@ app.get("/api/companies/:company", async (req, res) => {
   try {
     const results = {};
     for (const tf of timeframes) {
+      // NOTE: Fetching from raw.githubusercontent is NEVER rate-limited!
       const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${company}/${tf.file}`;
       const response = await fetch(url);
 
