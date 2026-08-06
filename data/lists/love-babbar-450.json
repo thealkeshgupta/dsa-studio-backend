@@ -12,22 +12,100 @@
           "subTopicId": "1.1",
           "title": "Array Fundamentals",
           "problems": [
-            { "name": "Reverse the array", "platform": "LeetCode", "slug": "reverse-string" },
-            { "name": "Find the maximum and minimum element in an array", "platform": "LeetCode", "slug": "find-minimum-in-rotated-sorted-array" },
-            { "name": "Find the Kth max and min element of an array", "platform": "LeetCode", "slug": "kth-largest-element-in-an-array" },
-            { "name": "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo", "platform": "LeetCode", "slug": "sort-colors" },
-            { "name": "Move all the negative elements to one side of the array", "platform": "LeetCode", "slug": "move-zeroes" },
-            { "name": "Find the Union and Intersection of the two sorted arrays", "platform": "LeetCode", "slug": "intersection-of-two-arrays" },
-            { "name": "Write a program to cyclically rotate an array by one", "platform": "LeetCode", "slug": "rotate-array" },
-            { "name": "find Largest sum contiguous Subarray", "platform": "LeetCode", "slug": "maximum-subarray" },
-            { "name": "Minimise the maximum difference between heights", "platform": "GFG", "slug": "minimize-the-heights3351" },
-            { "name": "Minimum no. of Jumps to reach end of an array", "platform": "LeetCode", "slug": "jump-game-ii" },
-            { "name": "Find duplicate in an array of N+1 Integers", "platform": "LeetCode", "slug": "find-the-duplicate-number" },
-            { "name": "Merge 2 sorted arrays without using Extra space", "platform": "LeetCode", "slug": "merge-sorted-array" },
-            { "name": "Kadane's Algo", "platform": "LeetCode", "slug": "maximum-subarray" },
-            { "name": "Merge Intervals", "platform": "LeetCode", "slug": "merge-intervals" },
-            { "name": "Next Permutation", "platform": "LeetCode", "slug": "next-permutation" },
-            { "name": "Count Inversion", "platform": "GFG", "slug": "inversion-of-array-1587115620" }
+            {
+              "name": "Reverse the array",
+              "platform": "LeetCode",
+              "slug": "reverse-string",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Find the maximum and minimum element in an array",
+              "platform": "LeetCode",
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the Kth max and min element of an array",
+              "platform": "LeetCode",
+              "slug": "kth-largest-element-in-an-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
+              "platform": "LeetCode",
+              "slug": "sort-colors",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Move all the negative elements to one side of the array",
+              "platform": "LeetCode",
+              "slug": "move-zeroes",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Find the Union and Intersection of the two sorted arrays",
+              "platform": "LeetCode",
+              "slug": "intersection-of-two-arrays",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Write a program to cyclically rotate an array by one",
+              "platform": "LeetCode",
+              "slug": "rotate-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "find Largest sum contiguous Subarray",
+              "platform": "LeetCode",
+              "slug": "maximum-subarray",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Minimise the maximum difference between heights",
+              "platform": "GFG",
+              "slug": "minimize-the-heights3351"
+            },
+            {
+              "name": "Minimum no. of Jumps to reach end of an array",
+              "platform": "LeetCode",
+              "slug": "jump-game-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find duplicate in an array of N+1 Integers",
+              "platform": "LeetCode",
+              "slug": "find-the-duplicate-number",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Merge 2 sorted arrays without using Extra space",
+              "platform": "LeetCode",
+              "slug": "merge-sorted-array",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Kadane's Algo",
+              "platform": "LeetCode",
+              "slug": "maximum-subarray",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Merge Intervals",
+              "platform": "LeetCode",
+              "slug": "merge-intervals",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Next Permutation",
+              "platform": "LeetCode",
+              "slug": "next-permutation",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Count Inversion",
+              "platform": "GFG",
+              "slug": "inversion-of-array-1587115620"
+            }
           ]
         }
       ]
@@ -40,13 +118,45 @@
           "subTopicId": "2.1",
           "title": "Matrix Traversal",
           "problems": [
-            { "name": "Spiral traversal on a Matrix", "platform": "LeetCode", "slug": "spiral-matrix" },
-            { "name": "Search an element in a matriix", "platform": "LeetCode", "slug": "search-a-2d-matrix" },
-            { "name": "Find median in a row wise sorted matrix", "platform": "GFG", "slug": "median-in-a-row-wise-sorted-matrix1527" },
-            { "name": "Find row with maximum no. of 1's", "platform": "GFG", "slug": "row-with-max-1s0023" },
-            { "name": "Print elements in sorted order using row-column wise sorted matrix", "platform": "GFG", "slug": "sorted-matrix2333" },
-            { "name": "Rotate matrix by 90 degrees", "platform": "LeetCode", "slug": "rotate-image" },
-            { "name": "Kth smallest element in a row-cpwise sorted matrix", "platform": "LeetCode", "slug": "kth-smallest-element-in-a-sorted-matrix" }
+            {
+              "name": "Spiral traversal on a Matrix",
+              "platform": "LeetCode",
+              "slug": "spiral-matrix",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Search an element in a matriix",
+              "platform": "LeetCode",
+              "slug": "search-a-2d-matrix",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find median in a row wise sorted matrix",
+              "platform": "GFG",
+              "slug": "median-in-a-row-wise-sorted-matrix1527"
+            },
+            {
+              "name": "Find row with maximum no. of 1's",
+              "platform": "GFG",
+              "slug": "row-with-max-1s0023"
+            },
+            {
+              "name": "Print elements in sorted order using row-column wise sorted matrix",
+              "platform": "GFG",
+              "slug": "sorted-matrix2333"
+            },
+            {
+              "name": "Rotate matrix by 90 degrees",
+              "platform": "LeetCode",
+              "slug": "rotate-image",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Kth smallest element in a row-cpwise sorted matrix",
+              "platform": "LeetCode",
+              "slug": "kth-smallest-element-in-a-sorted-matrix",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -59,15 +169,59 @@
           "subTopicId": "3.1",
           "title": "String Operations",
           "problems": [
-            { "name": "Reverse a String", "platform": "LeetCode", "slug": "reverse-string" },
-            { "name": "Check whether a String is Palindrome or not", "platform": "LeetCode", "slug": "valid-palindrome" },
-            { "name": "Find Duplicate characters in a string", "platform": "GFG", "slug": "find-all-duplicates-in-a-string" },
-            { "name": "Why strings are immutable in Java?", "platform": "LeetCode", "slug": "valid-anagram" },
-            { "name": "Write a Code to check whether one string is a rotation of another", "platform": "LeetCode", "slug": "rotate-string" },
-            { "name": "Write a Program to check whether a string is a valid shuffle of two strings or not", "platform": "LeetCode", "slug": "interleaving-string" },
-            { "name": "Count and Say problem", "platform": "LeetCode", "slug": "count-and-say" },
-            { "name": "Write a program to find the longest Palindrome in a string", "platform": "LeetCode", "slug": "longest-palindromic-substring" },
-            { "name": "Find Longest Recurring Subsequence in String", "platform": "LeetCode", "slug": "longest-repeating-character-replacement" }
+            {
+              "name": "Reverse a String",
+              "platform": "LeetCode",
+              "slug": "reverse-string",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Check whether a String is Palindrome or not",
+              "platform": "LeetCode",
+              "slug": "valid-palindrome",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Find Duplicate characters in a string",
+              "platform": "GFG",
+              "slug": "find-all-duplicates-in-a-string"
+            },
+            {
+              "name": "Why strings are immutable in Java?",
+              "platform": "LeetCode",
+              "slug": "valid-anagram",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Write a Code to check whether one string is a rotation of another",
+              "platform": "LeetCode",
+              "slug": "rotate-string",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Write a Program to check whether a string is a valid shuffle of two strings or not",
+              "platform": "LeetCode",
+              "slug": "interleaving-string",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Count and Say problem",
+              "platform": "LeetCode",
+              "slug": "count-and-say",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Write a program to find the longest Palindrome in a string",
+              "platform": "LeetCode",
+              "slug": "longest-palindromic-substring",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find Longest Recurring Subsequence in String",
+              "platform": "LeetCode",
+              "slug": "longest-repeating-character-replacement",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -80,14 +234,51 @@
           "subTopicId": "4.1",
           "title": "Algorithms",
           "problems": [
-            { "name": "Find first and last positions of an element in a sorted array", "platform": "LeetCode", "slug": "find-first-and-last-position-of-element-in-sorted-array" },
-            { "name": "Find a Fixed Point (Value equal to index) in a given array", "platform": "GFG", "slug": "value-equal-to-index-value1330" },
-            { "name": "Search in a rotated sorted array", "platform": "LeetCode", "slug": "search-in-rotated-sorted-array" },
-            { "name": "square root of an integer", "platform": "LeetCode", "slug": "sqrtx" },
-            { "name": "Maximum and minimum of an array using minimum number of comparisons", "platform": "LeetCode", "slug": "find-minimum-in-rotated-sorted-array" },
-            { "name": "Optimum location of point to minimize total distance", "platform": "GFG", "slug": "optimum-location-of-point-to-minimize-total-distance" },
-            { "name": "Find the repeating and the missing", "platform": "GFG", "slug": "find-missing-and-repeating2512" },
-            { "name": "find majority element", "platform": "LeetCode", "slug": "majority-element" }
+            {
+              "name": "Find first and last positions of an element in a sorted array",
+              "platform": "LeetCode",
+              "slug": "find-first-and-last-position-of-element-in-sorted-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find a Fixed Point (Value equal to index) in a given array",
+              "platform": "GFG",
+              "slug": "value-equal-to-index-value1330"
+            },
+            {
+              "name": "Search in a rotated sorted array",
+              "platform": "LeetCode",
+              "slug": "search-in-rotated-sorted-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "square root of an integer",
+              "platform": "LeetCode",
+              "slug": "sqrtx",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Maximum and minimum of an array using minimum number of comparisons",
+              "platform": "LeetCode",
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Optimum location of point to minimize total distance",
+              "platform": "GFG",
+              "slug": "optimum-location-of-point-to-minimize-total-distance"
+            },
+            {
+              "name": "Find the repeating and the missing",
+              "platform": "GFG",
+              "slug": "find-missing-and-repeating2512"
+            },
+            {
+              "name": "find majority element",
+              "platform": "LeetCode",
+              "slug": "majority-element",
+              "difficulty": "Easy"
+            }
           ]
         }
       ]
@@ -100,15 +291,59 @@
           "subTopicId": "5.1",
           "title": "Singly & Doubly Linked Lists",
           "problems": [
-            { "name": "Write a Program to reverse the Linked List", "platform": "LeetCode", "slug": "reverse-linked-list" },
-            { "name": "Reverse a Linked List in group of Given Size", "platform": "LeetCode", "slug": "reverse-nodes-in-k-group" },
-            { "name": "Write a program to Detect loop in a linked list", "platform": "LeetCode", "slug": "linked-list-cycle" },
-            { "name": "Write a program to Delete loop in a linked list", "platform": "LeetCode", "slug": "linked-list-cycle-ii" },
-            { "name": "Find the starting point of the loop", "platform": "LeetCode", "slug": "linked-list-cycle-ii" },
-            { "name": "Remove Duplicates in a sorted Linked List", "platform": "LeetCode", "slug": "remove-duplicates-from-sorted-list" },
-            { "name": "Remove Duplicates in a Un-sorted Linked List", "platform": "LeetCode", "slug": "remove-duplicates-from-unsorted-list" },
-            { "name": "Write a Program to Move the last element to Front in a Linked List", "platform": "LeetCode", "slug": "rotate-list" },
-            { "name": "Add 1 to a number represented as a Linked List", "platform": "LeetCode", "slug": "add-two-numbers" }
+            {
+              "name": "Write a Program to reverse the Linked List",
+              "platform": "LeetCode",
+              "slug": "reverse-linked-list",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Reverse a Linked List in group of Given Size",
+              "platform": "LeetCode",
+              "slug": "reverse-nodes-in-k-group",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Write a program to Detect loop in a linked list",
+              "platform": "LeetCode",
+              "slug": "linked-list-cycle",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Write a program to Delete loop in a linked list",
+              "platform": "LeetCode",
+              "slug": "linked-list-cycle-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the starting point of the loop",
+              "platform": "LeetCode",
+              "slug": "linked-list-cycle-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Remove Duplicates in a sorted Linked List",
+              "platform": "LeetCode",
+              "slug": "remove-duplicates-from-sorted-list",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Remove Duplicates in a Un-sorted Linked List",
+              "platform": "LeetCode",
+              "slug": "remove-duplicates-from-unsorted-list"
+            },
+            {
+              "name": "Write a Program to Move the last element to Front in a Linked List",
+              "platform": "LeetCode",
+              "slug": "rotate-list",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Add 1 to a number represented as a Linked List",
+              "platform": "LeetCode",
+              "slug": "add-two-numbers",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -121,16 +356,65 @@
           "subTopicId": "6.1",
           "title": "Tree Properties",
           "problems": [
-            { "name": "Level order traversal", "platform": "LeetCode", "slug": "binary-tree-level-order-traversal" },
-            { "name": "Reverse Level Order traversal", "platform": "LeetCode", "slug": "binary-tree-level-order-traversal-ii" },
-            { "name": "Height of a tree", "platform": "LeetCode", "slug": "maximum-depth-of-binary-tree" },
-            { "name": "Diameter of a tree", "platform": "LeetCode", "slug": "diameter-of-binary-tree" },
-            { "name": "Mirror of a tree", "platform": "LeetCode", "slug": "invert-binary-tree" },
-            { "name": "Inorder Traversal of a tree both using recursion and Iteration", "platform": "LeetCode", "slug": "binary-tree-inorder-traversal" },
-            { "name": "Preorder Traversal of a tree both using recursion and Iteration", "platform": "LeetCode", "slug": "binary-tree-preorder-traversal" },
-            { "name": "Postorder Traversal of a tree both using recursion and Iteration", "platform": "LeetCode", "slug": "binary-tree-postorder-traversal" },
-            { "name": "Left View of a tree", "platform": "GFG", "slug": "left-view-of-binary-tree" },
-            { "name": "Right View of Tree", "platform": "LeetCode", "slug": "binary-tree-right-side-view" }
+            {
+              "name": "Level order traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-level-order-traversal",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Reverse Level Order traversal",
+              "platform": "LeetCode",
+              "slug": "binary-tree-level-order-traversal-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Height of a tree",
+              "platform": "LeetCode",
+              "slug": "maximum-depth-of-binary-tree",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Diameter of a tree",
+              "platform": "LeetCode",
+              "slug": "diameter-of-binary-tree",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Mirror of a tree",
+              "platform": "LeetCode",
+              "slug": "invert-binary-tree",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Inorder Traversal of a tree both using recursion and Iteration",
+              "platform": "LeetCode",
+              "slug": "binary-tree-inorder-traversal",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Preorder Traversal of a tree both using recursion and Iteration",
+              "platform": "LeetCode",
+              "slug": "binary-tree-preorder-traversal",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Postorder Traversal of a tree both using recursion and Iteration",
+              "platform": "LeetCode",
+              "slug": "binary-tree-postorder-traversal",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Left View of a tree",
+              "platform": "GFG",
+              "slug": "left-view-of-binary-tree"
+            },
+            {
+              "name": "Right View of Tree",
+              "platform": "LeetCode",
+              "slug": "binary-tree-right-side-view",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -143,13 +427,46 @@
           "subTopicId": "7.1",
           "title": "BST Validation & Traversal",
           "problems": [
-            { "name": "Find a value in a BST", "platform": "LeetCode", "slug": "search-in-a-binary-search-tree" },
-            { "name": "Deletion of a node in a BST", "platform": "LeetCode", "slug": "delete-node-in-a-bst" },
-            { "name": "Find min and max value in a BST", "platform": "GFG", "slug": "minimum-element-in-bst" },
-            { "name": "Find inorder successor and inorder predecessor in a BST", "platform": "GFG", "slug": "predecessor-and-successor" },
-            { "name": "Check if a tree is a BST or not", "platform": "LeetCode", "slug": "validate-binary-search-tree" },
-            { "name": "Populate Inorder successor of all nodes", "platform": "LeetCode", "slug": "populating-next-right-pointers-in-each-node" },
-            { "name": "Find LCA of 2 nodes in a BST", "platform": "LeetCode", "slug": "lowest-common-ancestor-of-a-binary-search-tree" }
+            {
+              "name": "Find a value in a BST",
+              "platform": "LeetCode",
+              "slug": "search-in-a-binary-search-tree",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Deletion of a node in a BST",
+              "platform": "LeetCode",
+              "slug": "delete-node-in-a-bst",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find min and max value in a BST",
+              "platform": "GFG",
+              "slug": "minimum-element-in-bst"
+            },
+            {
+              "name": "Find inorder successor and inorder predecessor in a BST",
+              "platform": "GFG",
+              "slug": "predecessor-and-successor"
+            },
+            {
+              "name": "Check if a tree is a BST or not",
+              "platform": "LeetCode",
+              "slug": "validate-binary-search-tree",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Populate Inorder successor of all nodes",
+              "platform": "LeetCode",
+              "slug": "populating-next-right-pointers-in-each-node",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find LCA of 2 nodes in a BST",
+              "platform": "LeetCode",
+              "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -162,13 +479,42 @@
           "subTopicId": "8.1",
           "title": "Greedy Strategies",
           "problems": [
-            { "name": "Activity Selection Problem", "platform": "GFG", "slug": "activity-selection-1587115620" },
-            { "name": "Job Sequencing Problem", "platform": "GFG", "slug": "job-sequencing-problem-1587115620" },
-            { "name": "Huffman Coding", "platform": "GFG", "slug": "huffman-encoding3345" },
-            { "name": "Water Connection Problem", "platform": "LeetCode", "slug": "gas-station" },
-            { "name": "Fractional Knapsack Problem", "platform": "GFG", "slug": "fractional-knapsack-1587115620" },
-            { "name": "Choose and Swap", "platform": "GFG", "slug": "choose-and-swap0531" },
-            { "name": "Maximum meetings in one room", "platform": "GFG", "slug": "maximum-meetings-in-one-room" }
+            {
+              "name": "Activity Selection Problem",
+              "platform": "GFG",
+              "slug": "activity-selection-1587115620"
+            },
+            {
+              "name": "Job Sequencing Problem",
+              "platform": "GFG",
+              "slug": "job-sequencing-problem-1587115620"
+            },
+            {
+              "name": "Huffman Coding",
+              "platform": "GFG",
+              "slug": "huffman-encoding3345"
+            },
+            {
+              "name": "Water Connection Problem",
+              "platform": "LeetCode",
+              "slug": "gas-station",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Fractional Knapsack Problem",
+              "platform": "GFG",
+              "slug": "fractional-knapsack-1587115620"
+            },
+            {
+              "name": "Choose and Swap",
+              "platform": "GFG",
+              "slug": "choose-and-swap0531"
+            },
+            {
+              "name": "Maximum meetings in one room",
+              "platform": "GFG",
+              "slug": "maximum-meetings-in-one-room"
+            }
           ]
         }
       ]
@@ -181,12 +527,40 @@
           "subTopicId": "9.1",
           "title": "State Spaces",
           "problems": [
-            { "name": "Rat in a maze Problem", "platform": "GFG", "slug": "rat-in-a-maze-problem" },
-            { "name": "Printing all solutions in N-Queen Problem", "platform": "LeetCode", "slug": "n-queens" },
-            { "name": "Word Break Problem using Backtracking", "platform": "LeetCode", "slug": "word-break-ii" },
-            { "name": "Remove Invalid Parentheses", "platform": "LeetCode", "slug": "remove-invalid-parentheses" },
-            { "name": "Sudoku Solver", "platform": "LeetCode", "slug": "sudoku-solver" },
-            { "name": "M Coloring Problem", "platform": "GFG", "slug": "m-coloring-problem-1587115620" }
+            {
+              "name": "Rat in a maze Problem",
+              "platform": "GFG",
+              "slug": "rat-in-a-maze-problem"
+            },
+            {
+              "name": "Printing all solutions in N-Queen Problem",
+              "platform": "LeetCode",
+              "slug": "n-queens",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Word Break Problem using Backtracking",
+              "platform": "LeetCode",
+              "slug": "word-break-ii",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Remove Invalid Parentheses",
+              "platform": "LeetCode",
+              "slug": "remove-invalid-parentheses",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Sudoku Solver",
+              "platform": "LeetCode",
+              "slug": "sudoku-solver",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "M Coloring Problem",
+              "platform": "GFG",
+              "slug": "m-coloring-problem-1587115620"
+            }
           ]
         }
       ]
@@ -199,16 +573,64 @@
           "subTopicId": "10.1",
           "title": "Data Structure Design",
           "problems": [
-            { "name": "Implement Stack from Scratch", "platform": "LeetCode", "slug": "implement-stack-using-queues" },
-            { "name": "Implement Queue from Scratch", "platform": "LeetCode", "slug": "implement-queue-using-stacks" },
-            { "name": "Implement 2 stack in an array", "platform": "GFG", "slug": "implement-two-stacks-in-an-array" },
-            { "name": "find the middle element of a stack", "platform": "LeetCode", "slug": "middle-of-the-linked-list" },
-            { "name": "Implement N stacks in an Array", "platform": "GFG", "slug": "n-stacks-in-an-array" },
-            { "name": "Check the expression has valid or Balanced parenthesis or not.", "platform": "LeetCode", "slug": "valid-parentheses" },
-            { "name": "Reverse a String using Stack", "platform": "LeetCode", "slug": "reverse-string" },
-            { "name": "Design a Stack that supports getMin() in O(1) time and O(1) extra space.", "platform": "LeetCode", "slug": "min-stack" },
-            { "name": "Find the next Greater element", "platform": "LeetCode", "slug": "next-greater-element-i" },
-            { "name": "The celebrity Problem", "platform": "LeetCode", "slug": "find-the-celebrity" }
+            {
+              "name": "Implement Stack from Scratch",
+              "platform": "LeetCode",
+              "slug": "implement-stack-using-queues",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Implement Queue from Scratch",
+              "platform": "LeetCode",
+              "slug": "implement-queue-using-stacks",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Implement 2 stack in an array",
+              "platform": "GFG",
+              "slug": "implement-two-stacks-in-an-array"
+            },
+            {
+              "name": "find the middle element of a stack",
+              "platform": "LeetCode",
+              "slug": "middle-of-the-linked-list",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Implement N stacks in an Array",
+              "platform": "GFG",
+              "slug": "n-stacks-in-an-array"
+            },
+            {
+              "name": "Check the expression has valid or Balanced parenthesis or not.",
+              "platform": "LeetCode",
+              "slug": "valid-parentheses",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Reverse a String using Stack",
+              "platform": "LeetCode",
+              "slug": "reverse-string",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Design a Stack that supports getMin() in O(1) time and O(1) extra space.",
+              "platform": "LeetCode",
+              "slug": "min-stack",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the next Greater element",
+              "platform": "LeetCode",
+              "slug": "next-greater-element-i",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "The celebrity Problem",
+              "platform": "LeetCode",
+              "slug": "find-the-celebrity",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]

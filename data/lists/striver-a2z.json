@@ -82,12 +82,14 @@
             {
               "name": "Reverse Integer",
               "platform": "LeetCode",
-              "slug": "reverse-integer"
+              "slug": "reverse-integer",
+              "difficulty": "Medium"
             },
             {
               "name": "Palindrome Number",
               "platform": "LeetCode",
-              "slug": "palindrome-number"
+              "slug": "palindrome-number",
+              "difficulty": "Easy"
             },
             {
               "name": "GCD or HCF",
@@ -107,7 +109,8 @@
             {
               "name": "Check for Prime",
               "platform": "LeetCode",
-              "slug": "count-primes"
+              "slug": "count-primes",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -138,17 +141,20 @@
             {
               "name": "Reverse an Array",
               "platform": "LeetCode",
-              "slug": "reverse-string"
+              "slug": "reverse-string",
+              "difficulty": "Easy"
             },
             {
               "name": "Valid Palindrome",
               "platform": "LeetCode",
-              "slug": "valid-palindrome"
+              "slug": "valid-palindrome",
+              "difficulty": "Easy"
             },
             {
               "name": "Fibonacci Number",
               "platform": "LeetCode",
-              "slug": "fibonacci-number"
+              "slug": "fibonacci-number",
+              "difficulty": "Easy"
             }
           ]
         },
@@ -164,7 +170,8 @@
             {
               "name": "Find the highest/lowest frequency element",
               "platform": "LeetCode",
-              "slug": "top-k-frequent-elements"
+              "slug": "top-k-frequent-elements",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -183,7 +190,11 @@
               "platform": "GFG",
               "slug": "selection-sort"
             },
-            { "name": "Bubble Sort", "platform": "GFG", "slug": "bubble-sort" },
+            {
+              "name": "Bubble Sort",
+              "platform": "GFG",
+              "slug": "bubble-sort"
+            },
             {
               "name": "Insertion Sort",
               "platform": "GFG",
@@ -195,7 +206,11 @@
           "subTopicId": "2.2",
           "title": "Sorting-II",
           "problems": [
-            { "name": "Merge Sort", "platform": "GFG", "slug": "merge-sort" },
+            {
+              "name": "Merge Sort",
+              "platform": "GFG",
+              "slug": "merge-sort"
+            },
             {
               "name": "Recursive Bubble Sort",
               "platform": "GFG",
@@ -206,7 +221,11 @@
               "platform": "GFG",
               "slug": "insertion-sort"
             },
-            { "name": "Quick Sort", "platform": "GFG", "slug": "quick-sort" }
+            {
+              "name": "Quick Sort",
+              "platform": "GFG",
+              "slug": "quick-sort"
+            }
           ]
         }
       ]
@@ -232,12 +251,14 @@
             {
               "name": "Check if Array Is Sorted and Rotated",
               "platform": "LeetCode",
-              "slug": "check-if-array-is-sorted-and-rotated"
+              "slug": "check-if-array-is-sorted-and-rotated",
+              "difficulty": "Easy"
             },
             {
               "name": "Remove Duplicates from Sorted Array",
               "platform": "LeetCode",
-              "slug": "remove-duplicates-from-sorted-array"
+              "slug": "remove-duplicates-from-sorted-array",
+              "difficulty": "Easy"
             },
             {
               "name": "Rotate Array by 1",
@@ -247,12 +268,14 @@
             {
               "name": "Rotate Array by D places",
               "platform": "LeetCode",
-              "slug": "rotate-array"
+              "slug": "rotate-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Move Zeroes",
               "platform": "LeetCode",
-              "slug": "move-zeroes"
+              "slug": "move-zeroes",
+              "difficulty": "Easy"
             },
             {
               "name": "Linear Search",
@@ -267,22 +290,26 @@
             {
               "name": "Intersection of Two Arrays",
               "platform": "LeetCode",
-              "slug": "intersection-of-two-arrays"
+              "slug": "intersection-of-two-arrays",
+              "difficulty": "Easy"
             },
             {
               "name": "Missing Number",
               "platform": "LeetCode",
-              "slug": "missing-number"
+              "slug": "missing-number",
+              "difficulty": "Easy"
             },
             {
               "name": "Max Consecutive Ones",
               "platform": "LeetCode",
-              "slug": "max-consecutive-ones"
+              "slug": "max-consecutive-ones",
+              "difficulty": "Easy"
             },
             {
               "name": "Single Number",
               "platform": "LeetCode",
-              "slug": "single-number"
+              "slug": "single-number",
+              "difficulty": "Easy"
             },
             {
               "name": "Longest Subarray with Sum K (Positives)",
@@ -300,36 +327,47 @@
           "subTopicId": "3.2",
           "title": "Medium",
           "problems": [
-            { "name": "Two Sum", "platform": "LeetCode", "slug": "two-sum" },
+            {
+              "name": "Two Sum",
+              "platform": "LeetCode",
+              "slug": "two-sum",
+              "difficulty": "Easy"
+            },
             {
               "name": "Sort Colors",
               "platform": "LeetCode",
-              "slug": "sort-colors"
+              "slug": "sort-colors",
+              "difficulty": "Medium"
             },
             {
               "name": "Majority Element",
               "platform": "LeetCode",
-              "slug": "majority-element"
+              "slug": "majority-element",
+              "difficulty": "Easy"
             },
             {
               "name": "Maximum Subarray (Kadane's)",
               "platform": "LeetCode",
-              "slug": "maximum-subarray"
+              "slug": "maximum-subarray",
+              "difficulty": "Medium"
             },
             {
               "name": "Best Time to Buy and Sell Stock",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock"
+              "slug": "best-time-to-buy-and-sell-stock",
+              "difficulty": "Easy"
             },
             {
               "name": "Rearrange Array Elements by Sign",
               "platform": "LeetCode",
-              "slug": "rearrange-array-elements-by-sign"
+              "slug": "rearrange-array-elements-by-sign",
+              "difficulty": "Medium"
             },
             {
               "name": "Next Permutation",
               "platform": "LeetCode",
-              "slug": "next-permutation"
+              "slug": "next-permutation",
+              "difficulty": "Medium"
             },
             {
               "name": "Leaders in an Array",
@@ -339,27 +377,32 @@
             {
               "name": "Longest Consecutive Sequence",
               "platform": "LeetCode",
-              "slug": "longest-consecutive-sequence"
+              "slug": "longest-consecutive-sequence",
+              "difficulty": "Medium"
             },
             {
               "name": "Set Matrix Zeroes",
               "platform": "LeetCode",
-              "slug": "set-matrix-zeroes"
+              "slug": "set-matrix-zeroes",
+              "difficulty": "Medium"
             },
             {
               "name": "Rotate Image",
               "platform": "LeetCode",
-              "slug": "rotate-image"
+              "slug": "rotate-image",
+              "difficulty": "Medium"
             },
             {
               "name": "Spiral Matrix",
               "platform": "LeetCode",
-              "slug": "spiral-matrix"
+              "slug": "spiral-matrix",
+              "difficulty": "Medium"
             },
             {
               "name": "Subarray Sum Equals K",
               "platform": "LeetCode",
-              "slug": "subarray-sum-equals-k"
+              "slug": "subarray-sum-equals-k",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -370,15 +413,27 @@
             {
               "name": "Pascal's Triangle",
               "platform": "LeetCode",
-              "slug": "pascals-triangle"
+              "slug": "pascals-triangle",
+              "difficulty": "Easy"
             },
             {
               "name": "Majority Element II",
               "platform": "LeetCode",
-              "slug": "majority-element-ii"
+              "slug": "majority-element-ii",
+              "difficulty": "Medium"
             },
-            { "name": "3Sum", "platform": "LeetCode", "slug": "3sum" },
-            { "name": "4Sum", "platform": "LeetCode", "slug": "4sum" },
+            {
+              "name": "3Sum",
+              "platform": "LeetCode",
+              "slug": "3sum",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "4Sum",
+              "platform": "LeetCode",
+              "slug": "4sum",
+              "difficulty": "Medium"
+            },
             {
               "name": "Largest Subarray with 0 Sum",
               "platform": "GFG",
@@ -392,12 +447,14 @@
             {
               "name": "Merge Intervals",
               "platform": "LeetCode",
-              "slug": "merge-intervals"
+              "slug": "merge-intervals",
+              "difficulty": "Medium"
             },
             {
               "name": "Merge Sorted Array",
               "platform": "LeetCode",
-              "slug": "merge-sorted-array"
+              "slug": "merge-sorted-array",
+              "difficulty": "Easy"
             },
             {
               "name": "Find the Repeating and Missing Number",
@@ -412,12 +469,14 @@
             {
               "name": "Reverse Pairs",
               "platform": "LeetCode",
-              "slug": "reverse-pairs"
+              "slug": "reverse-pairs",
+              "difficulty": "Hard"
             },
             {
               "name": "Maximum Product Subarray",
               "platform": "LeetCode",
-              "slug": "maximum-product-subarray"
+              "slug": "maximum-product-subarray",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -434,7 +493,8 @@
             {
               "name": "Binary Search",
               "platform": "LeetCode",
-              "slug": "binary-search"
+              "slug": "binary-search",
+              "difficulty": "Easy"
             },
             {
               "name": "Implement Lower Bound",
@@ -449,7 +509,8 @@
             {
               "name": "Search Insert Position",
               "platform": "LeetCode",
-              "slug": "search-insert-position"
+              "slug": "search-insert-position",
+              "difficulty": "Easy"
             },
             {
               "name": "Floor / Ceil in Sorted Array",
@@ -459,7 +520,8 @@
             {
               "name": "Find First and Last Position of Element in Sorted Array",
               "platform": "LeetCode",
-              "slug": "find-first-and-last-position-of-element-in-sorted-array"
+              "slug": "find-first-and-last-position-of-element-in-sorted-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Count Occurrences in Sorted Array",
@@ -469,17 +531,20 @@
             {
               "name": "Search in Rotated Sorted Array",
               "platform": "LeetCode",
-              "slug": "search-in-rotated-sorted-array"
+              "slug": "search-in-rotated-sorted-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Search in Rotated Sorted Array II",
               "platform": "LeetCode",
-              "slug": "search-in-rotated-sorted-array-ii"
+              "slug": "search-in-rotated-sorted-array-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Find Minimum in Rotated Sorted Array",
               "platform": "LeetCode",
-              "slug": "find-minimum-in-rotated-sorted-array"
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Find out how many times array has been rotated",
@@ -489,12 +554,14 @@
             {
               "name": "Single Element in a Sorted Array",
               "platform": "LeetCode",
-              "slug": "single-element-in-a-sorted-array"
+              "slug": "single-element-in-a-sorted-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Find Peak Element",
               "platform": "LeetCode",
-              "slug": "find-peak-element"
+              "slug": "find-peak-element",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -502,7 +569,12 @@
           "subTopicId": "4.2",
           "title": "BS on Answer Space",
           "problems": [
-            { "name": "Sqrt(x)", "platform": "LeetCode", "slug": "sqrtx" },
+            {
+              "name": "Sqrt(x)",
+              "platform": "LeetCode",
+              "slug": "sqrtx",
+              "difficulty": "Easy"
+            },
             {
               "name": "Find Nth Root of M",
               "platform": "GFG",
@@ -511,27 +583,32 @@
             {
               "name": "Koko Eating Bananas",
               "platform": "LeetCode",
-              "slug": "koko-eating-bananas"
+              "slug": "koko-eating-bananas",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Number of Days to Make m Bouquets",
               "platform": "LeetCode",
-              "slug": "minimum-number-of-days-to-make-m-bouquets"
+              "slug": "minimum-number-of-days-to-make-m-bouquets",
+              "difficulty": "Medium"
             },
             {
               "name": "Find the Smallest Divisor Given a Threshold",
               "platform": "LeetCode",
-              "slug": "find-the-smallest-divisor-given-a-threshold"
+              "slug": "find-the-smallest-divisor-given-a-threshold",
+              "difficulty": "Medium"
             },
             {
               "name": "Capacity To Ship Packages Within D Days",
               "platform": "LeetCode",
-              "slug": "capacity-to-ship-packages-within-d-days"
+              "slug": "capacity-to-ship-packages-within-d-days",
+              "difficulty": "Medium"
             },
             {
               "name": "Kth Missing Positive Number",
               "platform": "LeetCode",
-              "slug": "kth-missing-positive-number"
+              "slug": "kth-missing-positive-number",
+              "difficulty": "Easy"
             },
             {
               "name": "Aggressive Cows",
@@ -546,7 +623,8 @@
             {
               "name": "Split Array Largest Sum",
               "platform": "LeetCode",
-              "slug": "split-array-largest-sum"
+              "slug": "split-array-largest-sum",
+              "difficulty": "Hard"
             },
             {
               "name": "Painter's Partition Problem",
@@ -556,12 +634,14 @@
             {
               "name": "Minimize Max Distance to Gas Station",
               "platform": "LeetCode",
-              "slug": "minimize-max-distance-to-gas-station"
+              "slug": "minimize-max-distance-to-gas-station",
+              "difficulty": "Hard"
             },
             {
               "name": "Median of Two Sorted Arrays",
               "platform": "LeetCode",
-              "slug": "median-of-two-sorted-arrays"
+              "slug": "median-of-two-sorted-arrays",
+              "difficulty": "Hard"
             },
             {
               "name": "K-th element of two sorted Arrays",
@@ -582,17 +662,20 @@
             {
               "name": "Search a 2D Matrix",
               "platform": "LeetCode",
-              "slug": "search-a-2d-matrix"
+              "slug": "search-a-2d-matrix",
+              "difficulty": "Medium"
             },
             {
               "name": "Search a 2D Matrix II",
               "platform": "LeetCode",
-              "slug": "search-a-2d-matrix-ii"
+              "slug": "search-a-2d-matrix-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Find a Peak Element II",
               "platform": "LeetCode",
-              "slug": "find-a-peak-element-ii"
+              "slug": "find-a-peak-element-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Median in a Row-wise Sorted Matrix",
@@ -614,37 +697,44 @@
             {
               "name": "Remove Outermost Parentheses",
               "platform": "LeetCode",
-              "slug": "remove-outermost-parentheses"
+              "slug": "remove-outermost-parentheses",
+              "difficulty": "Easy"
             },
             {
               "name": "Reverse Words in a String",
               "platform": "LeetCode",
-              "slug": "reverse-words-in-a-string"
+              "slug": "reverse-words-in-a-string",
+              "difficulty": "Medium"
             },
             {
               "name": "Largest Odd Number in String",
               "platform": "LeetCode",
-              "slug": "largest-odd-number-in-string"
+              "slug": "largest-odd-number-in-string",
+              "difficulty": "Easy"
             },
             {
               "name": "Longest Common Prefix",
               "platform": "LeetCode",
-              "slug": "longest-common-prefix"
+              "slug": "longest-common-prefix",
+              "difficulty": "Easy"
             },
             {
               "name": "Isomorphic Strings",
               "platform": "LeetCode",
-              "slug": "isomorphic-strings"
+              "slug": "isomorphic-strings",
+              "difficulty": "Easy"
             },
             {
               "name": "Rotate String",
               "platform": "LeetCode",
-              "slug": "rotate-string"
+              "slug": "rotate-string",
+              "difficulty": "Easy"
             },
             {
               "name": "Valid Anagram",
               "platform": "LeetCode",
-              "slug": "valid-anagram"
+              "slug": "valid-anagram",
+              "difficulty": "Easy"
             }
           ]
         },
@@ -655,22 +745,26 @@
             {
               "name": "Sort Characters By Frequency",
               "platform": "LeetCode",
-              "slug": "sort-characters-by-frequency"
+              "slug": "sort-characters-by-frequency",
+              "difficulty": "Medium"
             },
             {
               "name": "Maximum Nesting Depth of the Parentheses",
               "platform": "LeetCode",
-              "slug": "maximum-nesting-depth-of-the-parentheses"
+              "slug": "maximum-nesting-depth-of-the-parentheses",
+              "difficulty": "Easy"
             },
             {
               "name": "Roman to Integer",
               "platform": "LeetCode",
-              "slug": "roman-to-integer"
+              "slug": "roman-to-integer",
+              "difficulty": "Easy"
             },
             {
               "name": "String to Integer (atoi)",
               "platform": "LeetCode",
-              "slug": "string-to-integer-atoi"
+              "slug": "string-to-integer-atoi",
+              "difficulty": "Medium"
             },
             {
               "name": "Count Substrings with K Distinct Characters",
@@ -680,12 +774,14 @@
             {
               "name": "Longest Palindromic Substring",
               "platform": "LeetCode",
-              "slug": "longest-palindromic-substring"
+              "slug": "longest-palindromic-substring",
+              "difficulty": "Medium"
             },
             {
               "name": "Sum of Beauty of All Substrings",
               "platform": "LeetCode",
-              "slug": "sum-of-beauty-of-all-substrings"
+              "slug": "sum-of-beauty-of-all-substrings",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -712,7 +808,8 @@
             {
               "name": "Delete Node in a Linked List",
               "platform": "LeetCode",
-              "slug": "delete-node-in-a-linked-list"
+              "slug": "delete-node-in-a-linked-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Count Nodes of Linked List",
@@ -759,22 +856,26 @@
             {
               "name": "Middle of the Linked List",
               "platform": "LeetCode",
-              "slug": "middle-of-the-linked-list"
+              "slug": "middle-of-the-linked-list",
+              "difficulty": "Easy"
             },
             {
               "name": "Reverse Linked List",
               "platform": "LeetCode",
-              "slug": "reverse-linked-list"
+              "slug": "reverse-linked-list",
+              "difficulty": "Easy"
             },
             {
               "name": "Linked List Cycle",
               "platform": "LeetCode",
-              "slug": "linked-list-cycle"
+              "slug": "linked-list-cycle",
+              "difficulty": "Easy"
             },
             {
               "name": "Linked List Cycle II (Starting Point)",
               "platform": "LeetCode",
-              "slug": "linked-list-cycle-ii"
+              "slug": "linked-list-cycle-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Find Length of Loop",
@@ -784,27 +885,32 @@
             {
               "name": "Palindrome Linked List",
               "platform": "LeetCode",
-              "slug": "palindrome-linked-list"
+              "slug": "palindrome-linked-list",
+              "difficulty": "Easy"
             },
             {
               "name": "Odd Even Linked List",
               "platform": "LeetCode",
-              "slug": "odd-even-linked-list"
+              "slug": "odd-even-linked-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Remove Nth Node From End of List",
               "platform": "LeetCode",
-              "slug": "remove-nth-node-from-end-of-list"
+              "slug": "remove-nth-node-from-end-of-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Delete the Middle Node of a Linked List",
               "platform": "LeetCode",
-              "slug": "delete-the-middle-node-of-a-linked-list"
+              "slug": "delete-the-middle-node-of-a-linked-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Sort List",
               "platform": "LeetCode",
-              "slug": "sort-list"
+              "slug": "sort-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Sort Linked List of 0s 1s 2s",
@@ -814,12 +920,14 @@
             {
               "name": "Intersection of Two Linked Lists",
               "platform": "LeetCode",
-              "slug": "intersection-of-two-linked-lists"
+              "slug": "intersection-of-two-linked-lists",
+              "difficulty": "Easy"
             },
             {
               "name": "Add Two Numbers",
               "platform": "LeetCode",
-              "slug": "add-two-numbers"
+              "slug": "add-two-numbers",
+              "difficulty": "Medium"
             },
             {
               "name": "Add 1 to a number represented as linked list",
@@ -856,12 +964,14 @@
             {
               "name": "Reverse Nodes in k-Group",
               "platform": "LeetCode",
-              "slug": "reverse-nodes-in-k-group"
+              "slug": "reverse-nodes-in-k-group",
+              "difficulty": "Hard"
             },
             {
               "name": "Rotate List",
               "platform": "LeetCode",
-              "slug": "rotate-list"
+              "slug": "rotate-list",
+              "difficulty": "Medium"
             },
             {
               "name": "Flattening a Linked List",
@@ -871,7 +981,8 @@
             {
               "name": "Copy List with Random Pointer",
               "platform": "LeetCode",
-              "slug": "copy-list-with-random-pointer"
+              "slug": "copy-list-with-random-pointer",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -888,13 +999,20 @@
             {
               "name": "String to Integer (atoi)",
               "platform": "LeetCode",
-              "slug": "string-to-integer-atoi"
+              "slug": "string-to-integer-atoi",
+              "difficulty": "Medium"
             },
-            { "name": "Pow(x, n)", "platform": "LeetCode", "slug": "powx-n" },
+            {
+              "name": "Pow(x, n)",
+              "platform": "LeetCode",
+              "slug": "powx-n",
+              "difficulty": "Medium"
+            },
             {
               "name": "Count Good Numbers",
               "platform": "LeetCode",
-              "slug": "count-good-numbers"
+              "slug": "count-good-numbers",
+              "difficulty": "Medium"
             },
             {
               "name": "Sort a stack",
@@ -915,14 +1033,25 @@
             {
               "name": "Generate Parentheses",
               "platform": "LeetCode",
-              "slug": "generate-parentheses"
+              "slug": "generate-parentheses",
+              "difficulty": "Medium"
             },
-            { "name": "Power Set", "platform": "GFG", "slug": "power-set4302" },
-            { "name": "Subsets", "platform": "LeetCode", "slug": "subsets" },
+            {
+              "name": "Power Set",
+              "platform": "GFG",
+              "slug": "power-set4302"
+            },
+            {
+              "name": "Subsets",
+              "platform": "LeetCode",
+              "slug": "subsets",
+              "difficulty": "Medium"
+            },
             {
               "name": "Subsets II",
               "platform": "LeetCode",
-              "slug": "subsets-ii"
+              "slug": "subsets-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Subset Sums",
@@ -932,32 +1061,38 @@
             {
               "name": "Combination Sum",
               "platform": "LeetCode",
-              "slug": "combination-sum"
+              "slug": "combination-sum",
+              "difficulty": "Medium"
             },
             {
               "name": "Combination Sum II",
               "platform": "LeetCode",
-              "slug": "combination-sum-ii"
+              "slug": "combination-sum-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Combination Sum III",
               "platform": "LeetCode",
-              "slug": "combination-sum-iii"
+              "slug": "combination-sum-iii",
+              "difficulty": "Medium"
             },
             {
               "name": "Letter Combinations of a Phone Number",
               "platform": "LeetCode",
-              "slug": "letter-combinations-of-a-phone-number"
+              "slug": "letter-combinations-of-a-phone-number",
+              "difficulty": "Medium"
             },
             {
               "name": "Palindrome Partitioning",
               "platform": "LeetCode",
-              "slug": "palindrome-partitioning"
+              "slug": "palindrome-partitioning",
+              "difficulty": "Medium"
             },
             {
               "name": "Word Break",
               "platform": "LeetCode",
-              "slug": "word-break"
+              "slug": "word-break",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -965,11 +1100,17 @@
           "subTopicId": "7.3",
           "title": "Hard Backtracking",
           "problems": [
-            { "name": "N-Queens", "platform": "LeetCode", "slug": "n-queens" },
+            {
+              "name": "N-Queens",
+              "platform": "LeetCode",
+              "slug": "n-queens",
+              "difficulty": "Hard"
+            },
             {
               "name": "Sudoku Solver",
               "platform": "LeetCode",
-              "slug": "sudoku-solver"
+              "slug": "sudoku-solver",
+              "difficulty": "Hard"
             },
             {
               "name": "M-Coloring Problem",
@@ -984,7 +1125,8 @@
             {
               "name": "Word Search",
               "platform": "LeetCode",
-              "slug": "word-search"
+              "slug": "word-search",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -1016,12 +1158,14 @@
             {
               "name": "Power of Two",
               "platform": "LeetCode",
-              "slug": "power-of-two"
+              "slug": "power-of-two",
+              "difficulty": "Easy"
             },
             {
               "name": "Number of 1 Bits",
               "platform": "LeetCode",
-              "slug": "number-of-1-bits"
+              "slug": "number-of-1-bits",
+              "difficulty": "Easy"
             },
             {
               "name": "Set the rightmost unset bit",
@@ -1036,7 +1180,8 @@
             {
               "name": "Divide Two Integers",
               "platform": "LeetCode",
-              "slug": "divide-two-integers"
+              "slug": "divide-two-integers",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1047,22 +1192,26 @@
             {
               "name": "Minimum Bit Flips to Convert Number",
               "platform": "LeetCode",
-              "slug": "minimum-bit-flips-to-convert-number"
+              "slug": "minimum-bit-flips-to-convert-number",
+              "difficulty": "Easy"
             },
             {
               "name": "Single Number",
               "platform": "LeetCode",
-              "slug": "single-number"
+              "slug": "single-number",
+              "difficulty": "Easy"
             },
             {
               "name": "Single Number II",
               "platform": "LeetCode",
-              "slug": "single-number-ii"
+              "slug": "single-number-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Single Number III",
               "platform": "LeetCode",
-              "slug": "single-number-iii"
+              "slug": "single-number-iii",
+              "difficulty": "Medium"
             },
             {
               "name": "Find XOR of numbers from L to R",
@@ -1099,19 +1248,27 @@
             {
               "name": "Implement Stack using Queues",
               "platform": "LeetCode",
-              "slug": "implement-stack-using-queues"
+              "slug": "implement-stack-using-queues",
+              "difficulty": "Easy"
             },
             {
               "name": "Implement Queue using Stacks",
               "platform": "LeetCode",
-              "slug": "implement-queue-using-stacks"
+              "slug": "implement-queue-using-stacks",
+              "difficulty": "Easy"
             },
             {
               "name": "Valid Parentheses",
               "platform": "LeetCode",
-              "slug": "valid-parentheses"
+              "slug": "valid-parentheses",
+              "difficulty": "Easy"
             },
-            { "name": "Min Stack", "platform": "LeetCode", "slug": "min-stack" }
+            {
+              "name": "Min Stack",
+              "platform": "LeetCode",
+              "slug": "min-stack",
+              "difficulty": "Medium"
+            }
           ]
         },
         {
@@ -1152,12 +1309,14 @@
             {
               "name": "Next Greater Element I",
               "platform": "LeetCode",
-              "slug": "next-greater-element-i"
+              "slug": "next-greater-element-i",
+              "difficulty": "Easy"
             },
             {
               "name": "Next Greater Element II",
               "platform": "LeetCode",
-              "slug": "next-greater-element-ii"
+              "slug": "next-greater-element-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Next Smaller Element",
@@ -1172,37 +1331,44 @@
             {
               "name": "Trapping Rain Water",
               "platform": "LeetCode",
-              "slug": "trapping-rain-water"
+              "slug": "trapping-rain-water",
+              "difficulty": "Hard"
             },
             {
               "name": "Sum of Subarray Minimums",
               "platform": "LeetCode",
-              "slug": "sum-of-subarray-minimums"
+              "slug": "sum-of-subarray-minimums",
+              "difficulty": "Medium"
             },
             {
               "name": "Asteroid Collision",
               "platform": "LeetCode",
-              "slug": "asteroid-collision"
+              "slug": "asteroid-collision",
+              "difficulty": "Medium"
             },
             {
               "name": "Sum of Subarray Ranges",
               "platform": "LeetCode",
-              "slug": "sum-of-subarray-ranges"
+              "slug": "sum-of-subarray-ranges",
+              "difficulty": "Medium"
             },
             {
               "name": "Remove K Digits",
               "platform": "LeetCode",
-              "slug": "remove-k-digits"
+              "slug": "remove-k-digits",
+              "difficulty": "Medium"
             },
             {
               "name": "Largest Rectangle in Histogram",
               "platform": "LeetCode",
-              "slug": "largest-rectangle-in-histogram"
+              "slug": "largest-rectangle-in-histogram",
+              "difficulty": "Hard"
             },
             {
               "name": "Maximal Rectangle",
               "platform": "LeetCode",
-              "slug": "maximal-rectangle"
+              "slug": "maximal-rectangle",
+              "difficulty": "Hard"
             }
           ]
         },
@@ -1213,24 +1379,33 @@
             {
               "name": "Sliding Window Maximum",
               "platform": "LeetCode",
-              "slug": "sliding-window-maximum"
+              "slug": "sliding-window-maximum",
+              "difficulty": "Hard"
             },
             {
               "name": "Online Stock Span",
               "platform": "LeetCode",
-              "slug": "online-stock-span"
+              "slug": "online-stock-span",
+              "difficulty": "Medium"
             },
             {
               "name": "The Celebrity Problem",
               "platform": "LeetCode",
-              "slug": "find-the-celebrity"
+              "slug": "find-the-celebrity",
+              "difficulty": "Medium"
             },
             {
               "name": "LRU Cache",
               "platform": "LeetCode",
-              "slug": "lru-cache"
+              "slug": "lru-cache",
+              "difficulty": "Medium"
             },
-            { "name": "LFU Cache", "platform": "LeetCode", "slug": "lfu-cache" }
+            {
+              "name": "LFU Cache",
+              "platform": "LeetCode",
+              "slug": "lfu-cache",
+              "difficulty": "Hard"
+            }
           ]
         }
       ]
@@ -1246,42 +1421,50 @@
             {
               "name": "Longest Substring Without Repeating Characters",
               "platform": "LeetCode",
-              "slug": "longest-substring-without-repeating-characters"
+              "slug": "longest-substring-without-repeating-characters",
+              "difficulty": "Medium"
             },
             {
               "name": "Max Consecutive Ones III",
               "platform": "LeetCode",
-              "slug": "max-consecutive-ones-iii"
+              "slug": "max-consecutive-ones-iii",
+              "difficulty": "Medium"
             },
             {
               "name": "Fruit Into Baskets",
               "platform": "LeetCode",
-              "slug": "fruit-into-baskets"
+              "slug": "fruit-into-baskets",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest Repeating Character Replacement",
               "platform": "LeetCode",
-              "slug": "longest-repeating-character-replacement"
+              "slug": "longest-repeating-character-replacement",
+              "difficulty": "Medium"
             },
             {
               "name": "Binary Subarrays With Sum",
               "platform": "LeetCode",
-              "slug": "binary-subarrays-with-sum"
+              "slug": "binary-subarrays-with-sum",
+              "difficulty": "Medium"
             },
             {
               "name": "Count Number of Nice Subarrays",
               "platform": "LeetCode",
-              "slug": "count-number-of-nice-subarrays"
+              "slug": "count-number-of-nice-subarrays",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Substrings Containing All Three Characters",
               "platform": "LeetCode",
-              "slug": "number-of-substrings-containing-all-three-characters"
+              "slug": "number-of-substrings-containing-all-three-characters",
+              "difficulty": "Medium"
             },
             {
               "name": "Maximum Points You Can Obtain from Cards",
               "platform": "LeetCode",
-              "slug": "maximum-points-you-can-obtain-from-cards"
+              "slug": "maximum-points-you-can-obtain-from-cards",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1292,17 +1475,20 @@
             {
               "name": "Longest Substring with At Most K Distinct Characters",
               "platform": "LeetCode",
-              "slug": "longest-substring-with-at-most-k-distinct-characters"
+              "slug": "longest-substring-with-at-most-k-distinct-characters",
+              "difficulty": "Medium"
             },
             {
               "name": "Subarrays with K Different Integers",
               "platform": "LeetCode",
-              "slug": "subarrays-with-k-different-integers"
+              "slug": "subarrays-with-k-different-integers",
+              "difficulty": "Hard"
             },
             {
               "name": "Minimum Window Substring",
               "platform": "LeetCode",
-              "slug": "minimum-window-substring"
+              "slug": "minimum-window-substring",
+              "difficulty": "Hard"
             }
           ]
         }
@@ -1335,7 +1521,8 @@
             {
               "name": "Kth Largest Element in an Array",
               "platform": "LeetCode",
-              "slug": "kth-largest-element-in-an-array"
+              "slug": "kth-largest-element-in-an-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Kth Smallest Element in an Array",
@@ -1350,22 +1537,26 @@
             {
               "name": "Replace elements by its rank in the array",
               "platform": "LeetCode",
-              "slug": "rank-transform-of-an-array"
+              "slug": "rank-transform-of-an-array",
+              "difficulty": "Easy"
             },
             {
               "name": "Task Scheduler",
               "platform": "LeetCode",
-              "slug": "task-scheduler"
+              "slug": "task-scheduler",
+              "difficulty": "Medium"
             },
             {
               "name": "Hand of Straights",
               "platform": "LeetCode",
-              "slug": "hand-of-straights"
+              "slug": "hand-of-straights",
+              "difficulty": "Medium"
             },
             {
               "name": "Design Twitter",
               "platform": "LeetCode",
-              "slug": "design-twitter"
+              "slug": "design-twitter",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1376,17 +1567,20 @@
             {
               "name": "Find Median from Data Stream",
               "platform": "LeetCode",
-              "slug": "find-median-from-data-stream"
+              "slug": "find-median-from-data-stream",
+              "difficulty": "Hard"
             },
             {
               "name": "Kth Largest Element in a Stream",
               "platform": "LeetCode",
-              "slug": "kth-largest-element-in-a-stream"
+              "slug": "kth-largest-element-in-a-stream",
+              "difficulty": "Easy"
             },
             {
               "name": "Top K Frequent Elements",
               "platform": "LeetCode",
-              "slug": "top-k-frequent-elements"
+              "slug": "top-k-frequent-elements",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -1403,7 +1597,8 @@
             {
               "name": "Assign Cookies",
               "platform": "LeetCode",
-              "slug": "assign-cookies"
+              "slug": "assign-cookies",
+              "difficulty": "Easy"
             },
             {
               "name": "Fractional Knapsack",
@@ -1418,12 +1613,14 @@
             {
               "name": "Lemonade Change",
               "platform": "LeetCode",
-              "slug": "lemonade-change"
+              "slug": "lemonade-change",
+              "difficulty": "Easy"
             },
             {
               "name": "Valid Parenthesis String",
               "platform": "LeetCode",
-              "slug": "valid-parenthesis-string"
+              "slug": "valid-parenthesis-string",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1439,12 +1636,14 @@
             {
               "name": "Jump Game",
               "platform": "LeetCode",
-              "slug": "jump-game"
+              "slug": "jump-game",
+              "difficulty": "Medium"
             },
             {
               "name": "Jump Game II",
               "platform": "LeetCode",
-              "slug": "jump-game-ii"
+              "slug": "jump-game-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Platforms",
@@ -1456,21 +1655,29 @@
               "platform": "GFG",
               "slug": "job-sequencing-problem-1587115620"
             },
-            { "name": "Candy", "platform": "LeetCode", "slug": "candy" },
+            {
+              "name": "Candy",
+              "platform": "LeetCode",
+              "slug": "candy",
+              "difficulty": "Hard"
+            },
             {
               "name": "Insert Interval",
               "platform": "LeetCode",
-              "slug": "insert-interval"
+              "slug": "insert-interval",
+              "difficulty": "Medium"
             },
             {
               "name": "Merge Intervals",
               "platform": "LeetCode",
-              "slug": "merge-intervals"
+              "slug": "merge-intervals",
+              "difficulty": "Medium"
             },
             {
               "name": "Non-overlapping Intervals",
               "platform": "LeetCode",
-              "slug": "non-overlapping-intervals"
+              "slug": "non-overlapping-intervals",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -1487,42 +1694,50 @@
             {
               "name": "Preorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-preorder-traversal"
+              "slug": "binary-tree-preorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Inorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-inorder-traversal"
+              "slug": "binary-tree-inorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Postorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-postorder-traversal"
+              "slug": "binary-tree-postorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Level Order Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-level-order-traversal"
+              "slug": "binary-tree-level-order-traversal",
+              "difficulty": "Medium"
             },
             {
               "name": "Iterative Preorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-preorder-traversal"
+              "slug": "binary-tree-preorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Iterative Inorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-inorder-traversal"
+              "slug": "binary-tree-inorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Iterative Postorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-postorder-traversal"
+              "slug": "binary-tree-postorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Postorder using 1 Stack",
               "platform": "LeetCode",
-              "slug": "binary-tree-postorder-traversal"
+              "slug": "binary-tree-postorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Preorder Inorder Postorder in 1 Traversal",
@@ -1538,32 +1753,38 @@
             {
               "name": "Height of Binary Tree",
               "platform": "LeetCode",
-              "slug": "maximum-depth-of-binary-tree"
+              "slug": "maximum-depth-of-binary-tree",
+              "difficulty": "Easy"
             },
             {
               "name": "Balanced Binary Tree",
               "platform": "LeetCode",
-              "slug": "balanced-binary-tree"
+              "slug": "balanced-binary-tree",
+              "difficulty": "Easy"
             },
             {
               "name": "Diameter of Binary Tree",
               "platform": "LeetCode",
-              "slug": "diameter-of-binary-tree"
+              "slug": "diameter-of-binary-tree",
+              "difficulty": "Easy"
             },
             {
               "name": "Maximum Path Sum",
               "platform": "LeetCode",
-              "slug": "binary-tree-maximum-path-sum"
+              "slug": "binary-tree-maximum-path-sum",
+              "difficulty": "Hard"
             },
             {
               "name": "Same Tree",
               "platform": "LeetCode",
-              "slug": "same-tree"
+              "slug": "same-tree",
+              "difficulty": "Easy"
             },
             {
               "name": "Zigzag Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-zigzag-level-order-traversal"
+              "slug": "binary-tree-zigzag-level-order-traversal",
+              "difficulty": "Medium"
             },
             {
               "name": "Boundary Traversal",
@@ -1573,7 +1794,8 @@
             {
               "name": "Vertical Order Traversal",
               "platform": "LeetCode",
-              "slug": "vertical-order-traversal-of-a-binary-tree"
+              "slug": "vertical-order-traversal-of-a-binary-tree",
+              "difficulty": "Hard"
             },
             {
               "name": "Top View of Binary Tree",
@@ -1588,12 +1810,14 @@
             {
               "name": "Right / Left View of Binary Tree",
               "platform": "LeetCode",
-              "slug": "binary-tree-right-side-view"
+              "slug": "binary-tree-right-side-view",
+              "difficulty": "Medium"
             },
             {
               "name": "Symmetric Tree",
               "platform": "LeetCode",
-              "slug": "symmetric-tree"
+              "slug": "symmetric-tree",
+              "difficulty": "Easy"
             }
           ]
         },
@@ -1609,12 +1833,14 @@
             {
               "name": "Lowest Common Ancestor",
               "platform": "LeetCode",
-              "slug": "lowest-common-ancestor-of-a-binary-tree"
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Maximum Width of Binary Tree",
               "platform": "LeetCode",
-              "slug": "maximum-width-of-binary-tree"
+              "slug": "maximum-width-of-binary-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Children Sum Property",
@@ -1624,7 +1850,8 @@
             {
               "name": "All Nodes at Distance K",
               "platform": "LeetCode",
-              "slug": "all-nodes-distance-k-in-binary-tree"
+              "slug": "all-nodes-distance-k-in-binary-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Time to Burn Tree",
@@ -1634,37 +1861,44 @@
             {
               "name": "Count total Nodes in a Complete Binary Tree",
               "platform": "LeetCode",
-              "slug": "count-complete-tree-nodes"
+              "slug": "count-complete-tree-nodes",
+              "difficulty": "Medium"
             },
             {
               "name": "Construct Binary Tree from Preorder and Inorder",
               "platform": "LeetCode",
-              "slug": "construct-binary-tree-from-preorder-and-inorder-traversal"
+              "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+              "difficulty": "Medium"
             },
             {
               "name": "Construct Binary Tree from Inorder and Postorder",
               "platform": "LeetCode",
-              "slug": "construct-binary-tree-from-inorder-and-postorder-traversal"
+              "slug": "construct-binary-tree-from-inorder-and-postorder-traversal",
+              "difficulty": "Medium"
             },
             {
               "name": "Serialize and Deserialize Binary Tree",
               "platform": "LeetCode",
-              "slug": "serialize-and-deserialize-binary-tree"
+              "slug": "serialize-and-deserialize-binary-tree",
+              "difficulty": "Hard"
             },
             {
               "name": "Morris Preorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-preorder-traversal"
+              "slug": "binary-tree-preorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Morris Inorder Traversal",
               "platform": "LeetCode",
-              "slug": "binary-tree-inorder-traversal"
+              "slug": "binary-tree-inorder-traversal",
+              "difficulty": "Easy"
             },
             {
               "name": "Flatten Binary Tree to LinkedList",
               "platform": "LeetCode",
-              "slug": "flatten-binary-tree-to-linked-list"
+              "slug": "flatten-binary-tree-to-linked-list",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -1681,7 +1915,8 @@
             {
               "name": "Search in a Binary Search Tree",
               "platform": "LeetCode",
-              "slug": "search-in-a-binary-search-tree"
+              "slug": "search-in-a-binary-search-tree",
+              "difficulty": "Easy"
             },
             {
               "name": "Find Min/Max in BST",
@@ -1707,17 +1942,20 @@
             {
               "name": "Insert into a Binary Search Tree",
               "platform": "LeetCode",
-              "slug": "insert-into-a-binary-search-tree"
+              "slug": "insert-into-a-binary-search-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Delete a Node in BST",
               "platform": "LeetCode",
-              "slug": "delete-node-in-a-bst"
+              "slug": "delete-node-in-a-bst",
+              "difficulty": "Medium"
             },
             {
               "name": "Kth Smallest Element in a BST",
               "platform": "LeetCode",
-              "slug": "kth-smallest-element-in-a-bst"
+              "slug": "kth-smallest-element-in-a-bst",
+              "difficulty": "Medium"
             },
             {
               "name": "Kth Largest Element in a BST",
@@ -1727,17 +1965,20 @@
             {
               "name": "Validate Binary Search Tree",
               "platform": "LeetCode",
-              "slug": "validate-binary-search-tree"
+              "slug": "validate-binary-search-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Lowest Common Ancestor of a BST",
               "platform": "LeetCode",
-              "slug": "lowest-common-ancestor-of-a-binary-search-tree"
+              "slug": "lowest-common-ancestor-of-a-binary-search-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Construct BST from Preorder Traversal",
               "platform": "LeetCode",
-              "slug": "construct-binary-search-tree-from-preorder-traversal"
+              "slug": "construct-binary-search-tree-from-preorder-traversal",
+              "difficulty": "Medium"
             },
             {
               "name": "Inorder Successor/Predecessor in BST",
@@ -1747,22 +1988,26 @@
             {
               "name": "Binary Search Tree Iterator",
               "platform": "LeetCode",
-              "slug": "binary-search-tree-iterator"
+              "slug": "binary-search-tree-iterator",
+              "difficulty": "Medium"
             },
             {
               "name": "Two Sum IV - Input is a BST",
               "platform": "LeetCode",
-              "slug": "two-sum-iv-input-is-a-bst"
+              "slug": "two-sum-iv-input-is-a-bst",
+              "difficulty": "Easy"
             },
             {
               "name": "Recover Binary Search Tree",
               "platform": "LeetCode",
-              "slug": "recover-binary-search-tree"
+              "slug": "recover-binary-search-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Largest BST in Binary Tree",
               "platform": "LeetCode",
-              "slug": "maximum-sum-bst-in-binary-tree"
+              "slug": "maximum-sum-bst-in-binary-tree",
+              "difficulty": "Hard"
             }
           ]
         }
@@ -1800,22 +2045,26 @@
             {
               "name": "Number of Provinces",
               "platform": "LeetCode",
-              "slug": "number-of-provinces"
+              "slug": "number-of-provinces",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Islands",
               "platform": "LeetCode",
-              "slug": "number-of-islands"
+              "slug": "number-of-islands",
+              "difficulty": "Medium"
             },
             {
               "name": "Flood Fill",
               "platform": "LeetCode",
-              "slug": "flood-fill"
+              "slug": "flood-fill",
+              "difficulty": "Easy"
             },
             {
               "name": "Rotting Oranges",
               "platform": "LeetCode",
-              "slug": "rotting-oranges"
+              "slug": "rotting-oranges",
+              "difficulty": "Medium"
             },
             {
               "name": "Detect Cycle in Undirected Graph",
@@ -1825,32 +2074,38 @@
             {
               "name": "01 Matrix",
               "platform": "LeetCode",
-              "slug": "01-matrix"
+              "slug": "01-matrix",
+              "difficulty": "Medium"
             },
             {
               "name": "Surrounded Regions",
               "platform": "LeetCode",
-              "slug": "surrounded-regions"
+              "slug": "surrounded-regions",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Enclaves",
               "platform": "LeetCode",
-              "slug": "number-of-enclaves"
+              "slug": "number-of-enclaves",
+              "difficulty": "Medium"
             },
             {
               "name": "Word Ladder I",
               "platform": "LeetCode",
-              "slug": "word-ladder"
+              "slug": "word-ladder",
+              "difficulty": "Hard"
             },
             {
               "name": "Word Ladder II",
               "platform": "LeetCode",
-              "slug": "word-ladder-ii"
+              "slug": "word-ladder-ii",
+              "difficulty": "Hard"
             },
             {
               "name": "Is Graph Bipartite?",
               "platform": "LeetCode",
-              "slug": "is-graph-bipartite"
+              "slug": "is-graph-bipartite",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1876,22 +2131,26 @@
             {
               "name": "Course Schedule I",
               "platform": "LeetCode",
-              "slug": "course-schedule"
+              "slug": "course-schedule",
+              "difficulty": "Medium"
             },
             {
               "name": "Course Schedule II",
               "platform": "LeetCode",
-              "slug": "course-schedule-ii"
+              "slug": "course-schedule-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Find Eventual Safe States",
               "platform": "LeetCode",
-              "slug": "find-eventual-safe-states"
+              "slug": "find-eventual-safe-states",
+              "difficulty": "Medium"
             },
             {
               "name": "Alien Dictionary",
               "platform": "LeetCode",
-              "slug": "alien-dictionary"
+              "slug": "alien-dictionary",
+              "difficulty": "Hard"
             }
           ]
         },
@@ -1922,27 +2181,32 @@
             {
               "name": "Shortest Distance in a Binary Maze",
               "platform": "LeetCode",
-              "slug": "shortest-path-in-binary-matrix"
+              "slug": "shortest-path-in-binary-matrix",
+              "difficulty": "Medium"
             },
             {
               "name": "Path With Minimum Effort",
               "platform": "LeetCode",
-              "slug": "path-with-minimum-effort"
+              "slug": "path-with-minimum-effort",
+              "difficulty": "Medium"
             },
             {
               "name": "Cheapest Flights Within K Stops",
               "platform": "LeetCode",
-              "slug": "cheapest-flights-within-k-stops"
+              "slug": "cheapest-flights-within-k-stops",
+              "difficulty": "Medium"
             },
             {
               "name": "Network Delay Time",
               "platform": "LeetCode",
-              "slug": "network-delay-time"
+              "slug": "network-delay-time",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Ways to Arrive at Destination",
               "platform": "LeetCode",
-              "slug": "number-of-ways-to-arrive-at-destination"
+              "slug": "number-of-ways-to-arrive-at-destination",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Multiplications to reach End",
@@ -1962,7 +2226,8 @@
             {
               "name": "Find the City With Smallest Number of Neighbors",
               "platform": "LeetCode",
-              "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance"
+              "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -1983,37 +2248,44 @@
             {
               "name": "Kruskal's Algorithm",
               "platform": "LeetCode",
-              "slug": "min-cost-to-connect-all-points"
+              "slug": "min-cost-to-connect-all-points",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Operations to Make Network Connected",
               "platform": "LeetCode",
-              "slug": "number-of-operations-to-make-network-connected"
+              "slug": "number-of-operations-to-make-network-connected",
+              "difficulty": "Medium"
             },
             {
               "name": "Most Stones Removed with Same Row or Column",
               "platform": "LeetCode",
-              "slug": "most-stones-removed-with-same-row-or-column"
+              "slug": "most-stones-removed-with-same-row-or-column",
+              "difficulty": "Medium"
             },
             {
               "name": "Accounts Merge",
               "platform": "LeetCode",
-              "slug": "accounts-merge"
+              "slug": "accounts-merge",
+              "difficulty": "Medium"
             },
             {
               "name": "Number of Islands II",
               "platform": "LeetCode",
-              "slug": "number-of-islands-ii"
+              "slug": "number-of-islands-ii",
+              "difficulty": "Hard"
             },
             {
               "name": "Making A Large Island",
               "platform": "LeetCode",
-              "slug": "making-a-large-island"
+              "slug": "making-a-large-island",
+              "difficulty": "Hard"
             },
             {
               "name": "Swim in Rising Water",
               "platform": "LeetCode",
-              "slug": "swim-in-rising-water"
+              "slug": "swim-in-rising-water",
+              "difficulty": "Hard"
             }
           ]
         },
@@ -2024,7 +2296,8 @@
             {
               "name": "Bridges in Graph",
               "platform": "LeetCode",
-              "slug": "critical-connections-in-a-network"
+              "slug": "critical-connections-in-a-network",
+              "difficulty": "Hard"
             },
             {
               "name": "Articulation Point",
@@ -2051,9 +2324,14 @@
             {
               "name": "Climbing Stairs",
               "platform": "LeetCode",
-              "slug": "climbing-stairs"
+              "slug": "climbing-stairs",
+              "difficulty": "Easy"
             },
-            { "name": "Frog Jump", "platform": "GFG", "slug": "geek-jump" },
+            {
+              "name": "Frog Jump",
+              "platform": "GFG",
+              "slug": "geek-jump"
+            },
             {
               "name": "Frog Jump with K distances",
               "platform": "GFG",
@@ -2062,12 +2340,14 @@
             {
               "name": "Maximum sum of non-adjacent elements",
               "platform": "LeetCode",
-              "slug": "house-robber"
+              "slug": "house-robber",
+              "difficulty": "Medium"
             },
             {
               "name": "House Robber II",
               "platform": "LeetCode",
-              "slug": "house-robber-ii"
+              "slug": "house-robber-ii",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -2083,28 +2363,38 @@
             {
               "name": "Grid Unique Paths",
               "platform": "LeetCode",
-              "slug": "unique-paths"
+              "slug": "unique-paths",
+              "difficulty": "Medium"
             },
             {
               "name": "Unique Paths II",
               "platform": "LeetCode",
-              "slug": "unique-paths-ii"
+              "slug": "unique-paths-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Path Sum",
               "platform": "LeetCode",
-              "slug": "minimum-path-sum"
+              "slug": "minimum-path-sum",
+              "difficulty": "Medium"
             },
-            { "name": "Triangle", "platform": "LeetCode", "slug": "triangle" },
+            {
+              "name": "Triangle",
+              "platform": "LeetCode",
+              "slug": "triangle",
+              "difficulty": "Medium"
+            },
             {
               "name": "Minimum Falling Path Sum",
               "platform": "LeetCode",
-              "slug": "minimum-falling-path-sum"
+              "slug": "minimum-falling-path-sum",
+              "difficulty": "Medium"
             },
             {
               "name": "Cherry Pickup II",
               "platform": "LeetCode",
-              "slug": "cherry-pickup-ii"
+              "slug": "cherry-pickup-ii",
+              "difficulty": "Hard"
             }
           ]
         },
@@ -2120,12 +2410,14 @@
             {
               "name": "Partition Equal Subset Sum",
               "platform": "LeetCode",
-              "slug": "partition-equal-subset-sum"
+              "slug": "partition-equal-subset-sum",
+              "difficulty": "Medium"
             },
             {
               "name": "Partition Set Into 2 Subsets With Min Absolute Sum Diff",
               "platform": "LeetCode",
-              "slug": "partition-array-into-two-arrays-to-minimize-sum-difference"
+              "slug": "partition-array-into-two-arrays-to-minimize-sum-difference",
+              "difficulty": "Hard"
             },
             {
               "name": "Count Subsets with Sum K",
@@ -2145,17 +2437,20 @@
             {
               "name": "Coin Change",
               "platform": "LeetCode",
-              "slug": "coin-change"
+              "slug": "coin-change",
+              "difficulty": "Medium"
             },
             {
               "name": "Target Sum",
               "platform": "LeetCode",
-              "slug": "target-sum"
+              "slug": "target-sum",
+              "difficulty": "Medium"
             },
             {
               "name": "Coin Change II",
               "platform": "LeetCode",
-              "slug": "coin-change-ii"
+              "slug": "coin-change-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Unbounded Knapsack",
@@ -2176,7 +2471,8 @@
             {
               "name": "Longest Common Subsequence",
               "platform": "LeetCode",
-              "slug": "longest-common-subsequence"
+              "slug": "longest-common-subsequence",
+              "difficulty": "Medium"
             },
             {
               "name": "Print LCS",
@@ -2186,42 +2482,50 @@
             {
               "name": "Longest Common Substring",
               "platform": "LeetCode",
-              "slug": "maximum-length-of-repeated-subarray"
+              "slug": "maximum-length-of-repeated-subarray",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest Palindromic Subsequence",
               "platform": "LeetCode",
-              "slug": "longest-palindromic-subsequence"
+              "slug": "longest-palindromic-subsequence",
+              "difficulty": "Medium"
             },
             {
               "name": "Minimum Insertions to Make String Palindrome",
               "platform": "LeetCode",
-              "slug": "minimum-insertion-steps-to-make-a-string-palindrome"
+              "slug": "minimum-insertion-steps-to-make-a-string-palindrome",
+              "difficulty": "Hard"
             },
             {
               "name": "Minimum Insertions/Deletions to Convert String",
               "platform": "LeetCode",
-              "slug": "delete-operation-for-two-strings"
+              "slug": "delete-operation-for-two-strings",
+              "difficulty": "Medium"
             },
             {
               "name": "Shortest Common Supersequence",
               "platform": "LeetCode",
-              "slug": "shortest-common-supersequence"
+              "slug": "shortest-common-supersequence",
+              "difficulty": "Hard"
             },
             {
               "name": "Distinct Subsequences",
               "platform": "LeetCode",
-              "slug": "distinct-subsequences"
+              "slug": "distinct-subsequences",
+              "difficulty": "Hard"
             },
             {
               "name": "Edit Distance",
               "platform": "LeetCode",
-              "slug": "edit-distance"
+              "slug": "edit-distance",
+              "difficulty": "Medium"
             },
             {
               "name": "Wildcard Matching",
               "platform": "LeetCode",
-              "slug": "wildcard-matching"
+              "slug": "wildcard-matching",
+              "difficulty": "Hard"
             }
           ]
         },
@@ -2232,32 +2536,38 @@
             {
               "name": "Best Time to Buy and Sell Stock I",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock"
+              "slug": "best-time-to-buy-and-sell-stock",
+              "difficulty": "Easy"
             },
             {
               "name": "Best Time to Buy and Sell Stock II",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock-ii"
+              "slug": "best-time-to-buy-and-sell-stock-ii",
+              "difficulty": "Medium"
             },
             {
               "name": "Best Time to Buy and Sell Stock III",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock-iii"
+              "slug": "best-time-to-buy-and-sell-stock-iii",
+              "difficulty": "Hard"
             },
             {
               "name": "Best Time to Buy and Sell Stock IV",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock-iv"
+              "slug": "best-time-to-buy-and-sell-stock-iv",
+              "difficulty": "Hard"
             },
             {
               "name": "Best Time to Buy and Sell Stock with Cooldown",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock-with-cooldown"
+              "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+              "difficulty": "Medium"
             },
             {
               "name": "Best Time to Buy and Sell Stock with Transaction Fee",
               "platform": "LeetCode",
-              "slug": "best-time-to-buy-and-sell-stock-with-transaction-fee"
+              "slug": "best-time-to-buy-and-sell-stock-with-transaction-fee",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -2268,7 +2578,8 @@
             {
               "name": "Longest Increasing Subsequence",
               "platform": "LeetCode",
-              "slug": "longest-increasing-subsequence"
+              "slug": "longest-increasing-subsequence",
+              "difficulty": "Medium"
             },
             {
               "name": "Print LIS",
@@ -2278,17 +2589,20 @@
             {
               "name": "LIS using Binary Search",
               "platform": "LeetCode",
-              "slug": "longest-increasing-subsequence"
+              "slug": "longest-increasing-subsequence",
+              "difficulty": "Medium"
             },
             {
               "name": "Largest Divisible Subset",
               "platform": "LeetCode",
-              "slug": "largest-divisible-subset"
+              "slug": "largest-divisible-subset",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest String Chain",
               "platform": "LeetCode",
-              "slug": "longest-string-chain"
+              "slug": "longest-string-chain",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest Bitonic Subsequence",
@@ -2298,7 +2612,8 @@
             {
               "name": "Number of Longest Increasing Subsequence",
               "platform": "LeetCode",
-              "slug": "number-of-longest-increasing-subsequence"
+              "slug": "number-of-longest-increasing-subsequence",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -2314,12 +2629,14 @@
             {
               "name": "Minimum Cost to Cut a Stick",
               "platform": "LeetCode",
-              "slug": "minimum-cost-to-cut-a-stick"
+              "slug": "minimum-cost-to-cut-a-stick",
+              "difficulty": "Hard"
             },
             {
               "name": "Burst Balloons",
               "platform": "LeetCode",
-              "slug": "burst-balloons"
+              "slug": "burst-balloons",
+              "difficulty": "Hard"
             },
             {
               "name": "Evaluate Boolean Expression to True",
@@ -2329,12 +2646,14 @@
             {
               "name": "Palindrome Partitioning II",
               "platform": "LeetCode",
-              "slug": "palindrome-partitioning-ii"
+              "slug": "palindrome-partitioning-ii",
+              "difficulty": "Hard"
             },
             {
               "name": "Partition Array for Maximum Sum",
               "platform": "LeetCode",
-              "slug": "partition-array-for-maximum-sum"
+              "slug": "partition-array-for-maximum-sum",
+              "difficulty": "Medium"
             }
           ]
         },
@@ -2345,12 +2664,14 @@
             {
               "name": "Maximal Rectangle",
               "platform": "LeetCode",
-              "slug": "maximal-rectangle"
+              "slug": "maximal-rectangle",
+              "difficulty": "Hard"
             },
             {
               "name": "Count Square Submatrices with All Ones",
               "platform": "LeetCode",
-              "slug": "count-square-submatrices-with-all-ones"
+              "slug": "count-square-submatrices-with-all-ones",
+              "difficulty": "Medium"
             }
           ]
         }
@@ -2367,7 +2688,8 @@
             {
               "name": "Implement Trie (Prefix Tree)",
               "platform": "LeetCode",
-              "slug": "implement-trie-prefix-tree"
+              "slug": "implement-trie-prefix-tree",
+              "difficulty": "Medium"
             },
             {
               "name": "Implement Trie II (Prefix Tree)",
@@ -2398,12 +2720,14 @@
             {
               "name": "Maximum XOR of Two Numbers in an Array",
               "platform": "LeetCode",
-              "slug": "maximum-xor-of-two-numbers-in-an-array"
+              "slug": "maximum-xor-of-two-numbers-in-an-array",
+              "difficulty": "Medium"
             },
             {
               "name": "Maximum XOR With an Element From Array",
               "platform": "LeetCode",
-              "slug": "maximum-xor-with-an-element-from-array"
+              "slug": "maximum-xor-with-an-element-from-array",
+              "difficulty": "Hard"
             }
           ]
         }
@@ -2420,27 +2744,32 @@
             {
               "name": "Reverse Words in a String",
               "platform": "LeetCode",
-              "slug": "reverse-words-in-a-string"
+              "slug": "reverse-words-in-a-string",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest Palindromic Substring",
               "platform": "LeetCode",
-              "slug": "longest-palindromic-substring"
+              "slug": "longest-palindromic-substring",
+              "difficulty": "Medium"
             },
             {
               "name": "Roman to Integer",
               "platform": "LeetCode",
-              "slug": "roman-to-integer"
+              "slug": "roman-to-integer",
+              "difficulty": "Easy"
             },
             {
               "name": "String to Integer (atoi)",
               "platform": "LeetCode",
-              "slug": "string-to-integer-atoi"
+              "slug": "string-to-integer-atoi",
+              "difficulty": "Medium"
             },
             {
               "name": "Longest Common Prefix",
               "platform": "LeetCode",
-              "slug": "longest-common-prefix"
+              "slug": "longest-common-prefix",
+              "difficulty": "Easy"
             },
             {
               "name": "Rabin Karp Pattern Matching",

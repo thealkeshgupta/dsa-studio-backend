@@ -20,7 +20,6 @@ async function fetchLeetCodeGraphQL(query, variables = {}) {
       "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
   };
 
-  // Crucial for preventing the 500 HTML error on mutations (like saving notes)
   if (process.env.CSRF_TOKEN) {
     headers["X-CSRFToken"] = process.env.CSRF_TOKEN;
   }
@@ -119,10 +118,12 @@ app.get("/api/problems", async (req, res) => {
   const skip = parseInt(req.query.skip) || 0;
   const searchKeyword = req.query.search || "";
   const tags = req.query.tags ? req.query.tags.split(",") : [];
+  const difficulty = req.query.difficulty || "";
 
   const filters = {};
   if (searchKeyword) filters.searchKeywords = searchKeyword;
   if (tags.length > 0) filters.tags = tags;
+  if (difficulty) filters.difficulty = difficulty.toUpperCase();
 
   try {
     const data = await fetchLeetCodeGraphQL(
@@ -240,8 +241,6 @@ app.get("/api/lists/:id", (req, res) => {
 });
 
 // --- ENDPOINTS: WORKSPACE PRO FEATURES (NOTES & SUBMISSIONS) ---
-
-// 1. Fetch Past Submissions List
 app.get("/api/submissions/:slug", async (req, res) => {
   try {
     const data = await fetchLeetCodeGraphQL(
@@ -258,7 +257,6 @@ app.get("/api/submissions/:slug", async (req, res) => {
   }
 });
 
-// 2. Fetch Specific Submission Detail (with submitted code)
 app.get("/api/submission/:id", async (req, res) => {
   try {
     const subData = await fetchLeetCodeGraphQL(
@@ -275,7 +273,6 @@ app.get("/api/submission/:id", async (req, res) => {
   }
 });
 
-// 3. Fetch User Notes
 app.get("/api/notes/:slug", async (req, res) => {
   try {
     const data = await fetchLeetCodeGraphQL(
@@ -290,7 +287,6 @@ app.get("/api/notes/:slug", async (req, res) => {
   }
 });
 
-// 4. Save User Notes to LeetCode (Fixed GraphQL Mutation)
 app.post("/api/notes/:slug", async (req, res) => {
   try {
     const { note } = req.body;
@@ -306,6 +302,212 @@ app.post("/api/notes/:slug", async (req, res) => {
     res.json({ success: true, data });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// --- OPTION 1: IMAGE PROXY ENDPOINT ---
+app.get("/api/pro-image", async (req, res) => {
+  try {
+    const imageUrl = req.query.url;
+    if (!imageUrl) return res.status(400).send("Missing url parameter");
+
+    const response = await fetch(imageUrl, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        Referer: "https://leetcode.com/",
+      },
+    });
+
+    if (!response.ok) throw new Error("Failed to fetch image");
+
+    const contentType = response.headers.get("content-type");
+    res.setHeader("Content-Type", contentType);
+
+    const buffer = await response.arrayBuffer();
+    res.send(Buffer.from(buffer));
+  } catch (error) {
+    res.status(500).send("Error proxying image");
+  }
+});
+
+// --- NEW ENDPOINTS: COMPANY WISE ARCHIVES ---
+let allCompaniesCache = [];
+const companyDataCache = {};
+
+app.get("/api/companies", async (req, res) => {
+  if (allCompaniesCache.length > 0) return res.json(allCompaniesCache);
+
+  const topCompanies = [
+    {
+      name: "Amazon",
+      slug: "Amazon",
+      logo: "https://logo.clearbit.com/amazon.com",
+      count: 1452,
+    },
+    {
+      name: "Google",
+      slug: "Google",
+      logo: "https://logo.clearbit.com/google.com",
+      count: 1210,
+    },
+    {
+      name: "Meta",
+      slug: "Facebook",
+      logo: "https://logo.clearbit.com/meta.com",
+      count: 987,
+    },
+    {
+      name: "Microsoft",
+      slug: "Microsoft",
+      logo: "https://logo.clearbit.com/microsoft.com",
+      count: 850,
+    },
+    {
+      name: "Apple",
+      slug: "Apple",
+      logo: "https://logo.clearbit.com/apple.com",
+      count: 650,
+    },
+    {
+      name: "Bloomberg",
+      slug: "Bloomberg",
+      logo: "https://logo.clearbit.com/bloomberg.com",
+      count: 540,
+    },
+    {
+      name: "Uber",
+      slug: "Uber",
+      logo: "https://logo.clearbit.com/uber.com",
+      count: 430,
+    },
+    {
+      name: "Adobe",
+      slug: "Adobe",
+      logo: "https://logo.clearbit.com/adobe.com",
+      count: 390,
+    },
+    {
+      name: "ByteDance",
+      slug: "ByteDance",
+      logo: "https://logo.clearbit.com/bytedance.com",
+      count: 310,
+    },
+    {
+      name: "Goldman Sachs",
+      slug: "Goldman%20Sachs",
+      logo: "https://logo.clearbit.com/goldmansachs.com",
+      count: 280,
+    },
+  ];
+
+  try {
+    const response = await fetch(
+      "https://api.github.com/repos/liquidslr/leetcode-company-wise-problems/contents/",
+    );
+    const data = await response.json();
+
+    if (Array.isArray(data)) {
+      const fetchedCompanies = data
+        .filter((item) => item.type === "dir" && !item.name.startsWith("."))
+        .map((dir) => ({
+          name: decodeURIComponent(dir.name).replace("Facebook", "Meta"),
+          slug: dir.name,
+          logo: null,
+          count: null,
+        }));
+
+      const topSlugs = topCompanies.map((c) =>
+        decodeURIComponent(c.slug).toLowerCase(),
+      );
+      const remaining = fetchedCompanies.filter(
+        (c) => !topSlugs.includes(decodeURIComponent(c.slug).toLowerCase()),
+      );
+
+      allCompaniesCache = [...topCompanies, ...remaining];
+      return res.json(allCompaniesCache);
+    }
+    res.json(topCompanies);
+  } catch (error) {
+    res.json(topCompanies);
+  }
+});
+
+app.get("/api/companies/:company", async (req, res) => {
+  const company = req.params.company;
+  const timeframes = [
+    { id: "30_days", file: "1.%20Thirty%20Days.csv" },
+    { id: "3_months", file: "2.%20Three%20Months.csv" },
+    { id: "6_months", file: "3.%20Six%20Months.csv" },
+    { id: "more_than_6_months", file: "4.%20More%20Than%20Six%20Months.csv" },
+    { id: "all_time", file: "5.%20All.csv" },
+  ];
+
+  if (companyDataCache[company]) {
+    return res.json(companyDataCache[company]);
+  }
+
+  try {
+    const results = {};
+    for (const tf of timeframes) {
+      const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${company}/${tf.file}`;
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        results[tf.id] = [];
+        continue;
+      }
+
+      const csvText = await response.text();
+      const lines = csvText
+        .split("\n")
+        .map((l) => l.trim())
+        .filter((l) => l);
+      const parsed = [];
+
+      if (lines.length > 0) {
+        const headers = lines[0]
+          .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+          .map((h) => h.replace(/^"|"$/g, "").trim().toLowerCase());
+        const idIdx = headers.findIndex((h) => h === "id");
+        const titleIdx = headers.findIndex((h) => h === "title");
+        const diffIdx = headers.findIndex((h) => h === "difficulty");
+        const freqIdx = headers.findIndex((h) => h === "frequency");
+        const linkIdx = headers.findIndex(
+          (h) => h.includes("link") || h.includes("url"),
+        );
+
+        for (let i = 1; i < lines.length; i++) {
+          const cols = lines[i]
+            .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+            .map((c) => c.replace(/^"|"$/g, ""));
+          if (cols.length > Math.max(idIdx, titleIdx, linkIdx)) {
+            let link =
+              linkIdx >= 0 && cols[linkIdx] ? cols[linkIdx].trim() : "";
+            let slug = "";
+            const match = link.match(/problems\/([^/]+)/);
+            if (match) slug = match[1];
+
+            parsed.push({
+              id: idIdx >= 0 && cols[idIdx] ? cols[idIdx].trim() : "",
+              title:
+                titleIdx >= 0 && cols[titleIdx] ? cols[titleIdx].trim() : "",
+              difficulty:
+                diffIdx >= 0 && cols[diffIdx] ? cols[diffIdx].trim() : "Medium",
+              frequency:
+                freqIdx >= 0 && cols[freqIdx] ? cols[freqIdx].trim() : "",
+              slug: slug,
+            });
+          }
+        }
+      }
+      results[tf.id] = parsed;
+    }
+
+    companyDataCache[company] = results;
+    res.json(results);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch company data" });
   }
 });
 
@@ -535,33 +737,6 @@ async function executeOnLeetCode(problemSlug, codeString, action = "submit") {
     return { success: false, error: error.message };
   }
 }
-
-// --- OPTION 1: IMAGE PROXY ENDPOINT ---
-app.get("/api/pro-image", async (req, res) => {
-  try {
-    const imageUrl = req.query.url;
-    if (!imageUrl) return res.status(400).send("Missing url parameter");
-
-    const response = await fetch(imageUrl, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-        Referer: "https://leetcode.com/",
-      },
-    });
-
-    if (!response.ok) throw new Error("Failed to fetch image");
-
-    // Pass the original image content type back to the browser
-    const contentType = response.headers.get("content-type");
-    res.setHeader("Content-Type", contentType);
-
-    const buffer = await response.arrayBuffer();
-    res.send(Buffer.from(buffer));
-  } catch (error) {
-    res.status(500).send("Error proxying image");
-  }
-});
 
 app.post("/api/run", async (req, res) => {
   const result = await executeOnLeetCode(

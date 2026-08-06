@@ -12,21 +12,96 @@
           "subTopicId": "1.1",
           "title": "Microsoft Top 15",
           "problems": [
-            { "name": "Evaluate Reverse Polish Notation", "platform": "LeetCode", "slug": "evaluate-reverse-polish-notation" },
-            { "name": "Combination Sum III", "platform": "LeetCode", "slug": "combination-sum-iii" },
-            { "name": "Bulls and Cows", "platform": "LeetCode", "slug": "bulls-and-cows" },
-            { "name": "Rotate Function", "platform": "LeetCode", "slug": "rotate-function" },
-            { "name": "Largest Divisible Subset", "platform": "LeetCode", "slug": "largest-divisible-subset" },
-            { "name": "Perfect Rectangle", "platform": "LeetCode", "slug": "perfect-rectangle" },
-            { "name": "Course Schedule", "platform": "LeetCode", "slug": "course-schedule" },
-            { "name": "Most Profitable Path in a Tree", "platform": "LeetCode", "slug": "most-profitable-path-in-a-tree" },
-            { "name": "Number of Pairs Satisfying Inequality", "platform": "LeetCode", "slug": "number-of-pairs-satisfying-inequality" },
-            { "name": "Shortest Unsorted Continuous Subarray", "platform": "LeetCode", "slug": "shortest-unsorted-continuous-subarray" },
-            { "name": "Number of Ways to Arrive at Destination", "platform": "LeetCode", "slug": "number-of-ways-to-arrive-at-destination" },
-            { "name": "Longest Happy Prefix", "platform": "LeetCode", "slug": "longest-happy-prefix" },
-            { "name": "Seat Reservation Manager", "platform": "LeetCode", "slug": "seat-reservation-manager" },
-            { "name": "Minimum Deletions to Make Array Divisible", "platform": "LeetCode", "slug": "minimum-deletions-to-make-array-divisible" },
-            { "name": "Number of Substrings Containing All Three Characters", "platform": "LeetCode", "slug": "number-of-substrings-containing-all-three-characters" }
+            {
+              "name": "Evaluate Reverse Polish Notation",
+              "platform": "LeetCode",
+              "slug": "evaluate-reverse-polish-notation",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Combination Sum III",
+              "platform": "LeetCode",
+              "slug": "combination-sum-iii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Bulls and Cows",
+              "platform": "LeetCode",
+              "slug": "bulls-and-cows",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Rotate Function",
+              "platform": "LeetCode",
+              "slug": "rotate-function",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Largest Divisible Subset",
+              "platform": "LeetCode",
+              "slug": "largest-divisible-subset",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Perfect Rectangle",
+              "platform": "LeetCode",
+              "slug": "perfect-rectangle",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Course Schedule",
+              "platform": "LeetCode",
+              "slug": "course-schedule",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Most Profitable Path in a Tree",
+              "platform": "LeetCode",
+              "slug": "most-profitable-path-in-a-tree",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Pairs Satisfying Inequality",
+              "platform": "LeetCode",
+              "slug": "number-of-pairs-satisfying-inequality",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Shortest Unsorted Continuous Subarray",
+              "platform": "LeetCode",
+              "slug": "shortest-unsorted-continuous-subarray",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Ways to Arrive at Destination",
+              "platform": "LeetCode",
+              "slug": "number-of-ways-to-arrive-at-destination",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Longest Happy Prefix",
+              "platform": "LeetCode",
+              "slug": "longest-happy-prefix",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Seat Reservation Manager",
+              "platform": "LeetCode",
+              "slug": "seat-reservation-manager",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Minimum Deletions to Make Array Divisible",
+              "platform": "LeetCode",
+              "slug": "minimum-deletions-to-make-array-divisible",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Number of Substrings Containing All Three Characters",
+              "platform": "LeetCode",
+              "slug": "number-of-substrings-containing-all-three-characters",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -39,21 +114,96 @@
           "subTopicId": "2.1",
           "title": "Goldman Sachs Top 15",
           "problems": [
-            { "name": "Max Points on a Line", "platform": "LeetCode", "slug": "max-points-on-a-line" },
-            { "name": "Valid Square", "platform": "LeetCode", "slug": "valid-square" },
-            { "name": "Factorial Trailing Zeroes", "platform": "LeetCode", "slug": "factorial-trailing-zeroes" },
-            { "name": "Number of Boomerangs", "platform": "LeetCode", "slug": "number-of-boomerangs" },
-            { "name": "Split Array into Consecutive Subsequences", "platform": "LeetCode", "slug": "split-array-into-consecutive-subsequences" },
-            { "name": "Minimum Consecutive Cards to Pick Up", "platform": "LeetCode", "slug": "minimum-consecutive-cards-to-pick-up" },
-            { "name": "Count Good Triplets in an Array", "platform": "LeetCode", "slug": "count-good-triplets-in-an-array" },
-            { "name": "Maximum Points in an Archery Competition", "platform": "LeetCode", "slug": "maximum-points-in-an-archery-competition" },
-            { "name": "Initial Public Offering (IPO)", "platform": "LeetCode", "slug": "ipo" },
-            { "name": "Number of People Aware of a Secret", "platform": "LeetCode", "slug": "number-of-people-aware-of-a-secret" },
-            { "name": "Invalid Transactions", "platform": "LeetCode", "slug": "invalid-transactions" },
-            { "name": "All Elements in Two Binary Search Trees", "platform": "LeetCode", "slug": "all-elements-in-two-binary-search-trees" },
-            { "name": "Rhombus Sums in a Grid", "platform": "LeetCode", "slug": "get-biggest-three-rhombus-sums-in-a-grid" },
-            { "name": "Count Nice Pairs in an Array", "platform": "LeetCode", "slug": "count-nice-pairs-in-an-array" },
-            { "name": "Maximum Good People Based on Statements", "platform": "LeetCode", "slug": "maximum-good-people-based-on-statements" }
+            {
+              "name": "Max Points on a Line",
+              "platform": "LeetCode",
+              "slug": "max-points-on-a-line",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Valid Square",
+              "platform": "LeetCode",
+              "slug": "valid-square",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Factorial Trailing Zeroes",
+              "platform": "LeetCode",
+              "slug": "factorial-trailing-zeroes",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Boomerangs",
+              "platform": "LeetCode",
+              "slug": "number-of-boomerangs",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Split Array into Consecutive Subsequences",
+              "platform": "LeetCode",
+              "slug": "split-array-into-consecutive-subsequences",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Minimum Consecutive Cards to Pick Up",
+              "platform": "LeetCode",
+              "slug": "minimum-consecutive-cards-to-pick-up",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Count Good Triplets in an Array",
+              "platform": "LeetCode",
+              "slug": "count-good-triplets-in-an-array",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Maximum Points in an Archery Competition",
+              "platform": "LeetCode",
+              "slug": "maximum-points-in-an-archery-competition",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Initial Public Offering (IPO)",
+              "platform": "LeetCode",
+              "slug": "ipo",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Number of People Aware of a Secret",
+              "platform": "LeetCode",
+              "slug": "number-of-people-aware-of-a-secret",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Invalid Transactions",
+              "platform": "LeetCode",
+              "slug": "invalid-transactions",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "All Elements in Two Binary Search Trees",
+              "platform": "LeetCode",
+              "slug": "all-elements-in-two-binary-search-trees",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Rhombus Sums in a Grid",
+              "platform": "LeetCode",
+              "slug": "get-biggest-three-rhombus-sums-in-a-grid",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Count Nice Pairs in an Array",
+              "platform": "LeetCode",
+              "slug": "count-nice-pairs-in-an-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Good People Based on Statements",
+              "platform": "LeetCode",
+              "slug": "maximum-good-people-based-on-statements",
+              "difficulty": "Hard"
+            }
           ]
         }
       ]
@@ -66,21 +216,95 @@
           "subTopicId": "3.1",
           "title": "Walmart Top 15",
           "problems": [
-            { "name": "Path with Maximum Probability", "platform": "LeetCode", "slug": "path-with-maximum-probability" },
-            { "name": "Find the City With the Smallest Number of Neighbors at a Threshold Distance", "platform": "LeetCode", "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance" },
-            { "name": "Amount of Time for Gibberish", "platform": "LeetCode", "slug": "amount-of-time-for-tree-to-be-infected" },
-            { "name": "Number of Restricted Paths From First to Last Node", "platform": "LeetCode", "slug": "number-of-restricted-paths-from-first-to-last-node" },
-            { "name": "Transform to Chessboard", "platform": "LeetCode", "slug": "transform-to-chessboard" },
-            { "name": "Power of Hero", "platform": "LeetCode", "slug": "power-of-heroes" },
-            { "name": "Find Array Given Subset Sums", "platform": "LeetCode", "slug": "find-array-given-subset-sums" },
-            { "name": "Maximum Length of Repeated Subarray", "platform": "LeetCode", "slug": "maximum-length-of-repeated-subarray" },
-            { "name": "Guess Number Higher or Lower II", "platform": "LeetCode", "slug": "guess-number-higher-or-lower-ii" },
-            { "name": "Generate Random Point in a Circle", "platform": "LeetCode", "slug": "generate-random-point-in-a-circle" },
-            { "name": "Maximum Performance of a Team", "platform": "LeetCode", "slug": "maximum-performance-of-a-team" },
-            { "name": "Find the Kth Largest Integer in the Array", "platform": "LeetCode", "slug": "find-the-kth-largest-integer-in-the-array" },
-            { "name": "Sort Characters By Frequency", "platform": "LeetCode", "slug": "sort-characters-by-frequency" },
-            { "name": "Word Break", "platform": "LeetCode", "slug": "word-break" },
-            { "name": "Divide Two Integers", "platform": "LeetCode", "slug": "divide-two-integers" }
+            {
+              "name": "Path with Maximum Probability",
+              "platform": "LeetCode",
+              "slug": "path-with-maximum-probability",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the City With the Smallest Number of Neighbors at a Threshold Distance",
+              "platform": "LeetCode",
+              "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Amount of Time for Gibberish",
+              "platform": "LeetCode",
+              "slug": "amount-of-time-for-tree-to-be-infected"
+            },
+            {
+              "name": "Number of Restricted Paths From First to Last Node",
+              "platform": "LeetCode",
+              "slug": "number-of-restricted-paths-from-first-to-last-node",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Transform to Chessboard",
+              "platform": "LeetCode",
+              "slug": "transform-to-chessboard",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Power of Hero",
+              "platform": "LeetCode",
+              "slug": "power-of-heroes",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Find Array Given Subset Sums",
+              "platform": "LeetCode",
+              "slug": "find-array-given-subset-sums",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Maximum Length of Repeated Subarray",
+              "platform": "LeetCode",
+              "slug": "maximum-length-of-repeated-subarray",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Guess Number Higher or Lower II",
+              "platform": "LeetCode",
+              "slug": "guess-number-higher-or-lower-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Generate Random Point in a Circle",
+              "platform": "LeetCode",
+              "slug": "generate-random-point-in-a-circle",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Performance of a Team",
+              "platform": "LeetCode",
+              "slug": "maximum-performance-of-a-team",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Find the Kth Largest Integer in the Array",
+              "platform": "LeetCode",
+              "slug": "find-the-kth-largest-integer-in-the-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Sort Characters By Frequency",
+              "platform": "LeetCode",
+              "slug": "sort-characters-by-frequency",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Word Break",
+              "platform": "LeetCode",
+              "slug": "word-break",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Divide Two Integers",
+              "platform": "LeetCode",
+              "slug": "divide-two-integers",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -93,21 +317,96 @@
           "subTopicId": "4.1",
           "title": "Amazon Top 15",
           "problems": [
-            { "name": "Shuffle an Array", "platform": "LeetCode", "slug": "shuffle-an-array" },
-            { "name": "Cheapest Flights Within K Stops", "platform": "LeetCode", "slug": "cheapest-flights-within-k-stops" },
-            { "name": "Split a String Into the Max Number of Unique Substrings", "platform": "LeetCode", "slug": "split-a-string-into-the-max-number-of-unique-substrings" },
-            { "name": "Tweet Counts Per Frequency", "platform": "LeetCode", "slug": "tweet-counts-per-frequency" },
-            { "name": "Maximum Sum of an Hourglass", "platform": "LeetCode", "slug": "maximum-sum-of-an-hourglass" },
-            { "name": "Maximum Subarray Min-Product", "platform": "LeetCode", "slug": "maximum-subarray-min-product" },
-            { "name": "Dota2 Senate", "platform": "LeetCode", "slug": "dota2-senate" },
-            { "name": "Destroying Asteroids", "platform": "LeetCode", "slug": "destroying-asteroids" },
-            { "name": "Most Popular Video Creator", "platform": "LeetCode", "slug": "most-popular-video-creator" },
-            { "name": "Number of Matching Subsequences", "platform": "LeetCode", "slug": "number-of-matching-subsequences" },
-            { "name": "Number of Ways to Reach a Position After Exactly k Steps", "platform": "LeetCode", "slug": "number-of-ways-to-reach-a-position-after-exactly-k-steps" },
-            { "name": "Maximum Length of a Concatenated String with Unique Characters", "platform": "LeetCode", "slug": "maximum-length-of-a-concatenated-string-with-unique-characters" },
-            { "name": "Top K Frequent Words", "platform": "LeetCode", "slug": "top-k-frequent-words" },
-            { "name": "Last Stone Weight II", "platform": "LeetCode", "slug": "last-stone-weight-ii" },
-            { "name": "Generate Random Point in a Circle", "platform": "LeetCode", "slug": "generate-random-point-in-a-circle" }
+            {
+              "name": "Shuffle an Array",
+              "platform": "LeetCode",
+              "slug": "shuffle-an-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Cheapest Flights Within K Stops",
+              "platform": "LeetCode",
+              "slug": "cheapest-flights-within-k-stops",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Split a String Into the Max Number of Unique Substrings",
+              "platform": "LeetCode",
+              "slug": "split-a-string-into-the-max-number-of-unique-substrings",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Tweet Counts Per Frequency",
+              "platform": "LeetCode",
+              "slug": "tweet-counts-per-frequency",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Sum of an Hourglass",
+              "platform": "LeetCode",
+              "slug": "maximum-sum-of-an-hourglass",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Subarray Min-Product",
+              "platform": "LeetCode",
+              "slug": "maximum-subarray-min-product",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Dota2 Senate",
+              "platform": "LeetCode",
+              "slug": "dota2-senate",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Destroying Asteroids",
+              "platform": "LeetCode",
+              "slug": "destroying-asteroids",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Most Popular Video Creator",
+              "platform": "LeetCode",
+              "slug": "most-popular-video-creator",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Matching Subsequences",
+              "platform": "LeetCode",
+              "slug": "number-of-matching-subsequences",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Ways to Reach a Position After Exactly k Steps",
+              "platform": "LeetCode",
+              "slug": "number-of-ways-to-reach-a-position-after-exactly-k-steps",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Length of a Concatenated String with Unique Characters",
+              "platform": "LeetCode",
+              "slug": "maximum-length-of-a-concatenated-string-with-unique-characters",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Top K Frequent Words",
+              "platform": "LeetCode",
+              "slug": "top-k-frequent-words",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Last Stone Weight II",
+              "platform": "LeetCode",
+              "slug": "last-stone-weight-ii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Generate Random Point in a Circle",
+              "platform": "LeetCode",
+              "slug": "generate-random-point-in-a-circle",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -120,21 +419,95 @@
           "subTopicId": "5.1",
           "title": "Atlassian Top 15",
           "problems": [
-            { "name": "Assign Cookies", "platform": "LeetCode", "slug": "assign-cookies" },
-            { "name": "Throne Inheritance", "platform": "LeetCode", "slug": "throne-inheritance" },
-            { "name": "Kth Largest Element in a Stream", "platform": "LeetCode", "slug": "kth-largest-element-in-a-stream" },
-            { "name": "Maximize Area of Square Hole in Grid", "platform": "LeetCode", "slug": "maximize-area-of-square-hole-in-grid" },
-            { "name": "LRU Cache", "platform": "LeetCode", "slug": "lru-cache" },
-            { "name": "Find the Distance Value Between Two Arrays", "platform": "LeetCode", "slug": "find-the-distance-value-between-two-arrays" },
-            { "name": "Count Words Obtained After Adding a Letter", "platform": "LeetCode", "slug": "count-words-obtained-after-adding-a-letter" },
-            { "name": "Find Beautiful Indices in the Given Array I", "platform": "LeetCode", "slug": "find-beautiful-indices-in-the-given-array-i" },
-            { "name": "Minimum Non-Zero Product of the Array Elements", "platform": "LeetCode", "slug": "minimum-non-zero-product-of-the-array-elements" },
-            { "name": "Query Kth Smallest Trimmed Subarray", "platform": "LeetCode", "slug": "query-kth-smallest-trimmed-subarray" },
-            { "name": "The Number of Good Subsets", "platform": "LeetCode", "slug": "the-number-of-good-subsets" },
-            { "name": "Count Collisions on a Road", "platform": "LeetCode", "slug": "count-collisions-on-a-road" },
-            { "name": "Find the Distance Value Between Two Arrays", "platform": "LeetCode", "slug": "find-the-distance-value-between-two-arrays" },
-            { "name": "Length of Longest Subarray With at Most K Frequency", "platform": "LeetCode", "slug": "length-of-longest-subarray-with-at-most-k-frequency" },
-            { "name": "Construct the Lexicographically Largest Valid Sequence", "platform": "LeetCode", "slug": "construct-the-lexicographically-largest-valid-sequence" }
+            {
+              "name": "Assign Cookies",
+              "platform": "LeetCode",
+              "slug": "assign-cookies",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Throne Inheritance",
+              "platform": "LeetCode",
+              "slug": "throne-inheritance",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Kth Largest Element in a Stream",
+              "platform": "LeetCode",
+              "slug": "kth-largest-element-in-a-stream",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Maximize Area of Square Hole in Grid",
+              "platform": "LeetCode",
+              "slug": "maximize-area-of-square-hole-in-grid",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "LRU Cache",
+              "platform": "LeetCode",
+              "slug": "lru-cache",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the Distance Value Between Two Arrays",
+              "platform": "LeetCode",
+              "slug": "find-the-distance-value-between-two-arrays",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Count Words Obtained After Adding a Letter",
+              "platform": "LeetCode",
+              "slug": "count-words-obtained-after-adding-a-letter",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find Beautiful Indices in the Given Array I",
+              "platform": "LeetCode",
+              "slug": "find-beautiful-indices-in-the-given-array-i",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Minimum Non-Zero Product of the Array Elements",
+              "platform": "LeetCode",
+              "slug": "minimum-non-zero-product-of-the-array-elements",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Query Kth Smallest Trimmed Subarray",
+              "platform": "LeetCode",
+              "slug": "query-kth-smallest-trimmed-subarray"
+            },
+            {
+              "name": "The Number of Good Subsets",
+              "platform": "LeetCode",
+              "slug": "the-number-of-good-subsets",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Count Collisions on a Road",
+              "platform": "LeetCode",
+              "slug": "count-collisions-on-a-road",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the Distance Value Between Two Arrays",
+              "platform": "LeetCode",
+              "slug": "find-the-distance-value-between-two-arrays",
+              "difficulty": "Easy"
+            },
+            {
+              "name": "Length of Longest Subarray With at Most K Frequency",
+              "platform": "LeetCode",
+              "slug": "length-of-longest-subarray-with-at-most-k-frequency",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Construct the Lexicographically Largest Valid Sequence",
+              "platform": "LeetCode",
+              "slug": "construct-the-lexicographically-largest-valid-sequence",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
@@ -147,21 +520,96 @@
           "subTopicId": "6.1",
           "title": "Google Top 15",
           "problems": [
-            { "name": "Maximum Product After K Increments", "platform": "LeetCode", "slug": "maximum-product-after-k-increments" },
-            { "name": "Sort an Array", "platform": "LeetCode", "slug": "sort-an-array" },
-            { "name": "Integer to English Words", "platform": "LeetCode", "slug": "integer-to-english-words" },
-            { "name": "Design Add and Search Words Data Structure", "platform": "LeetCode", "slug": "design-add-and-search-words-data-structure" },
-            { "name": "Maximum Good People Based on Statements", "platform": "LeetCode", "slug": "maximum-good-people-based-on-statements" },
-            { "name": "Matrix Block Sum", "platform": "LeetCode", "slug": "matrix-block-sum" },
-            { "name": "Count Subtrees With Max Distance Between Cities", "platform": "LeetCode", "slug": "count-subtrees-with-max-distance-between-cities" },
-            { "name": "Random Pick with Weight", "platform": "LeetCode", "slug": "random-pick-with-weight" },
-            { "name": "Maximum Number of Coins You Can Get", "platform": "LeetCode", "slug": "maximum-number-of-coins-you-can-get" },
-            { "name": "Network Delay Time", "platform": "LeetCode", "slug": "network-delay-time" },
-            { "name": "Strictly Palindromic Number", "platform": "LeetCode", "slug": "strictly-palindromic-number" },
-            { "name": "Restore IP Addresses", "platform": "LeetCode", "slug": "restore-ip-addresses" },
-            { "name": "Find the City With the Smallest Number of Neighbors at a Threshold Distance", "platform": "LeetCode", "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance" },
-            { "name": "Stone Game VII", "platform": "LeetCode", "slug": "stone-game-vii" },
-            { "name": "Number of Closed Islands", "platform": "LeetCode", "slug": "number-of-closed-islands" }
+            {
+              "name": "Maximum Product After K Increments",
+              "platform": "LeetCode",
+              "slug": "maximum-product-after-k-increments",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Sort an Array",
+              "platform": "LeetCode",
+              "slug": "sort-an-array",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Integer to English Words",
+              "platform": "LeetCode",
+              "slug": "integer-to-english-words",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Design Add and Search Words Data Structure",
+              "platform": "LeetCode",
+              "slug": "design-add-and-search-words-data-structure",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Good People Based on Statements",
+              "platform": "LeetCode",
+              "slug": "maximum-good-people-based-on-statements",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Matrix Block Sum",
+              "platform": "LeetCode",
+              "slug": "matrix-block-sum",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Count Subtrees With Max Distance Between Cities",
+              "platform": "LeetCode",
+              "slug": "count-subtrees-with-max-distance-between-cities",
+              "difficulty": "Hard"
+            },
+            {
+              "name": "Random Pick with Weight",
+              "platform": "LeetCode",
+              "slug": "random-pick-with-weight",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Maximum Number of Coins You Can Get",
+              "platform": "LeetCode",
+              "slug": "maximum-number-of-coins-you-can-get",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Network Delay Time",
+              "platform": "LeetCode",
+              "slug": "network-delay-time",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Strictly Palindromic Number",
+              "platform": "LeetCode",
+              "slug": "strictly-palindromic-number",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Restore IP Addresses",
+              "platform": "LeetCode",
+              "slug": "restore-ip-addresses",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Find the City With the Smallest Number of Neighbors at a Threshold Distance",
+              "platform": "LeetCode",
+              "slug": "find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Stone Game VII",
+              "platform": "LeetCode",
+              "slug": "stone-game-vii",
+              "difficulty": "Medium"
+            },
+            {
+              "name": "Number of Closed Islands",
+              "platform": "LeetCode",
+              "slug": "number-of-closed-islands",
+              "difficulty": "Medium"
+            }
           ]
         }
       ]
