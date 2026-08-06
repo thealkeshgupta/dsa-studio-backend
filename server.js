@@ -536,6 +536,33 @@ async function executeOnLeetCode(problemSlug, codeString, action = "submit") {
   }
 }
 
+// --- OPTION 1: IMAGE PROXY ENDPOINT ---
+app.get("/api/pro-image", async (req, res) => {
+  try {
+    const imageUrl = req.query.url;
+    if (!imageUrl) return res.status(400).send("Missing url parameter");
+
+    const response = await fetch(imageUrl, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
+        Referer: "https://leetcode.com/",
+      },
+    });
+
+    if (!response.ok) throw new Error("Failed to fetch image");
+
+    // Pass the original image content type back to the browser
+    const contentType = response.headers.get("content-type");
+    res.setHeader("Content-Type", contentType);
+
+    const buffer = await response.arrayBuffer();
+    res.send(Buffer.from(buffer));
+  } catch (error) {
+    res.status(500).send("Error proxying image");
+  }
+});
+
 app.post("/api/run", async (req, res) => {
   const result = await executeOnLeetCode(
     req.body.problemSlug,
