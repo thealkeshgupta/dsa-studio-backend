@@ -11,16 +11,19 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// --- MONGODB CONNECTION FOR MANUAL SOLVED TRACKING ---
+// --- MONGODB CONNECTION ---
 if (process.env.MONGODB_URI) {
   mongoose
     .connect(process.env.MONGODB_URI)
-    .then(() => console.log("Connected to MongoDB for Manual Solved Tracking"))
+    .then(() => console.log("Connected to MongoDB Atlas"))
     .catch((err) => console.error("MongoDB Connection Error:", err));
 } else {
   console.log("No MONGODB_URI found. Manual solved tracking will not persist.");
 }
 
+// --- MONGODB SCHEMAS ---
+
+// 1. Manual Solved Schema
 const manualSolvedSchema = new mongoose.Schema({
   problemId: { type: String, required: true, unique: true },
   platform: { type: String, default: "leetcode" },
@@ -28,9 +31,41 @@ const manualSolvedSchema = new mongoose.Schema({
   url: String,
   solvedAt: { type: Date, default: Date.now },
 });
-
 const ManualSolved = mongoose.model("ManualSolved", manualSolvedSchema);
 
+// 2. Custom List Schema
+const customListSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, default: "" },
+  problems: [
+    {
+      problemId: String,
+      title: String,
+      platform: String,
+      slug: String,
+      url: String,
+      difficulty: String,
+    },
+  ],
+  createdAt: { type: Date, default: Date.now },
+});
+const CustomList = mongoose.model("CustomList", customListSchema);
+
+// 3. Global Note Schema
+const globalNoteSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  content: String,
+  problemContext: {
+    name: String,
+    platform: String,
+    slug: String,
+    url: String,
+  },
+  updatedAt: { type: Date, default: Date.now },
+});
+const GlobalNote = mongoose.model("GlobalNote", globalNoteSchema);
+
+// --- ENDPOINTS: MANUAL SOLVED ---
 app.get("/api/solved/manual", async (req, res) => {
   try {
     const solvedDocs = await ManualSolved.find({});
@@ -49,7 +84,6 @@ app.get("/api/solved/manual", async (req, res) => {
 
 app.post("/api/solved/manual/toggle", async (req, res) => {
   const { problemId, title, platform, url } = req.body;
-
   if (!problemId)
     return res.status(400).json({ error: "problemId is required" });
 
@@ -64,6 +98,120 @@ app.post("/api/solved/manual/toggle", async (req, res) => {
     }
   } catch (error) {
     res.status(500).json({ error: "Failed to toggle manual status" });
+  }
+});
+
+// --- ENDPOINTS: CUSTOM LISTS ---
+app.get("/api/custom-lists", async (req, res) => {
+  try {
+    const lists = await CustomList.find().sort({ createdAt: -1 });
+    res.json(lists);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch custom lists" });
+  }
+});
+
+app.post("/api/custom-lists", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const newList = await CustomList.create({
+      title,
+      description: description || "",
+      problems: [],
+    });
+    res.json(newList);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to create custom list" });
+  }
+});
+
+app.delete("/api/custom-lists/:id", async (req, res) => {
+  try {
+    await CustomList.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete list" });
+  }
+});
+
+app.post("/api/custom-lists/:id/problems", async (req, res) => {
+  try {
+    const list = await CustomList.findById(req.params.id);
+    if (!list) return res.status(404).json({ error: "List not found" });
+
+    // Prevent duplicates & Toggle logic
+    if (!list.problems.some((p) => p.problemId === req.body.problemId)) {
+      list.problems.push(req.body);
+    } else {
+      list.problems = list.problems.filter(
+        (p) => p.problemId !== req.body.problemId,
+      );
+    }
+    await list.save();
+    res.json(list);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update list problems" });
+  }
+});
+
+app.delete(
+  "/api/custom-lists/:listId/problems/:problemId",
+  async (req, res) => {
+    try {
+      const list = await CustomList.findById(req.params.listId);
+      if (!list) return res.status(404).json({ error: "List not found" });
+      list.problems = list.problems.filter(
+        (p) => p.problemId !== req.params.problemId,
+      );
+      await list.save();
+      res.json(list);
+    } catch (err) {
+      res.status(500).json({ error: "Failed to remove problem" });
+    }
+  },
+);
+
+// --- ENDPOINTS: GLOBAL NOTES ---
+app.get("/api/global-notes", async (req, res) => {
+  try {
+    const notes = await GlobalNote.find().sort({ updatedAt: -1 });
+    res.json(notes);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to fetch global notes" });
+  }
+});
+
+app.post("/api/global-notes", async (req, res) => {
+  try {
+    const newNote = await GlobalNote.create({
+      ...req.body,
+      updatedAt: new Date(),
+    });
+    res.json(newNote);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to create note" });
+  }
+});
+
+app.put("/api/global-notes/:id", async (req, res) => {
+  try {
+    const updated = await GlobalNote.findByIdAndUpdate(
+      req.params.id,
+      { ...req.body, updatedAt: new Date() },
+      { new: true },
+    );
+    res.json(updated);
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update note" });
+  }
+});
+
+app.delete("/api/global-notes/:id", async (req, res) => {
+  try {
+    await GlobalNote.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete note" });
   }
 });
 
@@ -392,7 +540,6 @@ app.get("/api/pro-image", async (req, res) => {
 // --- NEW ENDPOINTS: COMPANY WISE ARCHIVES (OFFLINE CACHED) ---
 const companyDataCache = {};
 
-// --- LOCAL LOGO MAPPING (No Hardcoded Counts) ---
 const TOP_COMPANIES = {
   Amazon: { logo: "/logos/amazon.svg" },
   Google: { logo: "/logos/google.svg" },
@@ -400,12 +547,12 @@ const TOP_COMPANIES = {
   Facebook: { logo: "/logos/meta.svg" },
   Microsoft: { logo: "/logos/microsoft.svg" },
   Apple: { logo: "/logos/apple.svg" },
-  "J.P. Morgan": { logo: "/logos/jpmc.png" }, // Exact match from GitHub!
+  "J.P. Morgan": { logo: "/logos/jpmc.png" },
   Uber: { logo: "/logos/uber.svg" },
   Adobe: { logo: "/logos/adobe.svg" },
   ByteDance: { logo: "/logos/bytedance.svg" },
   "Goldman Sachs": { logo: "/logos/gs.png" },
-  "Goldman%20Sachs": { logo: "/logos/gs.png" }, // Fallback for encoded slug
+  "Goldman%20Sachs": { logo: "/logos/gs.png" },
 };
 
 app.get("/api/companies", (req, res) => {
@@ -415,9 +562,7 @@ app.get("/api/companies", (req, res) => {
     const rawData = fs.readFileSync(filePath, "utf8");
     const allCompanies = JSON.parse(rawData);
 
-    // Clean, direct lookup without forced overrides
     const enrichedCompanies = allCompanies.map((company) => {
-      // Check both the raw name and the decoded slug
       const decodedSlug = decodeURIComponent(company.slug);
       const topData = TOP_COMPANIES[company.name] || TOP_COMPANIES[decodedSlug];
 
@@ -427,7 +572,6 @@ app.get("/api/companies", (req, res) => {
       return company;
     });
 
-    // Sort top tier companies with logos to the very top, alphabetize the rest
     enrichedCompanies.sort((a, b) => {
       if (a.logo && !b.logo) return -1;
       if (!a.logo && b.logo) return 1;
@@ -457,7 +601,6 @@ app.get("/api/companies/:company", async (req, res) => {
   try {
     const results = {};
     for (const tf of timeframes) {
-      // NOTE: Fetching from raw.githubusercontent is NEVER rate-limited!
       const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${company}/${tf.file}`;
       const response = await fetch(url);
 
