@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express();
@@ -9,6 +10,62 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// --- MONGODB CONNECTION FOR MANUAL SOLVED TRACKING ---
+if (process.env.MONGODB_URI) {
+  mongoose
+    .connect(process.env.MONGODB_URI)
+    .then(() => console.log("Connected to MongoDB for Manual Solved Tracking"))
+    .catch((err) => console.error("MongoDB Connection Error:", err));
+} else {
+  console.log("No MONGODB_URI found. Manual solved tracking will not persist.");
+}
+
+const manualSolvedSchema = new mongoose.Schema({
+  problemId: { type: String, required: true, unique: true },
+  platform: { type: String, default: "leetcode" },
+  title: String,
+  url: String,
+  solvedAt: { type: Date, default: Date.now },
+});
+
+const ManualSolved = mongoose.model("ManualSolved", manualSolvedSchema);
+
+app.get("/api/solved/manual", async (req, res) => {
+  try {
+    const solvedDocs = await ManualSolved.find({});
+    const solvedDetails = {};
+    solvedDocs.forEach((doc) => {
+      solvedDetails[doc.problemId] = doc;
+    });
+    res.json({
+      solvedKeys: Object.keys(solvedDetails),
+      solvedDetails,
+    });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch manual solved list" });
+  }
+});
+
+app.post("/api/solved/manual/toggle", async (req, res) => {
+  const { problemId, title, platform, url } = req.body;
+
+  if (!problemId)
+    return res.status(400).json({ error: "problemId is required" });
+
+  try {
+    const existing = await ManualSolved.findOne({ problemId });
+    if (existing) {
+      await ManualSolved.deleteOne({ problemId });
+      res.json({ success: true, isSolved: false });
+    } else {
+      await ManualSolved.create({ problemId, title, platform, url });
+      res.json({ success: true, isSolved: true });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Failed to toggle manual status" });
+  }
+});
 
 // --- GRAPHQL HELPER ---
 async function fetchLeetCodeGraphQL(query, variables = {}) {
@@ -146,7 +203,7 @@ app.get("/api/problems/:slug", async (req, res) => {
     const data = await fetchLeetCodeGraphQL(
       `query questionData($titleSlug: String!) {
         question(titleSlug: $titleSlug) {
-          questionId questionFrontendId title titleSlug content difficulty status exampleTestcases
+          questionId questionFrontendId title titleSlug content difficulty status exampleTestcases exampleTestcaseList
           codeSnippets { lang langSlug code }
         }
       }`,
@@ -167,6 +224,7 @@ app.get("/api/problems/:slug", async (req, res) => {
       content: question.content,
       defaultCode: javaSnippet ? javaSnippet.code : "",
       exampleTestcases: question.exampleTestcases,
+      exampleTestcaseList: question.exampleTestcaseList,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -461,8 +519,13 @@ app.get("/api/companies/:company", async (req, res) => {
   }
 });
 
-// --- NATIVE API AUTOMATION ---
-async function executeOnLeetCode(problemSlug, codeString, action = "submit") {
+// --- NATIVE API AUTOMATION WITH CUSTOM TESTCASE SUPPORT ---
+async function executeOnLeetCode(
+  problemSlug,
+  codeString,
+  action = "submit",
+  customInput = null,
+) {
   if (!process.env.LEETCODE_SESSION || !process.env.CSRF_TOKEN) {
     return {
       success: false,
@@ -480,7 +543,13 @@ async function executeOnLeetCode(problemSlug, codeString, action = "submit") {
     if (!question)
       throw new Error("Could not fetch problem details from LeetCode.");
 
-    const rawInput = (question.exampleTestcases || "").trim();
+    // Fallback to example testcases if customInput is not explicitly provided
+    const rawInput =
+      customInput !== null &&
+      customInput !== undefined &&
+      customInput.trim() !== ""
+        ? customInput.trim()
+        : (question.exampleTestcases || "").trim();
 
     const headers = {
       "Content-Type": "application/json",
@@ -590,10 +659,11 @@ async function executeOnLeetCode(problemSlug, codeString, action = "submit") {
         }
       } else {
         result.failedTestCase = {
+          // --- PRIORITY SWAP: Grab raw compiler string first to bypass UI commas ---
           input:
-            finalData.input_formatted ||
             finalData.last_testcase ||
             finalData.input ||
+            finalData.input_formatted ||
             "N/A",
           output:
             finalData.code_output ||
@@ -693,6 +763,7 @@ app.post("/api/run", async (req, res) => {
     req.body.problemSlug,
     req.body.code,
     "run",
+    req.body.customInput,
   );
   res.status(result.success ? 200 : 500).json(result);
 });
