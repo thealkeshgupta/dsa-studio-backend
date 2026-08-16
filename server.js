@@ -22,8 +22,6 @@ if (process.env.MONGODB_URI) {
 }
 
 // --- MONGODB SCHEMAS ---
-
-// 1. Manual Solved Schema
 const manualSolvedSchema = new mongoose.Schema({
   problemId: { type: String, required: true, unique: true },
   platform: { type: String, default: "leetcode" },
@@ -33,7 +31,6 @@ const manualSolvedSchema = new mongoose.Schema({
 });
 const ManualSolved = mongoose.model("ManualSolved", manualSolvedSchema);
 
-// 2. Custom List Schema
 const customListSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, default: "" },
@@ -51,7 +48,6 @@ const customListSchema = new mongoose.Schema({
 });
 const CustomList = mongoose.model("CustomList", customListSchema);
 
-// 3. Global Note Schema
 const globalNoteSchema = new mongoose.Schema({
   title: { type: String, required: true },
   content: String,
@@ -65,6 +61,105 @@ const globalNoteSchema = new mongoose.Schema({
 });
 const GlobalNote = mongoose.model("GlobalNote", globalNoteSchema);
 
+// --- GRAPHQL HELPER ---
+async function fetchLeetCodeGraphQL(query, variables = {}) {
+  const headers = {
+    "Content-Type": "application/json",
+    Cookie: `LEETCODE_SESSION=${process.env.LEETCODE_SESSION || ""}; csrftoken=${process.env.CSRF_TOKEN || ""}`,
+    Referer: "https://leetcode.com/",
+    "User-Agent":
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+  };
+
+  if (process.env.CSRF_TOKEN) headers["X-CSRFToken"] = process.env.CSRF_TOKEN;
+
+  const response = await fetch("https://leetcode.com/graphql", {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ query, variables }),
+  });
+
+  const text = await response.text();
+  try {
+    return JSON.parse(text);
+  } catch (err) {
+    throw new Error(`LeetCode API Error: ${text.substring(0, 100)}...`);
+  }
+}
+
+// --- FEATURE 1: 10 AM TO 10 AM DAILY TRACKER ---
+app.get("/api/solved/today", async (req, res) => {
+  try {
+    const now = new Date();
+    let startOfDay = new Date(now);
+    startOfDay.setHours(10, 0, 0, 0); // Set to 10:00:00 AM today
+
+    // If it is currently before 10 AM, the "day" started at 10 AM yesterday
+    if (now.getHours() < 10) {
+      startOfDay.setDate(startOfDay.getDate() - 1);
+    }
+
+    // 1. Get manual solves from MongoDB within the 10 AM window
+    const manualDocs = await ManualSolved.find({
+      solvedAt: { $gte: startOfDay },
+    });
+    const manualList = manualDocs.map((doc) => ({
+      title: doc.title,
+      slug: doc.problemId,
+      platform: doc.platform,
+      timestamp: new Date(doc.solvedAt).getTime(),
+    }));
+
+    // 2. Get LeetCode recent ACs via GraphQL
+    const statusData = await fetchLeetCodeGraphQL(
+      `query { userStatus { username } }`,
+    );
+    const username = statusData?.data?.userStatus?.username;
+
+    let lcList = [];
+    if (username) {
+      const recentData = await fetchLeetCodeGraphQL(
+        `query recentAcSubmissions($username: String!, $limit: Int!) {
+          recentAcSubmissionList(username: $username, limit: $limit) {
+            id title titleSlug timestamp
+          }
+        }`,
+        { username, limit: 50 },
+      );
+
+      const submissions = recentData?.data?.recentAcSubmissionList || [];
+
+      lcList = submissions
+        .filter((sub) => parseInt(sub.timestamp) * 1000 >= startOfDay.getTime())
+        .map((sub) => ({
+          title: sub.title,
+          slug: sub.titleSlug,
+          platform: "LeetCode",
+          timestamp: parseInt(sub.timestamp) * 1000,
+        }));
+    }
+
+    // 3. Merge and deduplicate by slug (if manually toggled AND LC submitted)
+    const merged = [...manualList, ...lcList];
+    const unique = [];
+    const seen = new Set();
+
+    merged
+      .sort((a, b) => b.timestamp - a.timestamp)
+      .forEach((prob) => {
+        if (!seen.has(prob.slug)) {
+          seen.add(prob.slug);
+          unique.push(prob);
+        }
+      });
+
+    res.json(unique);
+  } catch (error) {
+    console.error("Error fetching today's solves:", error);
+    res.status(500).json({ error: "Failed to fetch today's solved problems" });
+  }
+});
+
 // --- ENDPOINTS: MANUAL SOLVED ---
 app.get("/api/solved/manual", async (req, res) => {
   try {
@@ -73,10 +168,7 @@ app.get("/api/solved/manual", async (req, res) => {
     solvedDocs.forEach((doc) => {
       solvedDetails[doc.problemId] = doc;
     });
-    res.json({
-      solvedKeys: Object.keys(solvedDetails),
-      solvedDetails,
-    });
+    res.json({ solvedKeys: Object.keys(solvedDetails), solvedDetails });
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch manual solved list" });
   }
@@ -139,7 +231,6 @@ app.post("/api/custom-lists/:id/problems", async (req, res) => {
     const list = await CustomList.findById(req.params.id);
     if (!list) return res.status(404).json({ error: "List not found" });
 
-    // Prevent duplicates & Toggle logic
     if (!list.problems.some((p) => p.problemId === req.body.problemId)) {
       list.problems.push(req.body);
     } else {
@@ -214,35 +305,6 @@ app.delete("/api/global-notes/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to delete note" });
   }
 });
-
-// --- GRAPHQL HELPER ---
-async function fetchLeetCodeGraphQL(query, variables = {}) {
-  const headers = {
-    "Content-Type": "application/json",
-    Cookie: `LEETCODE_SESSION=${process.env.LEETCODE_SESSION || ""}; csrftoken=${process.env.CSRF_TOKEN || ""}`,
-    Referer: "https://leetcode.com/",
-    "User-Agent":
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-  };
-
-  if (process.env.CSRF_TOKEN) {
-    headers["X-CSRFToken"] = process.env.CSRF_TOKEN;
-  }
-
-  const response = await fetch("https://leetcode.com/graphql", {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ query, variables }),
-  });
-
-  const text = await response.text();
-  try {
-    return JSON.parse(text);
-  } catch (err) {
-    console.error("LeetCode response parse failed:", text.substring(0, 100));
-    throw new Error(`LeetCode API Error: ${text.substring(0, 100)}...`);
-  }
-}
 
 // --- ENDPOINTS: PIN VERIFICATION ---
 app.post("/api/verify-pin", (req, res) => {
@@ -439,14 +501,13 @@ app.get("/api/lists/:id", (req, res) => {
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "List not found" });
     }
-    const rawData = fs.readFileSync(filePath, "utf8");
-    res.json(JSON.parse(rawData));
+    res.json(JSON.parse(fs.readFileSync(filePath, "utf8")));
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// --- ENDPOINTS: WORKSPACE PRO FEATURES (NOTES & SUBMISSIONS) ---
+// --- ENDPOINTS: WORKSPACE PRO FEATURES ---
 app.get("/api/submissions/:slug", async (req, res) => {
   try {
     const data = await fetchLeetCodeGraphQL(
@@ -482,9 +543,7 @@ app.get("/api/submission/:id", async (req, res) => {
 app.get("/api/notes/:slug", async (req, res) => {
   try {
     const data = await fetchLeetCodeGraphQL(
-      `query QuestionNote($titleSlug: String!) {
-        question(titleSlug: $titleSlug) { note }
-      }`,
+      `query QuestionNote($titleSlug: String!) { question(titleSlug: $titleSlug) { note } }`,
       { titleSlug: req.params.slug },
     );
     res.json({ note: data.data?.question?.note || "" });
@@ -495,28 +554,20 @@ app.get("/api/notes/:slug", async (req, res) => {
 
 app.post("/api/notes/:slug", async (req, res) => {
   try {
-    const { note } = req.body;
-    const titleSlug = req.params.slug;
-
     const data = await fetchLeetCodeGraphQL(
-      `mutation updateNote($titleSlug: String!, $content: String!) {
-        updateNote(titleSlug: $titleSlug, content: $content) { ok }
-      }`,
-      { titleSlug: titleSlug, content: note || "" },
+      `mutation updateNote($titleSlug: String!, $content: String!) { updateNote(titleSlug: $titleSlug, content: $content) { ok } }`,
+      { titleSlug: req.params.slug, content: req.body.note || "" },
     );
-
     res.json({ success: true, data });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 });
 
-// --- OPTION 1: IMAGE PROXY ENDPOINT ---
 app.get("/api/pro-image", async (req, res) => {
   try {
     const imageUrl = req.query.url;
     if (!imageUrl) return res.status(400).send("Missing url parameter");
-
     const response = await fetch(imageUrl, {
       headers: {
         "User-Agent":
@@ -524,12 +575,8 @@ app.get("/api/pro-image", async (req, res) => {
         Referer: "https://leetcode.com/",
       },
     });
-
     if (!response.ok) throw new Error("Failed to fetch image");
-
-    const contentType = response.headers.get("content-type");
-    res.setHeader("Content-Type", contentType);
-
+    res.setHeader("Content-Type", response.headers.get("content-type"));
     const buffer = await response.arrayBuffer();
     res.send(Buffer.from(buffer));
   } catch (error) {
@@ -539,7 +586,6 @@ app.get("/api/pro-image", async (req, res) => {
 
 // --- NEW ENDPOINTS: COMPANY WISE ARCHIVES (OFFLINE CACHED) ---
 const companyDataCache = {};
-
 const TOP_COMPANIES = {
   Amazon: { logo: "/logos/amazon.svg" },
   Google: { logo: "/logos/google.svg" },
@@ -557,30 +603,22 @@ const TOP_COMPANIES = {
 
 app.get("/api/companies", (req, res) => {
   const filePath = path.join(__dirname, "data", "companies.json");
-
   if (fs.existsSync(filePath)) {
-    const rawData = fs.readFileSync(filePath, "utf8");
-    const allCompanies = JSON.parse(rawData);
-
+    const allCompanies = JSON.parse(fs.readFileSync(filePath, "utf8"));
     const enrichedCompanies = allCompanies.map((company) => {
-      const decodedSlug = decodeURIComponent(company.slug);
-      const topData = TOP_COMPANIES[company.name] || TOP_COMPANIES[decodedSlug];
-
-      if (topData) {
-        return { ...company, logo: topData.logo };
-      }
+      const topData =
+        TOP_COMPANIES[company.name] ||
+        TOP_COMPANIES[decodeURIComponent(company.slug)];
+      if (topData) return { ...company, logo: topData.logo };
       return company;
     });
-
     enrichedCompanies.sort((a, b) => {
       if (a.logo && !b.logo) return -1;
       if (!a.logo && b.logo) return 1;
       return a.name.localeCompare(b.name);
     });
-
     return res.json(enrichedCompanies);
   }
-
   res.json([]);
 });
 
@@ -594,23 +632,19 @@ app.get("/api/companies/:company", async (req, res) => {
     { id: "all_time", file: "5.%20All.csv" },
   ];
 
-  if (companyDataCache[company]) {
-    return res.json(companyDataCache[company]);
-  }
+  if (companyDataCache[company]) return res.json(companyDataCache[company]);
 
   try {
     const results = {};
     for (const tf of timeframes) {
       const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${company}/${tf.file}`;
       const response = await fetch(url);
-
       if (!response.ok) {
         results[tf.id] = [];
         continue;
       }
 
-      const csvText = await response.text();
-      const lines = csvText
+      const lines = (await response.text())
         .split("\n")
         .map((l) => l.trim())
         .filter((l) => l);
@@ -633,10 +667,11 @@ app.get("/api/companies/:company", async (req, res) => {
             .split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
             .map((c) => c.replace(/^"|"$/g, ""));
           if (cols.length > Math.max(idIdx, titleIdx, linkIdx)) {
-            let link =
-              linkIdx >= 0 && cols[linkIdx] ? cols[linkIdx].trim() : "";
             let slug = "";
-            const match = link.match(/problems\/([^/]+)/);
+            const match =
+              linkIdx >= 0 && cols[linkIdx]
+                ? cols[linkIdx].trim().match(/problems\/([^/]+)/)
+                : null;
             if (match) slug = match[1];
 
             parsed.push({
@@ -654,7 +689,6 @@ app.get("/api/companies/:company", async (req, res) => {
       }
       results[tf.id] = parsed;
     }
-
     companyDataCache[company] = results;
     res.json(results);
   } catch (error) {
@@ -662,7 +696,7 @@ app.get("/api/companies/:company", async (req, res) => {
   }
 });
 
-// --- NATIVE API AUTOMATION WITH CUSTOM TESTCASE SUPPORT ---
+// --- NATIVE API AUTOMATION ---
 async function executeOnLeetCode(
   problemSlug,
   codeString,
@@ -686,7 +720,6 @@ async function executeOnLeetCode(
     if (!question)
       throw new Error("Could not fetch problem details from LeetCode.");
 
-    // Fallback to example testcases if customInput is not explicitly provided
     const rawInput =
       customInput !== null &&
       customInput !== undefined &&
@@ -704,7 +737,6 @@ async function executeOnLeetCode(
     };
 
     let submissionId;
-
     if (action === "submit") {
       const res = await fetch(
         `https://leetcode.com/problems/${problemSlug}/submit/`,
@@ -749,7 +781,6 @@ async function executeOnLeetCode(
         { headers },
       );
       const checkData = await checkRes.json();
-
       if (checkData.state === "SUCCESS") {
         finalData = checkData;
         break;
@@ -774,7 +805,6 @@ async function executeOnLeetCode(
         result.memoryPercentile = "N/A";
 
         let memVal = finalData.status_memory || finalData.memory;
-
         try {
           const subData = await fetchLeetCodeGraphQL(
             `query submissionDetails($submissionId: Int!) { submissionDetails(submissionId: $submissionId) { runtimeDisplay runtimePercentile memoryDisplay memoryPercentile } }`,
@@ -792,7 +822,6 @@ async function executeOnLeetCode(
             if (details.memoryDisplay) memVal = details.memoryDisplay;
           }
         } catch (e) {}
-
         if (typeof memVal === "string" && memVal.includes("MB")) {
           result.memory = memVal;
         } else if (memVal) {
@@ -802,7 +831,6 @@ async function executeOnLeetCode(
         }
       } else {
         result.failedTestCase = {
-          // --- PRIORITY SWAP: Grab raw compiler string first to bypass UI commas ---
           input:
             finalData.last_testcase ||
             finalData.input ||
@@ -823,23 +851,19 @@ async function executeOnLeetCode(
 
       if (outputs.length === 0) {
         let crashOutput = finalData.compile_error || finalData.runtime_error;
-
         if (!crashOutput) {
           if (
             Array.isArray(finalData.code_output) &&
             finalData.code_output.length > 0
-          ) {
+          )
             crashOutput = finalData.code_output.join("\n");
-          } else if (
+          else if (
             typeof finalData.code_output === "string" &&
             finalData.code_output.trim() !== ""
-          ) {
+          )
             crashOutput = finalData.code_output;
-          } else {
-            crashOutput = `Process Aborted: ${finalData.status_msg}`;
-          }
+          else crashOutput = `Process Aborted: ${finalData.status_msg}`;
         }
-
         return {
           success: true,
           action,
@@ -857,20 +881,17 @@ async function executeOnLeetCode(
 
       const inputLines = rawInput.split("\n");
       let numCases = expected.length > 0 ? expected.length : outputs.length;
-
       if (
         numCases > 0 &&
         inputLines.length > 0 &&
         inputLines.length % numCases !== 0
       ) {
-        if (numCases > 1 && inputLines.length % (numCases - 1) === 0) {
+        if (numCases > 1 && inputLines.length % (numCases - 1) === 0)
           numCases -= 1;
-        }
       }
 
       const linesPerCase =
         numCases > 0 ? Math.floor(inputLines.length / numCases) : 0;
-
       let runStatus = finalData.status_msg;
       if (runStatus === "Accepted") {
         for (let i = 0; i < numCases; i++) {
@@ -883,17 +904,16 @@ async function executeOnLeetCode(
 
       const testCases = [];
       for (let i = 0; i < numCases; i++) {
-        const caseInput = inputLines
-          .slice(i * linesPerCase, (i + 1) * linesPerCase)
-          .join("\n");
         testCases.push({
           case: `Case ${i + 1}`,
-          input: caseInput || "N/A",
+          input:
+            inputLines
+              .slice(i * linesPerCase, (i + 1) * linesPerCase)
+              .join("\n") || "N/A",
           output: outputs[i] !== undefined ? outputs[i] : "N/A",
           expected: expected[i] !== undefined ? expected[i] : "N/A",
         });
       }
-
       return { success: true, action, status: runStatus, testCases };
     }
   } catch (error) {
