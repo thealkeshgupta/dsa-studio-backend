@@ -87,22 +87,48 @@ async function fetchLeetCodeGraphQL(query, variables = {}) {
   }
 }
 
-// --- FEATURE 1: 10 AM TO 10 AM DAILY TRACKER ---
+// Global caches to prevent API rate limiting and connection hanging
+let globalCachedUsername = null;
+let todaySolvedCache = { data: null, timestamp: 0 };
+
+// --- FEATURE 1: 10 AM TO 10 AM DAILY TRACKER (IST HARDCODED) ---
 app.get("/api/solved/today", async (req, res) => {
   try {
-    const now = new Date();
-    let startOfDay = new Date(now);
-    startOfDay.setHours(10, 0, 0, 0); // Set to 10:00:00 AM today
-
-    // If it is currently before 10 AM, the "day" started at 10 AM yesterday
-    if (now.getHours() < 10) {
-      startOfDay.setDate(startOfDay.getDate() - 1);
+    if (
+      Date.now() - todaySolvedCache.timestamp < 60000 &&
+      todaySolvedCache.data
+    ) {
+      return res.json(todaySolvedCache.data);
     }
 
-    // 1. Get manual solves from MongoDB within the 10 AM window
+    const nowUtc = Date.now();
+    const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
+    const nowIst = new Date(nowUtc + IST_OFFSET_MS);
+
+    const istYear = nowIst.getUTCFullYear();
+    const istMonth = nowIst.getUTCMonth();
+    let istDate = nowIst.getUTCDate();
+    const istHour = nowIst.getUTCHours();
+
+    if (istHour < 10) {
+      istDate -= 1;
+    }
+
+    const startOfIstDayUtcMs = Date.UTC(
+      istYear,
+      istMonth,
+      istDate,
+      4,
+      30,
+      0,
+      0,
+    );
+    const startOfDay = new Date(startOfIstDayUtcMs);
+
     const manualDocs = await ManualSolved.find({
       solvedAt: { $gte: startOfDay },
     });
+
     const manualList = manualDocs.map((doc) => ({
       title: doc.title,
       slug: doc.problemId,
@@ -110,27 +136,28 @@ app.get("/api/solved/today", async (req, res) => {
       timestamp: new Date(doc.solvedAt).getTime(),
     }));
 
-    // 2. Get LeetCode recent ACs via GraphQL
-    const statusData = await fetchLeetCodeGraphQL(
-      `query { userStatus { username } }`,
-    );
-    const username = statusData?.data?.userStatus?.username;
+    if (!globalCachedUsername) {
+      const statusData = await fetchLeetCodeGraphQL(
+        `query { userStatus { username } }`,
+      );
+      globalCachedUsername = statusData?.data?.userStatus?.username;
+    }
 
     let lcList = [];
-    if (username) {
+    if (globalCachedUsername) {
       const recentData = await fetchLeetCodeGraphQL(
         `query recentAcSubmissions($username: String!, $limit: Int!) {
           recentAcSubmissionList(username: $username, limit: $limit) {
             id title titleSlug timestamp
           }
         }`,
-        { username, limit: 50 },
+        { username: globalCachedUsername, limit: 50 },
       );
 
       const submissions = recentData?.data?.recentAcSubmissionList || [];
 
       lcList = submissions
-        .filter((sub) => parseInt(sub.timestamp) * 1000 >= startOfDay.getTime())
+        .filter((sub) => parseInt(sub.timestamp) * 1000 >= startOfIstDayUtcMs)
         .map((sub) => ({
           title: sub.title,
           slug: sub.titleSlug,
@@ -139,7 +166,6 @@ app.get("/api/solved/today", async (req, res) => {
         }));
     }
 
-    // 3. Merge and deduplicate by slug (if manually toggled AND LC submitted)
     const merged = [...manualList, ...lcList];
     const unique = [];
     const seen = new Set();
@@ -153,6 +179,7 @@ app.get("/api/solved/today", async (req, res) => {
         }
       });
 
+    todaySolvedCache = { data: unique, timestamp: Date.now() };
     res.json(unique);
   } catch (error) {
     console.error("Error fetching today's solves:", error);
@@ -325,6 +352,7 @@ app.get("/api/status", async (req, res) => {
     );
     const userStatus = data.data?.userStatus;
     if (userStatus && userStatus.isSignedIn) {
+      globalCachedUsername = userStatus.username;
       res.json({ loggedIn: true, username: userStatus.username });
     } else {
       res.json({ loggedIn: false });
@@ -584,7 +612,7 @@ app.get("/api/pro-image", async (req, res) => {
   }
 });
 
-// --- NEW ENDPOINTS: COMPANY WISE ARCHIVES (OFFLINE CACHED) ---
+// --- NEW ENDPOINTS: COMPANY WISE ARCHIVES ---
 const companyDataCache = {};
 const TOP_COMPANIES = {
   Amazon: { logo: "/logos/amazon.svg" },
@@ -625,20 +653,34 @@ app.get("/api/companies", (req, res) => {
 app.get("/api/companies/:company", async (req, res) => {
   const company = req.params.company;
   const timeframes = [
-    { id: "30_days", file: "1.%20Thirty%20Days.csv" },
-    { id: "3_months", file: "2.%20Three%20Months.csv" },
-    { id: "6_months", file: "3.%20Six%20Months.csv" },
-    { id: "more_than_6_months", file: "4.%20More%20Than%20Six%20Months.csv" },
-    { id: "all_time", file: "5.%20All.csv" },
+    { id: "30_days", file: "1. Thirty Days.csv" },
+    { id: "3_months", file: "2. Three Months.csv" },
+    { id: "6_months", file: "3. Six Months.csv" },
+    { id: "more_than_6_months", file: "4. More Than Six Months.csv" },
+    { id: "all_time", file: "5. All.csv" },
   ];
 
-  if (companyDataCache[company]) return res.json(companyDataCache[company]);
+  // AGGRESSIVE CACHE CHECK: If cache exists but is empty, ignore it and re-fetch
+  if (companyDataCache[company]) {
+    const cachedData = companyDataCache[company];
+    const hasData = Object.values(cachedData).some((arr) => arr.length > 0);
+    if (hasData) {
+      return res.json(cachedData);
+    }
+  }
 
   try {
     const results = {};
+    let hasValidData = false;
+
     for (const tf of timeframes) {
-      const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${company}/${tf.file}`;
+      // Clean, Node-safe URL encoding for GitHub Raw
+      const encodedCompany = encodeURIComponent(decodeURIComponent(company));
+      const encodedFile = encodeURIComponent(tf.file);
+      const url = `https://raw.githubusercontent.com/liquidslr/leetcode-company-wise-problems/main/${encodedCompany}/${encodedFile}`;
+
       const response = await fetch(url);
+
       if (!response.ok) {
         results[tf.id] = [];
         continue;
@@ -687,9 +729,15 @@ app.get("/api/companies/:company", async (req, res) => {
           }
         }
       }
+
       results[tf.id] = parsed;
+      if (parsed.length > 0) hasValidData = true;
     }
-    companyDataCache[company] = results;
+
+    if (hasValidData) {
+      companyDataCache[company] = results;
+    }
+
     res.json(results);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch company data" });
