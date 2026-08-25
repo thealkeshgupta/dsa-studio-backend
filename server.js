@@ -11,16 +11,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// --- MONGODB CONNECTION ---
-if (process.env.MONGODB_URI) {
-  mongoose
-    .connect(process.env.MONGODB_URI)
-    .then(() => console.log("Connected to MongoDB Atlas"))
-    .catch((err) => console.error("MongoDB Connection Error:", err));
-} else {
-  console.log("No MONGODB_URI found. Manual solved tracking will not persist.");
-}
-
 // --- MONGODB SCHEMAS ---
 const manualSolvedSchema = new mongoose.Schema({
   problemId: { type: String, required: true, unique: true },
@@ -60,6 +50,14 @@ const globalNoteSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 const GlobalNote = mongoose.model("GlobalNote", globalNoteSchema);
+
+// --- DB SESSION CONFIG SCHEMA ---
+const appConfigSchema = new mongoose.Schema({
+  key: { type: String, required: true, unique: true },
+  leetcodeSession: String,
+  csrfToken: String,
+});
+const AppConfig = mongoose.model("AppConfig", appConfigSchema);
 
 // --- GRAPHQL HELPER ---
 async function fetchLeetCodeGraphQL(query, variables = {}) {
@@ -362,17 +360,28 @@ app.get("/api/status", async (req, res) => {
   }
 });
 
-app.post("/api/update-session", (req, res) => {
+app.post("/api/update-session", async (req, res) => {
   const { session, csrf } = req.body;
   if (!session)
     return res
       .status(400)
       .json({ success: false, error: "LEETCODE_SESSION is required." });
 
+  // 1. Update in-memory for instant use
   process.env.LEETCODE_SESSION = session;
   if (csrf) process.env.CSRF_TOKEN = csrf;
 
   try {
+    // 2. Save securely to MongoDB (survives Render restarts)
+    if (process.env.MONGODB_URI) {
+      await AppConfig.findOneAndUpdate(
+        { key: "leetcode_tokens" },
+        { leetcodeSession: session, csrfToken: csrf || "" },
+        { upsert: true, new: true },
+      );
+    }
+
+    // 3. Keep local .env fallback (for local localhost development)
     const envPath = path.join(__dirname, ".env");
     let envContent = fs.existsSync(envPath)
       ? fs.readFileSync(envPath, "utf8")
@@ -390,9 +399,10 @@ app.post("/api/update-session", (req, res) => {
     fs.writeFileSync(envPath, envContent);
   } catch (err) {
     console.log(
-      "Could not write to .env file, continuing with in-memory update.",
+      "Could not write to local .env or DB, continuing with in-memory update.",
     );
   }
+
   res.json({ success: true, message: "Session updated successfully." });
 });
 
@@ -988,6 +998,34 @@ app.post("/api/submit", async (req, res) => {
   res.status(result.success ? 200 : 500).json(result);
 });
 
-app.listen(PORT, () =>
-  console.log(`DSA Backend Engine running on http://localhost:${PORT}`),
-);
+// --- INITIALIZE & START SERVER ---
+async function startServer() {
+  if (process.env.MONGODB_URI) {
+    try {
+      await mongoose.connect(process.env.MONGODB_URI);
+      console.log("Connected to MongoDB Atlas");
+
+      // CRITICAL FIX: Await the tokens BEFORE opening the server port
+      const config = await AppConfig.findOne({ key: "leetcode_tokens" });
+      if (config) {
+        if (config.leetcodeSession)
+          process.env.LEETCODE_SESSION = config.leetcodeSession;
+        if (config.csrfToken) process.env.CSRF_TOKEN = config.csrfToken;
+        console.log("Loaded persistent LeetCode tokens from Database.");
+      }
+    } catch (err) {
+      console.error("MongoDB Connection/Init Error:", err);
+    }
+  } else {
+    console.log(
+      "No MONGODB_URI found. Manual solved tracking will not persist.",
+    );
+  }
+
+  // Start accepting frontend requests ONLY AFTER memory is populated
+  app.listen(PORT, () => {
+    console.log(`DSA Backend Engine running on http://localhost:${PORT}`);
+  });
+}
+
+startServer();
