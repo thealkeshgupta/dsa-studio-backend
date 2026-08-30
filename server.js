@@ -342,6 +342,14 @@ app.post("/api/verify-pin", (req, res) => {
   }
 });
 
+// --- ENDPOINTS: HEARTBEAT (PREVENTS RENDER SLEEP) ---
+app.get("/api/heartbeat", (req, res) => {
+  res.json({
+    status: "awake",
+    timestamp: new Date().toLocaleString(),
+  });
+});
+
 // --- ENDPOINTS: SESSION MANAGEMENT ---
 app.get("/api/status", async (req, res) => {
   try {
