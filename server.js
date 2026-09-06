@@ -51,6 +51,18 @@ const globalNoteSchema = new mongoose.Schema({
 });
 const GlobalNote = mongoose.model("GlobalNote", globalNoteSchema);
 
+// --- SOLVED HISTORY ANALYTICS SCHEMA ---
+const solvedHistorySchema = new mongoose.Schema({
+  problemId: { type: String, required: true, unique: true },
+  title: { type: String, required: true },
+  platform: { type: String, default: "LeetCode" },
+  difficulty: { type: String, default: "Medium" },
+  firstSolvedAt: { type: Date, default: Date.now },
+  lastSolvedAt: { type: Date, default: Date.now },
+  source: { type: String, default: "studio_submit" },
+});
+const SolvedHistory = mongoose.model("SolvedHistory", solvedHistorySchema);
+
 // --- DB SESSION CONFIG SCHEMA ---
 const appConfigSchema = new mongoose.Schema({
   key: { type: String, required: true, unique: true },
@@ -211,6 +223,25 @@ app.post("/api/solved/manual/toggle", async (req, res) => {
       res.json({ success: true, isSolved: false });
     } else {
       await ManualSolved.create({ problemId, title, platform, url });
+
+      // Live sync to SolvedHistory analytics
+      const now = new Date();
+      await SolvedHistory.findOneAndUpdate(
+        { problemId },
+        {
+          $setOnInsert: {
+            title: title || problemId,
+            platform: platform || "External",
+            firstSolvedAt: now,
+            source: "manual",
+          },
+          $set: { lastSolvedAt: now },
+        },
+        { upsert: true, new: true },
+      ).catch((e) =>
+        console.error("Error syncing manual solve to SolvedHistory:", e),
+      );
+
       res.json({ success: true, isSolved: true });
     }
   } catch (error) {
@@ -339,6 +370,77 @@ app.post("/api/verify-pin", (req, res) => {
     res.json({ success: true });
   } else {
     res.status(401).json({ success: false, error: "Incorrect PIN" });
+  }
+});
+
+// --- ENDPOINTS: SOLVED HISTORY & SPRINT ANALYTICS ---
+app.get("/api/analytics", async (req, res) => {
+  try {
+    const now = Date.now();
+    const days7Ago = new Date(now - 7 * 86400000);
+    const days30Ago = new Date(now - 30 * 86400000);
+    const days90Ago = new Date(now - 90 * 86400000);
+    const start2026 = new Date("2026-01-01T00:00:00.000Z");
+
+    const [
+      totalLeetCode,
+      totalNonLeetCode,
+      solvedSince2026,
+      solvedSince2026LC,
+      solvedSince2026Others,
+      sprint7New,
+      sprint7Total,
+      sprint30New,
+      sprint30Total,
+      sprint90New,
+      sprint90Total,
+    ] = await Promise.all([
+      // Platform totals
+      SolvedHistory.countDocuments({ platform: "LeetCode" }),
+      SolvedHistory.countDocuments({ platform: { $ne: "LeetCode" } }),
+
+      // 2026 milestone counts
+      SolvedHistory.countDocuments({ firstSolvedAt: { $gte: start2026 } }),
+      SolvedHistory.countDocuments({
+        firstSolvedAt: { $gte: start2026 },
+        platform: "LeetCode",
+      }),
+      SolvedHistory.countDocuments({
+        firstSolvedAt: { $gte: start2026 },
+        platform: { $ne: "LeetCode" },
+      }),
+
+      // 7-day sprint metrics
+      SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days7Ago } }),
+      SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days7Ago } }),
+
+      // 30-day sprint metrics
+      SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days30Ago } }),
+      SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days30Ago } }),
+
+      // 90-day sprint metrics
+      SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days90Ago } }),
+      SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days90Ago } }),
+    ]);
+
+    res.json({
+      summary: {
+        totalUnique: totalLeetCode + totalNonLeetCode,
+        totalLeetCode,
+        totalNonLeetCode,
+        solvedSince2026,
+        solvedSince2026LC,
+        solvedSince2026Others,
+      },
+      sprints: {
+        "7d": { newProblems: sprint7New, totalActivity: sprint7Total },
+        "30d": { newProblems: sprint30New, totalActivity: sprint30Total },
+        "90d": { newProblems: sprint90New, totalActivity: sprint90Total },
+      },
+    });
+  } catch (error) {
+    console.error("Error computing analytics:", error);
+    res.status(500).json({ error: "Failed to generate analytics" });
   }
 });
 
@@ -1003,6 +1105,30 @@ app.post("/api/submit", async (req, res) => {
     req.body.code,
     "submit",
   );
+
+  // Live sync to SolvedHistory if Accepted
+  if (result.success && result.status === "Accepted") {
+    const slug = req.body.problemSlug;
+    const now = new Date();
+    SolvedHistory.findOneAndUpdate(
+      { problemId: slug },
+      {
+        $setOnInsert: {
+          title: slug
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (l) => l.toUpperCase()),
+          platform: "LeetCode",
+          firstSolvedAt: now,
+          source: "studio_submit",
+        },
+        $set: { lastSolvedAt: now },
+      },
+      { upsert: true, new: true },
+    ).catch((e) =>
+      console.error("Error logging studio AC to SolvedHistory:", e),
+    );
+  }
+
   res.status(result.success ? 200 : 500).json(result);
 });
 
