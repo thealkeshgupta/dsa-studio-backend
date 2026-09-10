@@ -380,7 +380,7 @@ app.get("/api/analytics", async (req, res) => {
     const days7Ago = new Date(now - 7 * 86400000);
     const days30Ago = new Date(now - 30 * 86400000);
     const days90Ago = new Date(now - 90 * 86400000);
-    const start2026 = new Date("2026-01-01T00:00:00.000Z");
+    const start2026 = new Date("2025-12-31T18:30:00.000Z"); // Strict IST 2026 Start
 
     const [
       totalLeetCode,
@@ -394,12 +394,11 @@ app.get("/api/analytics", async (req, res) => {
       sprint30Total,
       sprint90New,
       sprint90Total,
+      difficultyRaw,
+      recentRecords,
     ] = await Promise.all([
-      // Platform totals
       SolvedHistory.countDocuments({ platform: "LeetCode" }),
       SolvedHistory.countDocuments({ platform: { $ne: "LeetCode" } }),
-
-      // 2026 milestone counts
       SolvedHistory.countDocuments({ firstSolvedAt: { $gte: start2026 } }),
       SolvedHistory.countDocuments({
         firstSolvedAt: { $gte: start2026 },
@@ -409,19 +408,59 @@ app.get("/api/analytics", async (req, res) => {
         firstSolvedAt: { $gte: start2026 },
         platform: { $ne: "LeetCode" },
       }),
-
-      // 7-day sprint metrics
       SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days7Ago } }),
       SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days7Ago } }),
-
-      // 30-day sprint metrics
       SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days30Ago } }),
       SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days30Ago } }),
-
-      // 90-day sprint metrics
       SolvedHistory.countDocuments({ firstSolvedAt: { $gte: days90Ago } }),
       SolvedHistory.countDocuments({ lastSolvedAt: { $gte: days90Ago } }),
+
+      // Difficulty Aggregation (LeetCode Only)
+      SolvedHistory.aggregate([
+        { $match: { platform: "LeetCode" } },
+        { $group: { _id: "$difficulty", count: { $sum: 1 } } },
+      ]),
+
+      // Daily Velocity Aggregation (Last 30 Days)
+      SolvedHistory.find(
+        { firstSolvedAt: { $gte: days30Ago } },
+        { firstSolvedAt: 1 },
+      ),
     ]);
+
+    // Parse Difficulty
+    let easy = 0,
+      medium = 0,
+      hard = 0;
+    difficultyRaw.forEach((d) => {
+      const cat = (d._id || "").toLowerCase();
+      if (cat === "easy") easy = d.count;
+      if (cat === "medium") medium = d.count;
+      if (cat === "hard") hard = d.count;
+    });
+
+    // Parse Daily Velocity (Ensures continuous 30-day array)
+    const dailyData = [];
+    for (let i = 29; i >= 0; i--) {
+      const d = new Date(now - i * 86400000);
+      dailyData.push({
+        date: d.toLocaleDateString("en-US", {
+          month: "short",
+          day: "numeric",
+          timeZone: "Asia/Kolkata",
+        }),
+        count: 0,
+      });
+    }
+    recentRecords.forEach((r) => {
+      const dateLabel = r.firstSolvedAt.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        timeZone: "Asia/Kolkata",
+      });
+      const dayObj = dailyData.find((d) => d.date === dateLabel);
+      if (dayObj) dayObj.count += 1;
+    });
 
     res.json({
       summary: {
@@ -437,6 +476,8 @@ app.get("/api/analytics", async (req, res) => {
         "30d": { newProblems: sprint30New, totalActivity: sprint30Total },
         "90d": { newProblems: sprint90New, totalActivity: sprint90Total },
       },
+      difficulty: { easy, medium, hard },
+      dailyData,
     });
   } catch (error) {
     console.error("Error computing analytics:", error);
